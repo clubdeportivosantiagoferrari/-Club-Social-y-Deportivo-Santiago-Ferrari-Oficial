@@ -372,10 +372,68 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       border: 2px solid rgba(255,255,255,0.2);
     }
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+    }
+    .page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .loader-content { text-align: center; }
+    
+    .loader-logo {
+      width: 100px;
+      height: auto;
+      filter: drop-shadow(0 0 25px var(--lila-glow));
+      animation: loader-pulse 2s infinite ease-in-out;
+      margin-bottom: 24px;
+    }
+    
+    .loader-spinner {
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(155, 89, 182, 0.2);
+      border-top: 3px solid var(--lila);
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      animation: loader-spin 0.9s linear infinite;
+    }
+    
+    .loader-text {
+      color: var(--lila-light);
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      font-weight: 700;
+      animation: loader-fade 1.5s infinite;
+    }
+
+    @keyframes loader-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    @keyframes loader-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.08); opacity: 0.85; } }
+    @keyframes loader-fade { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    
   </style>
 </head>
 <body>
 
+  <div id="loader" class="page-loader">
+    <div class="loader-content">
+      <img src="assets/logo.png" alt="Cargando Santiago Ferrari" class="loader-logo">
+      <div class="loader-spinner"></div>
+      <p class="loader-text">CARGANDO...</p>
+    </div>
+ 
+  </div>
+  
   <!-- HEADER -->
   <header id="header">
     <div class="container nav-container">
@@ -663,6 +721,14 @@
 
     // Año Footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Ocultar pantalla de carga cuando todo esté listo
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.classList.add('hidden');
+      // Eliminar del DOM después de la transición para ahorrar memoria
+      setTimeout(() => { loader.remove(); }, 600);
+    });
   </script>
 </body>
 </html>
