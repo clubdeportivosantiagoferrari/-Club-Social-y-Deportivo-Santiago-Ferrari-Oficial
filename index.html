@@ -319,7 +319,96 @@
     .footer-bar p { margin: 0; font-size: 0.85rem; color: #555; }
     .f-made { color: var(--lila-light); font-size: 0.8rem; }
 
-    /* MATCH TICKER CON LOGOS - ÚNICO */
+    /* 📊 TABLA DE POSICIONES CON LOGOS */
+    .table-container {
+      overflow-x: auto; border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .standings-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--gray); color: var(--text);
+      font-size: 0.9rem; min-width: 600px;
+    }
+    .standings-table th {
+      background: var(--lila-dark); color: #fff;
+      padding: 14px 10px; text-align: center;
+      font-weight: 700; font-family: var(--font-heading);
+      text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;
+    }
+    .standings-table td {
+      padding: 12px 10px; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .standings-table tr:hover { background: rgba(155,89,182,0.1); }
+    .standings-table tr.highlight {
+      background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(125,60,152,0.15));
+      border-left: 3px solid var(--lila-light);
+    }
+    .standings-table td:first-child,
+    .standings-table td:last-child { font-weight: 700; }
+    
+    /* CELDA DE EQUIPO CON LOGO */
+    .team-cell {
+      display: flex; align-items: center; gap: 10px;
+      justify-content: flex-start;
+    }
+    .team-logo-small {
+      width: 30px; height: 30px; object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+      flex-shrink: 0;
+    }
+    .standings-table tr.highlight .team-logo-small {
+      filter: drop-shadow(0 0 8px var(--lila-glow));
+    }
+    .table-footer {
+      text-align: center; color: var(--muted);
+      font-size: 0.85rem; margin-top: 16px;
+    }
+
+    /* 📊 TABS DE DIVISIONES */
+    .division-tabs {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 32px; padding: 0 10px;
+    }
+    .tab-btn {
+      background: var(--gray); color: var(--muted);
+      border: 2px solid #333; padding: 12px 24px;
+      border-radius: 8px; font-family: var(--font-heading);
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      transition: var(--transition); text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tab-btn:hover {
+      background: rgba(155,89,182,0.2); border-color: var(--lila);
+      color: var(--lila-light); transform: translateY(-2px);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--lila), var(--lila-dark));
+      color: #fff; border-color: var(--lila);
+      box-shadow: 0 4px 15px var(--lila-glow);
+    }
+    
+    /* CONTENIDO DE DIVISIONES */
+    .division-content {
+      display: none; animation: fadeIn 0.4s ease;
+    }
+    .division-content.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* RESPONSIVE TABS */
+    @media (max-width: 768px) {
+      .division-tabs { gap: 8px; }
+      .tab-btn { padding: 10px 16px; font-size: 0.8rem; }
+    }
+    @media (max-width: 480px) {
+      .division-tabs { flex-direction: column; }
+      .tab-btn { width: 100%; text-align: center; }
+    }
+
+    /* MATCH TICKER CON LOGOS */
     .match-ticker {
       position: relative; z-index: 20; margin-top: -60px; padding: 0 0 80px 0;
     }
@@ -438,58 +527,18 @@
       .f-links a { justify-content: center; }
       .btn-join { width: 100%; justify-content: center; }
       .footer-bar .container { flex-direction: column; }
+      .standings-table { font-size: 0.8rem; min-width: 500px; }
+      .standings-table th, .standings-table td { padding: 10px 6px; }
+      .team-logo-small { width: 25px; height: 25px; }
+      .team-cell { gap: 8px; }
     }
     @media (max-width: 480px) {
       .team-logo { width: 50px; height: 50px; }
       .team-name { font-size: 0.9rem; }
       .match-date { font-size: 1rem; }
-    }
-        /* 📊 TABS DE DIVISIONES */
-    .division-tabs {
-      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 32px; padding: 0 10px;
-    }
-    .tab-btn {
-      background: var(--gray); color: var(--muted);
-      border: 2px solid #333; padding: 12px 24px;
-      border-radius: 8px; font-family: var(--font-heading);
-      font-weight: 700; font-size: 0.9rem; cursor: pointer;
-      transition: var(--transition); text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .tab-btn:hover {
-      background: rgba(155,89,182,0.2); border-color: var(--lila);
-      color: var(--lila-light); transform: translateY(-2px);
-    }
-    .tab-btn.active {
-      background: linear-gradient(135deg, var(--lila), var(--lila-dark));
-      color: #fff; border-color: var(--lila);
-      box-shadow: 0 4px 15px var(--lila-glow);
-    }
-    
-    /* CONTENIDO DE DIVISIONES */
-    .division-content {
-      display: none; animation: fadeIn 0.4s ease;
-    }
-    .division-content.active { display: block; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .table-footer {
-      text-align: center; color: var(--muted);
-      font-size: 0.85rem; margin-top: 16px;
-    }
-    
-    /* RESPONSIVE TABS */
-    @media (max-width: 768px) {
-      .division-tabs { gap: 8px; }
-      .tab-btn { padding: 10px 16px; font-size: 0.8rem; }
-    }
-    @media (max-width: 480px) {
-      .division-tabs { flex-direction: column; }
-      .tab-btn { width: 100%; text-align: center; }
+      .standings-table { font-size: 0.75rem; min-width: 450px; }
+      .standings-table th, .standings-table td { padding: 8px 4px; }
+      .team-logo-small { width: 22px; height: 22px; }
     }
   </style>
 </head>
@@ -625,6 +674,7 @@
       </div>
     </div>
   </div>
+
   <!-- TABLA DE POSICIONES - MÚLTIPLES DIVISIONES -->
   <section id="tabla" style="background: var(--dark);">
     <div class="container">
@@ -636,11 +686,11 @@
       
       <!-- TABS DE NAVEGACIÓN -->
       <div class="division-tabs fade-up">
-        <button class="tab-btn active" onclick="showDivision('primera')">🟣 Primera</button>
-        <button class="tab-btn" onclick="showDivision('segunda')">🔴 Segunda</button>
-        <button class="tab-btn" onclick="showDivision('tercera')">🔵 Tercera</button>
-        <button class="tab-btn" onclick="showDivision('femenino')">👟 Femenino</button>
-        <button class="tab-btn" onclick="showDivision('senior')">👴 Senior</button>
+        <button class="tab-btn active" onclick="showDivision(event, 'primera')">🟣 Primera</button>
+        <button class="tab-btn" onclick="showDivision(event, 'segunda')">🔴 Segunda</button>
+        <button class="tab-btn" onclick="showDivision(event, 'tercera')">🔵 Tercera</button>
+        <button class="tab-btn" onclick="showDivision(event, 'femenino')">👟 Femenino</button>
+        <button class="tab-btn" onclick="showDivision(event, 'senior')">👴 Senior</button>
       </div>
       
       <!-- PRIMERA DIVISIÓN -->
@@ -674,48 +724,43 @@
               </tr>
               <tr>
                 <td>3</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="DN" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
                 <td>4</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
-               <td>5</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="AS" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td>
+                <td>5</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
-               <td>6</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="AS" class="team-logo-small"><span>LAS PALMAS</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                <td>6</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td>
+                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
-               <td>7</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="AS" class="team-logo-small"><span>VILLA MONTE</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                <td>7</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td>
+                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
-               <td>8</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA/span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                <td>8</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td>
+                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
-               <td>9</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AS" class="team-logo-small"><span>SOL DE MAYO</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                <td>9</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td>
+                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
-               <td>10</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>11</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="AS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+                <td>10</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VÉLEZ SARSFIELD</span></div></td>
+                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
             </tbody>
           </table>
@@ -742,7 +787,7 @@
               </tr>
             </thead>
             <tbody>
-             <tr class="highlight">
+              <tr class="highlight">
                 <td>1</td>
                 <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td>
@@ -754,53 +799,23 @@
               </tr>
               <tr>
                 <td>3</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="DN" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
                 <td>4</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
               <tr>
-               <td>5</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="AS" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td>
+                <td>5</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>6</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="AS" class="team-logo-small"><span>LAS PALMAS</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>7</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="AS" class="team-logo-small"><span>VILLA MONTE</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>8</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA/span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>9</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AS" class="team-logo-small"><span>SOL DE MAYO</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>10</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>11</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="AS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026</p>
       </div>
       
       <!-- TERCERA DIVISIÓN -->
@@ -822,8 +837,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <tr class="highlight">
+              <tr class="highlight">
                 <td>1</td>
                 <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td>
@@ -835,53 +849,13 @@
               </tr>
               <tr>
                 <td>3</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="DN" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td>
-                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>5</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="AS" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td>
-                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>6</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="AS" class="team-logo-small"><span>LAS PALMAS</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>7</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="AS" class="team-logo-small"><span>VILLA MONTE</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>8</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA/span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>9</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AS" class="team-logo-small"><span>SOL DE MAYO</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>10</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>11</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="AS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026</p>
       </div>
       
       <!-- FEMENINO -->
@@ -915,45 +889,13 @@
               </tr>
               <tr>
                 <td>3</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="DN" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
-              <tr>
-                <td>4</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td>
-                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>5</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="AS" class="team-logo-small"><span>LAS PALMAS</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>6</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="AS" class="team-logo-small"><span>VILLA MONTE</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>7</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA/span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>8</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AS" class="team-logo-small"><span>SOL DE MAYO</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>9</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-              
             </tbody>
           </table>
         </div>
-        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026</p>
       </div>
       
       <!-- SENIOR -->
@@ -975,8 +917,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <tr class="highlight">
+              <tr class="highlight">
                 <td>1</td>
                 <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td>
@@ -986,59 +927,14 @@
                 <td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td>
                 <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
               </tr>
-              <tr>
-                <td>3</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="DN" class="team-logo-small"><span>REAL ESPAÑA</span></div></td>
-                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td>
-                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>5</td>
-                <td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="AS" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td>
-                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>6</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="AS" class="team-logo-small"><span>LAS PALMAS</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>7</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="AS" class="team-logo-small"><span>VILLA MONTE</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>8</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA/span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>9</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AS" class="team-logo-small"><span>SOL DE MAYO</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>10</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AS" class="team-logo-small"><span>NUEVA AURORA</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
-              <tr>
-               <td>11</td>
-               <td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="AS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td>
-               <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-              </tr>
             </tbody>
           </table>
         </div>
-        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026</p>
       </div>
-      
     </div>
   </section>
+
   <!-- NOTICIAS -->
   <section id="noticias">
     <div class="container">
@@ -1049,7 +945,7 @@
       </div>
       <div class="news-grid">
         <article class="news-card fade-up">
-          <img src="assets/primeranoticias.jpg" class="news-img" alt="Partido">
+          <img src="assets/primeranoticias.jpg" class="news-img" alt="Partido" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">Primera División</span>
             <h3>¡LLEGÓ EL MOMENTO! 💜⚽</h3>
@@ -1057,7 +953,7 @@
           </div>
         </article>
         <article class="news-card fade-up">
-          <img src="assets/terceranoticias.jpg" class="news-img" alt="Entrenamiento">
+          <img src="assets/terceranoticias.jpg" class="news-img" alt="Entrenamiento" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">Tercera División</span>
             <h3>🟣 ¡DEBUT DE TERCERA! ⚽</h3>
@@ -1065,7 +961,7 @@
           </div>
         </article>
         <article class="news-card fade-up">
-          <img src="https://i.postimg.cc/x1MpxjJb/Whats-App-Image-2026-04-02-at-9-24-52-PM.jpg" class="news-img" alt="Femenino">
+          <img src="https://i.postimg.cc/x1MpxjJb/Whats-App-Image-2026-04-02-at-9-24-52-PM.jpg" class="news-img" alt="Femenino" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">¡EL SUEÑO SE HACE REALIDAD! 💜⚽</span>
             <h3>SÁBADO DEBUTA NUESTRO EQUIPO FEMENINO</h3>
@@ -1073,7 +969,7 @@
           </div>
         </article>
         <article class="news-card fade-up">
-          <img src="https://i.postimg.cc/gcq6zfCB/658480240-917116654574028-740228467320171867-n.jpg" class="news-img" alt="Segunda">
+          <img src="https://i.postimg.cc/gcq6zfCB/658480240-917116654574028-740228467320171867-n.jpg" class="news-img" alt="Segunda" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">División Segunda</span>
             <h3>🟣 ¡DEBUT DE LA SEGUNDA DIVISIÓN ⚽</h3>
@@ -1081,7 +977,7 @@
           </div>
         </article>
         <article class="news-card fade-up">
-          <img src="https://i.postimg.cc/bwH6QzFg/Whats-App-Image-2026-04-05-at-9-21-07-PM.jpg" class="news-img" alt="Senior">
+          <img src="https://i.postimg.cc/bwH6QzFg/Whats-App-Image-2026-04-05-at-9-21-07-PM.jpg" class="news-img" alt="Senior" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">División Senior</span>
             <h3>🟣 DEBUT SENIOR ⚽</h3>
@@ -1089,7 +985,7 @@
           </div>
         </article>
         <article class="news-card fade-up">
-          <img src="https://i.postimg.cc/02jmVV4X/Whats-App-Image-2026-04-05-at-8-54-24-PM.jpg" class="news-img" alt="Super Senior">
+          <img src="https://i.postimg.cc/02jmVV4X/Whats-App-Image-2026-04-05-at-8-54-24-PM.jpg" class="news-img" alt="Super Senior" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">División Super Senior 50</span>
             <h3>No juega esta semana</h3>
@@ -1112,7 +1008,7 @@
         <div class="divider"></div>
       </div>
       <div class="femenino-hero fade-up">
-        <img src="https://i.postimg.cc/8CTJ2w5j/ramafemenina.jpg" alt="Equipo Femenino">
+        <img src="https://i.postimg.cc/8CTJ2w5j/ramafemenina.jpg" alt="Equipo Femenino" onerror="this.src='https://via.placeholder.com/600x400/1E1E1E/9B59B6?text=Equipo+Femenino'">
         <div>
           <h3>Fuerza Lila en la Cancha</h3>
           <p>El equipo femenino de Santiago Ferrari crece temporada tras temporada, formando jugadoras técnicas, inteligentes y comprometidas con los valores del club.</p>
@@ -1128,38 +1024,38 @@
         <div class="slider-track">
           
           <!-- GRUPO 1: 15 JUGADORAS -->
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/isi.jpg" alt="Isi" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Isi</div><div class="player-position">Delantera</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/daphnee.jpg" alt="Daphnée" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Daphnée</div><div class="player-position">Mediocampista</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/gianella.jpg" alt="Gianella" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Gianella</div><div class="player-position">Arquera</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/antonella.jpg" alt="Antonella" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Antonella</div><div class="player-position">Mediocampista Izq</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/paola.jpg" alt="Paola" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Paola</div><div class="player-position">Contención</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora6.jpg" alt="Jugadora 6" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Martina</div><div class="player-position">Delantera</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora7.jpg" alt="Jugadora 7" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Sofía</div><div class="player-position">Lateral y Central</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora8.jpg" alt="Jugadora 8" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">36</span></div><div class="player-info"><div class="player-name">Ninoska</div><div class="player-position">Volante</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora9.jpg" alt="Jugadora 9" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">4</span></div><div class="player-info"><div class="player-name">Antonia</div><div class="player-position">Lateral Derecho</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora10.jpg" alt="Jugadora 10" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">25</span></div><div class="player-info"><div class="player-name">Maca</div><div class="player-position">Lateral Derecho</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora11.jpg" alt="Jugadora 11" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">19</span></div><div class="player-info"><div class="player-name">Flor</div><div class="player-position">Mediocampista Izq</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora12.jpg" alt="Jugadora 12" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Ninoska Araya</div><div class="player-position">Mediocampista</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora13.jpg" alt="Jugadora 13" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Dayana</div><div class="player-position">Defensora</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora14.jpg" alt="Jugadora 14" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">3</span></div><div class="player-info"><div class="player-name">María</div><div class="player-position">Central</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora15.jpg" alt="Jugadora 15" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Jugadora 15</div><div class="player-position">Volante</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/isi.jpg" alt="Isi" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=9'"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Isi</div><div class="player-position">Delantera</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/daphnee.jpg" alt="Daphnée" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=8'"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Daphnée</div><div class="player-position">Mediocampista</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/gianella.jpg" alt="Gianella" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=1'"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Gianella</div><div class="player-position">Arquera</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/antonella.jpg" alt="Antonella" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=7'"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Antonella</div><div class="player-position">Mediocampista Izq</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/paola.jpg" alt="Paola" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=5'"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Paola</div><div class="player-position">Contención</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora6.jpg" alt="Jugadora 6" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=12'"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Martina</div><div class="player-position">Delantera</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora7.jpg" alt="Jugadora 7" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=15'"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Sofía</div><div class="player-position">Lateral y Central</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora8.jpg" alt="Jugadora 8" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=36'"><span class="player-number-overlay">36</span></div><div class="player-info"><div class="player-name">Ninoska</div><div class="player-position">Volante</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora9.jpg" alt="Jugadora 9" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=4'"><span class="player-number-overlay">4</span></div><div class="player-info"><div class="player-name">Antonia</div><div class="player-position">Lateral Derecho</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora10.jpg" alt="Jugadora 10" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=25'"><span class="player-number-overlay">25</span></div><div class="player-info"><div class="player-name">Maca</div><div class="player-position">Lateral Derecho</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora11.jpg" alt="Jugadora 11" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=19'"><span class="player-number-overlay">19</span></div><div class="player-info"><div class="player-name">Flor</div><div class="player-position">Mediocampista Izq</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora12.jpg" alt="Jugadora 12" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=11'"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Ninoska Araya</div><div class="player-position">Mediocampista</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora13.jpg" alt="Jugadora 13" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=21'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Dayana</div><div class="player-position">Defensora</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora14.jpg" alt="Jugadora 14" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=3'"><span class="player-number-overlay">3</span></div><div class="player-info"><div class="player-name">María</div><div class="player-position">Central</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora15.jpg" alt="Jugadora 15" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=21'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Jugadora 15</div><div class="player-position">Volante</div></div></div>
 
           <!-- GRUPO 2: DUPLICADO EXACTO (para loop infinito) -->
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/isi.jpg" alt="Isi" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Isi</div><div class="player-position">Delantera</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/daphnee.jpg" alt="Daphnée" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Daphnée</div><div class="player-position">Mediocampista</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/gianella.jpg" alt="Gianella" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Gianella</div><div class="player-position">Arquera</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/antonella.jpg" alt="Antonella" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Antonella</div><div class="player-position">Mediocampista Izq</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/paola.jpg" alt="Paola" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Paola</div><div class="player-position">Contención</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora6.jpg" alt="Jugadora 6" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Martina</div><div class="player-position">Delantera</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora7.jpg" alt="Jugadora 7" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Sofía</div><div class="player-position">Lateral y Central</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora8.jpg" alt="Jugadora 8" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">36</span></div><div class="player-info"><div class="player-name">Ninoska</div><div class="player-position">Volante</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora9.jpg" alt="Jugadora 9" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">4</span></div><div class="player-info"><div class="player-name">Antonia</div><div class="player-position">Lateral Derecho</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora10.jpg" alt="Jugadora 10" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">25</span></div><div class="player-info"><div class="player-name">Maca</div><div class="player-position">Lateral Derecho</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora11.jpg" alt="Jugadora 11" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">19</span></div><div class="player-info"><div class="player-name">Flor</div><div class="player-position">Mediocampista Izq</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora12.jpg" alt="Jugadora 12" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Ninoska Araya</div><div class="player-position">Mediocampista</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora13.jpg" alt="Jugadora 13" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Dayana</div><div class="player-position">Defensora</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora14.jpg" alt="Jugadora 14" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">3</span></div><div class="player-info"><div class="player-name">María</div><div class="player-position">Central</div></div></div>
-          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora15.jpg" alt="Jugadora 15" class="player-photo" onerror="this.src='https://i.postimg.cc/P5vxwY8y/paginaprincipal.png'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Jugadora 15</div><div class="player-position">Volante</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/isi.jpg" alt="Isi" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=9'"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Isi</div><div class="player-position">Delantera</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/daphnee.jpg" alt="Daphnée" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=8'"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Daphnée</div><div class="player-position">Mediocampista</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/gianella.jpg" alt="Gianella" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=1'"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Gianella</div><div class="player-position">Arquera</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/antonella.jpg" alt="Antonella" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=7'"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Antonella</div><div class="player-position">Mediocampista Izq</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/paola.jpg" alt="Paola" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=5'"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Paola</div><div class="player-position">Contención</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora6.jpg" alt="Jugadora 6" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=12'"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Martina</div><div class="player-position">Delantera</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora7.jpg" alt="Jugadora 7" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=15'"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Sofía</div><div class="player-position">Lateral y Central</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora8.jpg" alt="Jugadora 8" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=36'"><span class="player-number-overlay">36</span></div><div class="player-info"><div class="player-name">Ninoska</div><div class="player-position">Volante</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora9.jpg" alt="Jugadora 9" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=4'"><span class="player-number-overlay">4</span></div><div class="player-info"><div class="player-name">Antonia</div><div class="player-position">Lateral Derecho</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora10.jpg" alt="Jugadora 10" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=25'"><span class="player-number-overlay">25</span></div><div class="player-info"><div class="player-name">Maca</div><div class="player-position">Lateral Derecho</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora11.jpg" alt="Jugadora 11" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=19'"><span class="player-number-overlay">19</span></div><div class="player-info"><div class="player-name">Flor</div><div class="player-position">Mediocampista Izq</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora12.jpg" alt="Jugadora 12" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=11'"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Ninoska Araya</div><div class="player-position">Mediocampista</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora13.jpg" alt="Jugadora 13" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=21'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Dayana</div><div class="player-position">Defensora</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora14.jpg" alt="Jugadora 14" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=3'"><span class="player-number-overlay">3</span></div><div class="player-info"><div class="player-name">María</div><div class="player-position">Central</div></div></div>
+          <div class="player-card"><div class="player-photo-container"><img src="assets/jugadoras/jugadora15.jpg" alt="Jugadora 15" class="player-photo" onerror="this.src='https://via.placeholder.com/300x300/7D3C98/ffffff?text=21'"><span class="player-number-overlay">21</span></div><div class="player-info"><div class="player-name">Jugadora 15</div><div class="player-position">Volante</div></div></div>
 
         </div>
       </div>
@@ -1307,8 +1203,9 @@
 
     // Dynamic year in footer
     document.getElementById('f-year').textContent = new Date().getFullYear();
-        // 📊 CAMBIO DE DIVISIONES
-    function showDivision(divisionName) {
+
+    // 📊 CAMBIO DE DIVISIONES
+    function showDivision(event, divisionName) {
       // Ocultar todas las divisiones
       document.querySelectorAll('.division-content').forEach(content => {
         content.classList.remove('active');
@@ -1323,7 +1220,9 @@
       document.getElementById(divisionName).classList.add('active');
       
       // Activar botón correspondiente
-      event.target.classList.add('active');
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
       
       // Guardar en localStorage (opcional - recuerda la última vista)
       localStorage.setItem('lastDivision', divisionName);
@@ -1338,7 +1237,10 @@
         const divisionNames = ['primera', 'segunda', 'tercera', 'femenino', 'senior'];
         const index = divisionNames.indexOf(lastDivision);
         if (index !== -1 && buttons[index]) {
-          buttons[index].click();
+          // Simular click sin event
+          buttons[index].classList.add('active');
+          document.querySelectorAll('.division-content').forEach(c => c.classList.remove('active'));
+          document.getElementById(lastDivision).classList.add('active');
         }
       }
     });
