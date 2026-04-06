@@ -444,6 +444,54 @@
       .team-name { font-size: 0.9rem; }
       .match-date { font-size: 1rem; }
     }
+
+        /* 📊 TABS DE DIVISIONES */
+    .division-tabs {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 32px; padding: 0 10px;
+    }
+    .tab-btn {
+      background: var(--gray); color: var(--muted);
+      border: 2px solid #333; padding: 12px 24px;
+      border-radius: 8px; font-family: var(--font-heading);
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      transition: var(--transition); text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tab-btn:hover {
+      background: rgba(155,89,182,0.2); border-color: var(--lila);
+      color: var(--lila-light); transform: translateY(-2px);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--lila), var(--lila-dark));
+      color: #fff; border-color: var(--lila);
+      box-shadow: 0 4px 15px var(--lila-glow);
+    }
+    
+    /* CONTENIDO DE DIVISIONES */
+    .division-content {
+      display: none; animation: fadeIn 0.4s ease;
+    }
+    .division-content.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .table-footer {
+      text-align: center; color: var(--muted);
+      font-size: 0.85rem; margin-top: 16px;
+    }
+    
+    /* RESPONSIVE TABS */
+    @media (max-width: 768px) {
+      .division-tabs { gap: 8px; }
+      .tab-btn { padding: 10px 16px; font-size: 0.8rem; }
+    }
+    @media (max-width: 480px) {
+      .division-tabs { flex-direction: column; }
+      .tab-btn { width: 100%; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -578,7 +626,239 @@
       </div>
     </div>
   </div>
-
+ 
+  
+  
+  <!-- TABLA DE POSICIONES - MÚLTIPLES DIVISIONES -->
+  <section id="tabla" style="background: var(--dark);">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Tablas de Posiciones</h2>
+        <p>Liga Regional - Temporada 2026</p>
+        <div class="divider"></div>
+      </div>
+      
+      <!-- TABS DE NAVEGACIÓN -->
+      <div class="division-tabs fade-up">
+        <button class="tab-btn active" onclick="showDivision('primera')">🟣 Primera</button>
+        <button class="tab-btn" onclick="showDivision('segunda')">🟣 Segunda</button>
+        <button class="tab-btn" onclick="showDivision('tercera')">🟣 Tercera</button>
+        <button class="tab-btn" onclick="showDivision('femenino')">🟣 Femenino</button>
+        <button class="tab-btn" onclick="showDivision('senior')">🟣 Senior</button>
+      </div>
+      
+      <!-- PRIMERA DIVISIÓN -->
+      <div id="primera" class="division-content active">
+        <div class="table-container">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td>1</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td>
+                <td>5</td><td>4</td><td>1</td><td>0</td><td>12</td><td>3</td><td>+9</td><td><strong>13</strong></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>Villa Linda</span></div></td>
+                <td>5</td><td>3</td><td>2</td><td>0</td><td>9</td><td>4</td><td>+5</td><td>11</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/1E3A8A/FFFFFF?text=DN" alt="DN" class="team-logo-small"><span>Deportivo Norte</span></div></td>
+                <td>5</td><td>3</td><td>1</td><td>1</td><td>8</td><td>5</td><td>+3</td><td>10</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/059669/FFFFFF?text=AS" alt="AS" class="team-logo-small"><span>Atlético Sur</span></div></td>
+                <td>5</td><td>2</td><td>2</td><td>1</td><td>7</td><td>6</td><td>+1</td><td>8</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/D97706/FFFFFF?text=UC" alt="UC" class="team-logo-small"><span>Unión Central</span></div></td>
+                <td>5</td><td>2</td><td>1</td><td>2</td><td>6</td><td>7</td><td>-1</td><td>7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+      </div>
+      
+      <!-- SEGUNDA DIVISIÓN -->
+      <div id="segunda" class="division-content">
+        <div class="table-container">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td>1</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI B</strong></div></td>
+                <td>5</td><td>4</td><td>0</td><td>1</td><td>11</td><td>5</td><td>+6</td><td><strong>12</strong></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/C41E3A/FFFFFF?text=VL" alt="VL" class="team-logo-small"><span>Villa Linda B</span></div></td>
+                <td>5</td><td>3</td><td>1</td><td>1</td><td>8</td><td>6</td><td>+2</td><td>10</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/7C3AED/FFFFFF?text=IN" alt="IN" class="team-logo-small"><span>Independiente</span></div></td>
+                <td>5</td><td>2</td><td>2</td><td>1</td><td>7</td><td>5</td><td>+2</td><td>8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+      </div>
+      
+      <!-- TERCERA DIVISIÓN -->
+      <div id="tercera" class="division-content">
+        <div class="table-container">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/DC2626/FFFFFF?text=RC" alt="RC" class="team-logo-small"><strong>Racing Club</strong></div></td>
+                <td>5</td><td>4</td><td>1</td><td>0</td><td>10</td><td>2</td><td>+8</td><td><strong>13</strong></td>
+              </tr>
+              <tr class="highlight">
+                <td>2</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI C</strong></div></td>
+                <td>5</td><td>3</td><td>2</td><td>0</td><td>9</td><td>4</td><td>+5</td><td><strong>11</strong></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/0891B2/FFFFFF?text=BO" alt="BO" class="team-logo-small"><span>Boca Juniors</span></div></td>
+                <td>5</td><td>2</td><td>1</td><td>2</td><td>6</td><td>7</td><td>-1</td><td>7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+      </div>
+      
+      <!-- FEMENINO -->
+      <div id="femenino" class="division-content">
+        <div class="table-container">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td>1</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI FEM</strong></div></td>
+                <td>4</td><td>3</td><td>1</td><td>0</td><td>8</td><td>2</td><td>+6</td><td><strong>10</strong></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/EC4899/FFFFFF?text=AF" alt="AF" class="team-logo-small"><span>Atlético Femenino</span></div></td>
+                <td>4</td><td>2</td><td>2</td><td>0</td><td>6</td><td>3</td><td>+3</td><td>8</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/7C3AED/FFFFFF?text=UF" alt="UF" class="team-logo-small"><span>Unión Femenino</span></div></td>
+                <td>4</td><td>1</td><td>1</td><td>2</td><td>4</td><td>6</td><td>-2</td><td>4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+      </div>
+      
+      <!-- SENIOR -->
+      <div id="senior" class="division-content">
+        <div class="table-container">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/059669/FFFFFF?text=VS" alt="VS" class="team-logo-small"><strong>Veteranos Sur</strong></div></td>
+                <td>4</td><td>3</td><td>0</td><td>1</td><td>9</td><td>5</td><td>+4</td><td><strong>9</strong></td>
+              </tr>
+              <tr class="highlight">
+                <td>2</td>
+                <td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI SENIOR</strong></div></td>
+                <td>4</td><td>2</td><td>1</td><td>1</td><td>7</td><td>6</td><td>+1</td><td><strong>7</strong></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><div class="team-cell"><img src="https://via.placeholder.com/30x30/D97706/FFFFFF?text=ON" alt="ON" class="team-logo-small"><span>Old Boys Norte</span></div></td>
+                <td>4</td><td>1</td><td>1</td><td>2</td><td>5</td><td>7</td><td>-2</td><td>4</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/ABR/2026</p>
+      </div>
+      
+    </div>
+  </section>
   <!-- NOTICIAS -->
   <section id="noticias">
     <div class="container">
@@ -847,6 +1127,42 @@
 
     // Dynamic year in footer
     document.getElementById('f-year').textContent = new Date().getFullYear();
+
+        // 📊 CAMBIO DE DIVISIONES
+    function showDivision(divisionName) {
+      // Ocultar todas las divisiones
+      document.querySelectorAll('.division-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Desactivar todos los botones
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Mostrar división seleccionada
+      document.getElementById(divisionName).classList.add('active');
+      
+      // Activar botón correspondiente
+      event.target.classList.add('active');
+      
+      // Guardar en localStorage (opcional - recuerda la última vista)
+      localStorage.setItem('lastDivision', divisionName);
+    }
+    
+    // Cargar última división vista al iniciar (opcional)
+    window.addEventListener('load', () => {
+      const lastDivision = localStorage.getItem('lastDivision');
+      if (lastDivision) {
+        // Encontrar el botón correspondiente y hacer click
+        const buttons = document.querySelectorAll('.tab-btn');
+        const divisionNames = ['primera', 'segunda', 'tercera', 'femenino', 'senior'];
+        const index = divisionNames.indexOf(lastDivision);
+        if (index !== -1 && buttons[index]) {
+          buttons[index].click();
+        }
+      }
+    });
   </script>
 </body>
 </html>
