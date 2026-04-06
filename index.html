@@ -444,6 +444,53 @@
       .team-name { font-size: 0.9rem; }
       .match-date { font-size: 1rem; }
     }
+        /* 📊 TABS DE DIVISIONES */
+    .division-tabs {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 32px; padding: 0 10px;
+    }
+    .tab-btn {
+      background: var(--gray); color: var(--muted);
+      border: 2px solid #333; padding: 12px 24px;
+      border-radius: 8px; font-family: var(--font-heading);
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
+      transition: var(--transition); text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tab-btn:hover {
+      background: rgba(155,89,182,0.2); border-color: var(--lila);
+      color: var(--lila-light); transform: translateY(-2px);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--lila), var(--lila-dark));
+      color: #fff; border-color: var(--lila);
+      box-shadow: 0 4px 15px var(--lila-glow);
+    }
+    
+    /* CONTENIDO DE DIVISIONES */
+    .division-content {
+      display: none; animation: fadeIn 0.4s ease;
+    }
+    .division-content.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .table-footer {
+      text-align: center; color: var(--muted);
+      font-size: 0.85rem; margin-top: 16px;
+    }
+    
+    /* RESPONSIVE TABS */
+    @media (max-width: 768px) {
+      .division-tabs { gap: 8px; }
+      .tab-btn { padding: 10px 16px; font-size: 0.8rem; }
+    }
+    @media (max-width: 480px) {
+      .division-tabs { flex-direction: column; }
+      .tab-btn { width: 100%; text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -1077,6 +1124,42 @@
 
     // Dynamic year in footer
     document.getElementById('f-year').textContent = new Date().getFullYear();
+
+        // 📊 CAMBIO DE DIVISIONES
+    function showDivision(divisionName) {
+      // Ocultar todas las divisiones
+      document.querySelectorAll('.division-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Desactivar todos los botones
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Mostrar división seleccionada
+      document.getElementById(divisionName).classList.add('active');
+      
+      // Activar botón correspondiente
+      event.target.classList.add('active');
+      
+      // Guardar en localStorage (opcional - recuerda la última vista)
+      localStorage.setItem('lastDivision', divisionName);
+    }
+    
+    // Cargar última división vista al iniciar (opcional)
+    window.addEventListener('load', () => {
+      const lastDivision = localStorage.getItem('lastDivision');
+      if (lastDivision) {
+        // Encontrar el botón correspondiente y hacer click
+        const buttons = document.querySelectorAll('.tab-btn');
+        const divisionNames = ['primera', 'segunda', 'tercera', 'femenino', 'senior'];
+        const index = divisionNames.indexOf(lastDivision);
+        if (index !== -1 && buttons[index]) {
+          buttons[index].click();
+        }
+      }
+    });
   </script>
 </body>
 </html>
