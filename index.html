@@ -621,7 +621,323 @@
       </div>
     </div>
   </div>
+  <!-- TABLA DE POSICIONES - MULTI DIVISIÓN -->
+  <section id="tabla-posiciones" style="background: linear-gradient(to bottom, var(--black), var(--dark)); padding: 80px 0;">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Tabla de Posiciones</h2>
+        <p>Liga Regional - Temporada 2026</p>
+        <div class="divider"></div>
+      </div>
 
+      <!-- TABS DE DIVISIONES -->
+      <div class="division-tabs fade-up">
+        <button class="tab-btn active" onclick="showDivision('primera')">🟣 Primera</button>
+        <button class="tab-btn" onclick="showDivision('segunda')">🔴 Segunda</button>
+        <button class="tab-btn" onclick="showDivision('tercera')">🟢 Tercera</button>
+        <button class="tab-btn" onclick="showDivision('femenino')">👟 Femenino</button>
+        <button class="tab-btn" onclick="showDivision('senior')">👴 Senior</button>
+      </div>
+
+      <!-- CONTENIDO DE CADA DIVISIÓN -->
+      
+      <!-- PRIMERA DIVISIÓN -->
+      <div id="primera" class="division-content active">
+        <div class="table-container fade-up">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td><span class="position-badge">1</span></td>
+                <td><strong>SANTIAGO FERRARI</strong></td>
+                <td>5</td><td>4</td><td>1</td><td>0</td><td>12</td><td>3</td><td>+9</td><td><strong>13</strong></td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">2</span></td>
+                <td>Villa Linda</td>
+                <td>5</td><td>3</td><td>2</td><td>0</td><td>9</td><td>4</td><td>+5</td><td>11</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">3</span></td>
+                <td>Deportivo Norte</td>
+                <td>5</td><td>3</td><td>1</td><td>1</td><td>8</td><td>5</td><td>+3</td><td>10</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">4</span></td>
+                <td>Atlético Sur</td>
+                <td>5</td><td>2</td><td>2</td><td>1</td><td>7</td><td>6</td><td>+1</td><td>8</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">5</span></td>
+                <td>Unión Central</td>
+                <td>5</td><td>2</td><td>1</td><td>2</td><td>6</td><td>7</td><td>-1</td><td>7</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">6</span></td>
+                <td>Racing Club</td>
+                <td>5</td><td>1</td><td>2</td><td>2</td><td>5</td><td>8</td><td>-3</td><td>5</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">7</span></td>
+                <td>Boca Juniors</td>
+                <td>5</td><td>1</td><td>1</td><td>3</td><td>4</td><td>9</td><td>-5</td><td>4</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">8</span></td>
+                <td>Independiente</td>
+                <td>5</td><td>0</td><td>2</td><td>3</td><td>3</td><td>10</td><td>-7</td><td>2</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026 - Próxima fecha: 13/ABR</p>
+      </div>
+
+      <!-- SEGUNDA DIVISIÓN -->
+      <div id="segunda" class="division-content">
+        <div class="table-container fade-up">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="position-badge">1</span></td>
+                <td><strong>SANTIAGO FERRARI B</strong></td>
+                <td>5</td><td>3</td><td>2</td><td>0</td><td>10</td><td>4</td><td>+6</td><td><strong>11</strong></td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">2</span></td>
+                <td>Deportivo Sur</td>
+                <td>5</td><td>3</td><td>1</td><td>1</td><td>8</td><td>5</td><td>+3</td><td>10</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">3</span></td>
+                <td>Unión Norte</td>
+                <td>5</td><td>2</td><td>2</td><td>1</td><td>7</td><td>6</td><td>+1</td><td>8</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">4</span></td>
+                <td>Atlético Oeste</td>
+                <td>5</td><td>2</td><td>1</td><td>2</td><td>6</td><td>7</td><td>-1</td><td>7</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">5</span></td>
+                <td>River Plate B</td>
+                <td>5</td><td>1</td><td>2</td><td>2</td><td>5</td><td>6</td><td>-1</td><td>5</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">6</span></td>
+                <td>Central Córdoba</td>
+                <td>5</td><td>1</td><td>1</td><td>3</td><td>4</td><td>8</td><td>-4</td><td>4</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">7</span></td>
+                <td>Sportivo Este</td>
+                <td>5</td><td>0</td><td>3</td><td>2</td><td>3</td><td>7</td><td>-4</td><td>3</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026</p>
+      </div>
+
+      <!-- TERCERA DIVISIÓN -->
+      <div id="tercera" class="division-content">
+        <div class="table-container fade-up">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="position-badge">1</span></td>
+                <td><strong>SANTIAGO FERRARI C</strong></td>
+                <td>5</td><td>4</td><td>0</td><td>1</td><td>11</td><td>5</td><td>+6</td><td><strong>12</strong></td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">2</span></td>
+                <td>Juventud Unida</td>
+                <td>5</td><td>3</td><td>1</td><td>1</td><td>9</td><td>6</td><td>+3</td><td>10</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">3</span></td>
+                <td>Deportivo Juvenil</td>
+                <td>5</td><td>2</td><td>2</td><td>1</td><td>7</td><td>5</td><td>+2</td><td>8</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">4</span></td>
+                <td>Estudiantes B</td>
+                <td>5</td><td>2</td><td>1</td><td>2</td><td>6</td><td>7</td><td>-1</td><td>7</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">5</span></td>
+                <td>Gimnasia B</td>
+                <td>5</td><td>1</td><td>2</td><td>2</td><td>5</td><td>7</td><td>-2</td><td>5</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">6</span></td>
+                <td>San Lorenzo B</td>
+                <td>5</td><td>1</td><td>1</td><td>3</td><td>4</td><td>8</td><td>-4</td><td>4</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">7</span></td>
+                <td>Vélez Sarsfield B</td>
+                <td>5</td><td>0</td><td>1</td><td>4</td><td>3</td><td>7</td><td>-4</td><td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026</p>
+      </div>
+
+      <!-- FEMENINO -->
+      <div id="femenino" class="division-content">
+        <div class="table-container fade-up">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td><span class="position-badge">1</span></td>
+                <td><strong>SANTIAGO FERRARI FEM</strong></td>
+                <td>4</td><td>3</td><td>1</td><td>0</td><td>9</td><td>2</td><td>+7</td><td><strong>10</strong></td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">2</span></td>
+                <td>Atlético Femenino</td>
+                <td>4</td><td>2</td><td>2</td><td>0</td><td>7</td><td>3</td><td>+4</td><td>8</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">3</span></td>
+                <td>Deportivo Femenino</td>
+                <td>4</td><td>2</td><td>1</td><td>1</td><td>6</td><td>5</td><td>+1</td><td>7</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">4</span></td>
+                <td>Unión Femenino</td>
+                <td>4</td><td>1</td><td>2</td><td>1</td><td>4</td><td>4</td><td>0</td><td>5</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">5</span></td>
+                <td>Racing Femenino</td>
+                <td>4</td><td>1</td><td>1</td><td>2</td><td>3</td><td>6</td><td>-3</td><td>4</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">6</span></td>
+                <td>Independiente Fem</td>
+                <td>4</td><td>0</td><td>1</td><td>3</td><td>2</td><td>8</td><td>-6</td><td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026 - ¡Debut exitoso! 🎉</p>
+      </div>
+
+      <!-- SENIOR -->
+      <div id="senior" class="division-content">
+        <div class="table-container fade-up">
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Equipo</th>
+                <th>PJ</th>
+                <th>PG</th>
+                <th>PE</th>
+                <th>PP</th>
+                <th>GF</th>
+                <th>GC</th>
+                <th>DG</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="position-badge">1</span></td>
+                <td><strong>SANTIAGO FERRARI 50+</strong></td>
+                <td>4</td><td>3</td><td>1</td><td>0</td><td>8</td><td>3</td><td>+5</td><td><strong>10</strong></td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">2</span></td>
+                <td>Veteranos Unidos</td>
+                <td>4</td><td>2</td><td>2</td><td>0</td><td>6</td><td>3</td><td>+3</td><td>8</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">3</span></td>
+                <td>Ex Estrellas</td>
+                <td>4</td><td>2</td><td>1</td><td>1</td><td>5</td><td>4</td><td>+1</td><td>7</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">4</span></td>
+                <td>Los Clásicos</td>
+                <td>4</td><td>1</td><td>2</td><td>1</td><td>4</td><td>5</td><td>-1</td><td>5</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">5</span></td>
+                <td>Leyendas FC</td>
+                <td>4</td><td>1</td><td>1</td><td>2</td><td>3</td><td>5</td><td>-2</td><td>4</td>
+              </tr>
+              <tr>
+                <td><span class="position-badge">6</span></td>
+                <td>Maestros del Balón</td>
+                <td>4</td><td>0</td><td>1</td><td>3</td><td>2</td><td>8</td><td>-6</td><td>1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/ABR/2026 - Próximo debut: 13/ABR</p>
+      </div>
+
+    </div>
+  </section>
   <!-- NOTICIAS -->
   <section id="noticias">
     <div class="container">
