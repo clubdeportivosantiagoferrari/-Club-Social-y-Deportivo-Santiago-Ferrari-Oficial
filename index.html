@@ -544,10 +544,13 @@
 </head>
 <body>
 
-  <!-- ⚡ PANTALLA DE CARGA -->
+  !-- ⚡ PANTALLA DE CARGA MEJORADA -->
   <div id="loader" class="page-loader">
     <div class="loader-content">
-      <img src="assets/SF.png" alt="Cargando Santiago Ferrari" class="loader-logo">
+      <!-- Logo con fallback si no carga -->
+      <img src="assets/SF.png" alt="Cargando" class="loader-logo" 
+           onerror="this.style.display='none'; document.querySelector('.loader-fallback').style.display='block'">
+      <div class="loader-fallback" style="display:none; font-size:3rem; font-weight:900; color:var(--lila);">SF</div>
       <div class="loader-spinner"></div>
       <p class="loader-text">CARGANDO...</p>
     </div>
