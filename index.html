@@ -444,7 +444,72 @@
     }
     .match-venue i { color: var(--lila); }
 
-    /* RESPONSIVE MATCH TICKER */
+      /* MATCH TICKER MEJORADO */
+    .match-ticker {
+      position: relative; z-index: 20; margin-top: -60px; padding: 0 0 80px 0;
+    }
+    .match-card {
+      background: var(--gray); border: 1px solid #333; border-top: 3px solid var(--lila);
+      border-radius: 12px; padding: 30px 40px;
+      display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px;
+      align-items: center; justify-items: center;
+      max-width: 900px; margin: 0 auto; box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+      transition: var(--transition);
+    }
+    .match-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(155, 89, 182, 0.2);
+      border-top-color: var(--lila-light);
+    }
+    
+    .team-logo-container {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .team-logo {
+      width: 80px; height: 80px; object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+      transition: var(--transition);
+    }
+    .team-logo:hover { transform: scale(1.1) rotate(3deg); }
+    .home-logo { filter: drop-shadow(0 0 15px var(--lila-glow)); }
+    .away-logo { filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); }
+    
+    .team-name {
+      font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700;
+      color: #fff; text-align: center; letter-spacing: 0.5px;
+    }
+    
+    .match-info {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      text-align: center;
+    }
+    .match-category { margin-bottom: 4px; }
+    .division-badge {
+      display: inline-block;
+      background: rgba(155, 89, 182, 0.2);
+      color: var(--lila-light);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border: 1px solid rgba(155, 89, 182, 0.3);
+    }
+    .match-meta { display: flex; flex-direction: column; gap: 4px; }
+    .competition {
+      font-size: 0.75rem; color: var(--lila); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.5px;
+    }
+    .match-date {
+      font-size: 1.3rem; color: #fff; font-weight: 800;
+      font-family: var(--font-heading);
+    }
+    .match-venue {
+      color: var(--muted); font-size: 0.9rem; display: flex; align-items: center; gap: 6px;
+    }
+    .match-venue i { color: var(--lila); }
+
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .match-card {
         grid-template-columns: 1fr; gap: 24px; padding: 30px 20px;
@@ -452,12 +517,13 @@
       .team-logo { width: 60px; height: 60px; }
       .team-name { font-size: 1rem; }
       .match-date { font-size: 1.1rem; }
-      .match-vs { padding: 6px 16px; font-size: 0.9rem; }
+      .division-badge { font-size: 0.7rem; padding: 4px 12px; }
     }
     
     @media (max-width: 480px) {
       .team-logo { width: 50px; height: 50px; }
       .team-name { font-size: 0.9rem; }
+      .match-date { font-size: 1rem; }
     }
   </style>
 </head>
@@ -524,7 +590,7 @@
         
         <div class="match-info">
           <div class="match-category">
-            <span class="division-badge">🟣3ERA </span>
+            <span class="division-badge">🟣TERCERA </span>
           </div>
           <div class="match-meta">
             <span class="competition">Liga Oficial </span>
@@ -576,7 +642,7 @@
         
         <div class="match-info">
           <div class="match-category">
-            <span class="division-badge" style="background: rgba(155, 89, 182, 0.2); color: var(--lila-light); border-color: rgba(155, 89, 182, 0.3);">DIVISIÓN PRIMERA</span>
+            <span class="division-badge" style="background: rgba(155, 89, 182, 0.2); color: var(--lila-light); border-color: rgba(155, 89, 182, 0.3);"> 🟣 PRIMERA</span>
           </div>
           <div class="match-meta">
             <span class="competition">Liga Oficial</span>
