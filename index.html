@@ -569,7 +569,65 @@
       .tab-btn { padding: 8px 12px; font-size: 0.75rem; }
       .standings-table { font-size: 0.75rem; min-width: 550px; }
     }
+
+        /* 📊 TABLA DE POSICIONES CON LOGOS */
+    .table-container {
+      overflow-x: auto; border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .standings-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--gray); color: var(--text);
+      font-size: 0.9rem; min-width: 600px;
+    }
+    .standings-table th {
+      background: var(--lila-dark); color: #fff;
+      padding: 14px 10px; text-align: center;
+      font-weight: 700; font-family: var(--font-heading);
+      text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px;
+    }
+    .standings-table td {
+      padding: 12px 10px; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .standings-table tr:hover { background: rgba(155,89,182,0.1); }
+    .standings-table tr.highlight {
+      background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(125,60,152,0.15));
+      border-left: 3px solid var(--lila-light);
+    }
+    .standings-table td:first-child,
+    .standings-table td:last-child { font-weight: 700; }
+    
+    /* CELDA DE EQUIPO CON LOGO */
+    .team-cell {
+      display: flex; align-items: center; gap: 10px;
+      justify-content: flex-start;
+    }
+    .team-logo-small {
+      width: 30px; height: 30px; object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+      flex-shrink: 0;
+    }
+    .standings-table tr.highlight .team-logo-small {
+      filter: drop-shadow(0 0 8px var(--lila-glow));
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .standings-table { font-size: 0.8rem; min-width: 500px; }
+      .standings-table th, .standings-table td { padding: 10px 6px; }
+      .team-logo-small { width: 25px; height: 25px; }
+      .team-cell { gap: 8px; }
+    }
+    @media (max-width: 480px) {
+      .standings-table { font-size: 0.75rem; min-width: 450px; }
+      .standings-table th, .standings-table td { padding: 8px 4px; }
+      .team-logo-small { width: 22px; height: 22px; }
+    }
+    
   </style>
+
+  
 </head>
 <body>
 
