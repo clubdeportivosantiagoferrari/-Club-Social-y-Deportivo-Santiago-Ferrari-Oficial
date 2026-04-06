@@ -444,6 +444,40 @@
       .team-name { font-size: 0.9rem; }
       .match-date { font-size: 1rem; }
     }
+
+        /* 💬 WHATSAPP FLOTANTE */
+    .whatsapp-float {
+      position: fixed; bottom: 24px; left: 24px; z-index: 999;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: var(--transition); text-decoration: none;
+      animation: whatsapp-pulse 2s infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 6px 25px rgba(37,211,102,0.6);
+      animation: none;
+    }
+    @keyframes whatsapp-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 30px rgba(37,211,102,0.8); }
+    }
+    
+    .whatsapp-tooltip {
+      position: absolute; left: 70px; bottom: 50%; transform: translateY(50%);
+      background: var(--dark); color: #fff; padding: 6px 12px;
+      border-radius: 6px; font-size: 0.8rem; white-space: nowrap;
+      opacity: 0; pointer-events: none; transition: 0.3s;
+      border: 1px solid rgba(155,89,182,0.3);
+    }
+    .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; left: 75px; }
+    
+    @media (max-width: 480px) {
+      .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; bottom: 16px; left: 16px; }
+      .whatsapp-tooltip { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -456,6 +490,15 @@
       <p class="loader-text">CARGANDO...</p>
     </div>
   </div>
+ 
+
+  <!-- 💬 WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/5491112345678?text=Hola,%20quiero%20información%20sobre%20Santiago%20Ferrari" 
+     class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">¡Escribinos!</span>
+</a>
+
   
   <!-- HEADER -->
   <header id="header">
