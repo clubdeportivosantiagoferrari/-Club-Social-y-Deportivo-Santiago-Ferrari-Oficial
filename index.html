@@ -1231,21 +1231,26 @@
       localStorage.setItem('lastDivision', divisionName);
     }
     
-    // Cargar última división vista al iniciar (opcional)
+    / // Loader hide on load - VERSIÓN ROBUSTA
     window.addEventListener('load', () => {
-      const lastDivision = localStorage.getItem('lastDivision');
-      if (lastDivision) {
-        // Encontrar el botón correspondiente y hacer click
-        const buttons = document.querySelectorAll('.tab-btn');
-        const divisionNames = ['primera', 'segunda', 'tercera', 'femenino', 'senior'];
-        const index = divisionNames.indexOf(lastDivision);
-        if (index !== -1 && buttons[index]) {
-          // Simular click sin event
-          buttons[index].classList.add('active');
-          document.querySelectorAll('.division-content').forEach(c => c.classList.remove('active'));
-          document.getElementById(lastDivision).classList.add('active');
-        }
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.classList.add('hidden');
+        // Eliminar después de la transición
+        setTimeout(() => { 
+          if (loader.parentNode) loader.remove(); 
+        }, 600);
       }
+    });
+    
+    // Fallback: si el loader no se oculta en 5 segundos, forzar ocultado
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader && !loader.classList.contains('hidden')) {
+        loader.classList.add('hidden');
+        loader.remove();
+      }
+    }, 5000);
   
   </script>
 </body>
