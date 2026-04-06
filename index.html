@@ -525,9 +525,70 @@
       .team-name { font-size: 0.9rem; }
       .match-date { font-size: 1rem; }
     }
+
+        /* 🎵 REPRODUCTOR DE AUDIO FLOTANTE */
+    .audio-player {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(30, 30, 30, 0.85); backdrop-filter: blur(10px);
+      padding: 10px 14px; border-radius: 50px;
+      border: 1px solid rgba(155, 89, 182, 0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: var(--transition);
+      opacity: 0; transform: translateY(20px);
+    }
+    .audio-player.visible { opacity: 1; transform: translateY(0); }
+    
+    .audio-btn {
+      width: 40px; height: 40px; border-radius: 50%; border: none;
+      background: var(--lila); color: #fff; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: var(--transition);
+      box-shadow: 0 0 10px var(--lila-glow);
+    }
+    .audio-btn:hover { transform: scale(1.1); background: var(--lila-dark); }
+    .audio-btn.playing { animation: audio-pulse 1.5s infinite; }
+    @keyframes audio-pulse {
+      0%, 100% { box-shadow: 0 0 10px var(--lila-glow); }
+      50% { box-shadow: 0 0 20px var(--lila), 0 0 30px var(--lila-glow); }
+    }
+    
+    .audio-volume {
+      width: 70px; height: 4px; -webkit-appearance: none; appearance: none;
+      background: #333; border-radius: 2px; outline: none; cursor: pointer;
+    }
+    .audio-volume::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 12px; height: 12px;
+      background: var(--lila-light); border-radius: 50%; cursor: pointer;
+    }
+    .audio-volume::-moz-range-thumb {
+      width: 12px; height: 12px; background: var(--lila-light);
+      border-radius: 50%; border: none; cursor: pointer;
+    }
+
+    @media (max-width: 480px) {
+      .audio-player { bottom: 16px; right: 16px; padding: 8px 12px; }
+      .audio-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+      .audio-volume { width: 60px; }
+    }
+    
   </style>
 </head>
 <body>
+
+    <!-- 🎵 REPRODUCTOR FLOTANTE -->
+  <div class="audio-player" id="audioPlayer">
+    <audio id="clubAudio" loop preload="metadata">
+      <!-- Reemplaza con tu archivo de audio -->
+      <source src="assets/audio/himno.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button class="audio-btn" id="audioToggle" aria-label="Reproducir música del club">
+      <i class="fas fa-play" id="audioIcon"></i>
+    </button>
+    
+    <input type="range" class="audio-volume" id="audioVolume" min="0" max="1" step="0.05" value="0.3" aria-label="Volumen">
+  </div>
 
   <!-- ⚡ PANTALLA DE CARGA -->
   <div id="loader" class="page-loader">
@@ -616,7 +677,7 @@
         
         <div class="match-info">
           <div class="match-category">
-            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🟣 SEGUNDA</span>
+            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(155, 89, 182, 0.3);">🟣 SEGUNDA</span>
           </div>
           <div class="match-meta">
             <span class="competition">Liga Oficial</span>
@@ -936,6 +997,51 @@
 
     // Dynamic year in footer
     document.getElementById('f-year').textContent = new Date().getFullYear();
+
+        // 🎵 CONTROL DE AUDIO
+    const audio = document.getElementById('clubAudio');
+    const toggleBtn = document.getElementById('audioToggle');
+    const audioIcon = document.getElementById('audioIcon');
+    const volumeSlider = document.getElementById('audioVolume');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    // Mostrar reproductor después de que cargue la página
+    window.addEventListener('load', () => {
+      setTimeout(() => audioPlayer.classList.add('visible'), 800);
+    });
+
+    // Play / Pause
+    toggleBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().catch(() => {
+          // Fallback si el navegador bloquea autoplay
+          console.log('Interacción requerida para reproducir audio');
+        });
+        toggleBtn.classList.add('playing');
+        audioIcon.classList.remove('fa-play');
+        audioIcon.classList.add('fa-pause');
+      } else {
+        audio.pause();
+        toggleBtn.classList.remove('playing');
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-play');
+      }
+    });
+
+    // Control de volumen
+    volumeSlider.addEventListener('input', (e) => {
+      audio.volume = e.target.value;
+    });
+
+    // Pausar automáticamente al salir de la pestaña (buena práctica)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && !audio.paused) {
+        audio.pause();
+        toggleBtn.classList.remove('playing');
+        audioIcon.classList.remove('fa-pause');
+        audioIcon.classList.add('fa-play');
+      }
+    });
   </script>
 </body>
 </html>
