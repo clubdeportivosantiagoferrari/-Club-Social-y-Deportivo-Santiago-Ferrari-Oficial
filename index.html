@@ -478,6 +478,97 @@
       .whatsapp-float { width: 50px; height: 50px; font-size: 1.5rem; bottom: 16px; left: 16px; }
       .whatsapp-tooltip { display: none; }
     }
+
+        /* 📊 TABLA DE POSICIONES MULTI-DIVISIÓN */
+    .division-tabs {
+      display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: var(--gray); color: var(--muted); border: 2px solid #333;
+      padding: 12px 24px; border-radius: 8px; font-family: var(--font-heading);
+      font-weight: 700; font-size: 0.9rem; cursor: pointer; transition: var(--transition);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .tab-btn:hover {
+      background: rgba(155,89,182,0.2); border-color: var(--lila); color: var(--lila-light);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--lila), var(--lila-dark));
+      color: #fff; border-color: var(--lila-light);
+      box-shadow: 0 4px 15px var(--lila-glow);
+    }
+    
+    .division-content { display: none; }
+    .division-content.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .table-container {
+      overflow-x: auto; border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      background: var(--gray);
+    }
+    .standings-table {
+      width: 100%; border-collapse: collapse;
+      background: var(--gray); color: var(--text);
+      font-size: 0.9rem; min-width: 700px;
+    }
+    .standings-table thead {
+      background: linear-gradient(135deg, var(--lila-dark), var(--lila));
+    }
+    .standings-table th {
+      color: #fff; padding: 16px 12px; text-align: center;
+      font-weight: 700; font-family: var(--font-heading);
+      text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+    .standings-table td {
+      padding: 14px 12px; text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .standings-table tbody tr {
+      transition: var(--transition);
+    }
+    .standings-table tbody tr:hover {
+      background: rgba(155,89,182,0.15);
+    }
+    .standings-table tbody tr.highlight {
+      background: linear-gradient(135deg, rgba(155,89,182,0.25), rgba(125,60,152,0.2));
+      border-left: 4px solid var(--lila-light);
+    }
+    .standings-table tbody tr.highlight td {
+      font-weight: 600;
+    }
+    .standings-table td:first-child,
+    .standings-table td:last-child {
+      font-weight: 700; font-family: var(--font-heading);
+    }
+    .position-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; background: var(--dark);
+      border-radius: 6px; font-weight: 700; font-size: 0.85rem;
+    }
+    .standings-table tbody tr.highlight .position-badge {
+      background: var(--lila); color: #fff;
+      box-shadow: 0 2px 8px var(--lila-glow);
+    }
+    .table-footer {
+      text-align: center; color: var(--muted); font-size: 0.85rem;
+      margin-top: 16px; padding: 12px;
+    }
+    .table-footer i { color: var(--lila); margin-right: 6px; }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .division-tabs { gap: 8px; }
+      .tab-btn { padding: 10px 16px; font-size: 0.8rem; }
+      .standings-table { font-size: 0.8rem; min-width: 600px; }
+      .standings-table th, .standings-table td { padding: 10px 8px; }
+      .position-badge { width: 24px; height: 24px; font-size: 0.75rem; }
+    }
+    @media (max-width: 480px) {
+      .tab-btn { padding: 8px 12px; font-size: 0.75rem; }
+      .standings-table { font-size: 0.75rem; min-width: 550px; }
+    }
   </style>
 </head>
 <body>
@@ -1206,6 +1297,43 @@
 
     // Dynamic year in footer
     document.getElementById('f-year').textContent = new Date().getFullYear();
+
+        // 📊 CAMBIO DE DIVISIONES EN TABLA
+    function showDivision(divisionName) {
+      // Ocultar todas las divisiones
+      document.querySelectorAll('.division-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      
+      // Remover active de todos los tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      
+      // Mostrar la división seleccionada
+      document.getElementById(divisionName).classList.add('active');
+      
+      // Activar el botón correspondiente
+      event.target.classList.add('active');
+      
+      // Guardar en localStorage para recordar la selección
+      localStorage.setItem('selectedDivision', divisionName);
+    }
+    
+    // Cargar la última división vista al recargar la página
+    window.addEventListener('load', () => {
+      const savedDivision = localStorage.getItem('selectedDivision');
+      if (savedDivision) {
+        // Remover active de todos
+        document.querySelectorAll('.division-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        
+        // Activar la guardada
+        document.getElementById(savedDivision).classList.add('active');
+        const activeBtn = document.querySelector(`.tab-btn[onclick="showDivision('${savedDivision}')"]`);
+        if (activeBtn) activeBtn.classList.add('active');
+      }
+    });
   </script>
 </body>
 </html>
