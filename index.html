@@ -421,7 +421,19 @@
     @keyframes loader-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.08); opacity: 0.85; } }
     @keyframes loader-fade { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-       
+    /* Grid responsivo mejorado para 6 noticias */
+    .news-grid {
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    
+    /* En pantallas grandes: mostrar 3 columnas */
+    @media (min-width: 1024px) {
+      .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
@@ -493,14 +505,18 @@
   </div>
 
   <!-- NEWS -->
+    <!-- NOTICIAS / ACTUALIDAD -->
   <section id="noticias">
     <div class="container">
       <div class="section-header fade-up">
         <h2>Actualidad</h2>
-        <p>Sigue de cerca todo lo que pasa en el Santiago Ferrari.</p>
+        <p>Seguí de cerca todo lo que pasa en el Santiago Ferrari.</p>
         <div class="divider"></div>
       </div>
+      
       <div class="news-grid">
+        
+        <!-- NOTICIA 1 -->
         <article class="news-card fade-up">
           <img src="assets/primeranoticias.jpg" class="news-img" alt="Partido">
           <div class="news-content">
@@ -509,26 +525,67 @@
             <p>El club informa el comienzo de la nueva temporada oficial y confirma que nuestro Equipo de Primera División Masculina disputará su primer partido del campeonato el día 6 de abril desde las 21 hrs frente a Villa linda.</p>
           </div>
         </article>
+
+        <!-- NOTICIA 2 -->
         <article class="news-card fade-up">
           <img src="assets/terceranoticias.jpg" class="news-img" alt="Entrenamiento">
           <div class="news-content">
-            <span class="news-tag">3era División</span>
+            <span class="news-tag">Tercera División</span>
             <h3>🟣 ¡DEBUT DE TERCERA! ⚽</h3>
             <p>El club informa el inicio de la actividad de nuestra Tercera División Masculina de cara al campeonato 2026. Para esta temporada, la comisión directiva y el cuerpo técnico trabajaron en la incorporación de nuevos jugadores que se suman al plantel con el objetivo claro de competir el campeonato.</p>
           </div>
         </article>
+
+        <!-- NOTICIA 3 -->
         <article class="news-card fade-up">
-          <img src="https://i.postimg.cc/x1MpxjJb/Whats-App-Image-2026-04-02-at-9-24-52-PM.jpg" class="news-img" alt="Socios">
+          <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=800&auto=format&fit=crop" class="news-img" alt="Socios">
           <div class="news-content">
             <span class="news-tag">¡EL SUEÑO SE HACE REALIDAD! 💜⚽</span>
             <h3>SÁBADO DEBUTA NUESTRO EQUIPO FEMENINO</h3>
             <p>El club se complace en anunciar la incorporación de su rama femenina al campeonato oficial. Con este proyecto, reafirmamos nuestro compromiso con el crecimiento del deporte y la igualdad de oportunidades. El equipo, vestido con nuestra casaca titular, buscará competir al más alto nivel desde su primer partido.</p>
           </div>
         </article>
+
+        <!-- NOTICIA 4 -->
+        <article class="news-card fade-up">
+          <img src="https://images.unsplash.com/photo-1542843360-2547c9e6c4f9?q=80&w=800&auto=format&fit=crop" class="news-img" alt="Femenino">
+          <div class="news-content">
+            <span class="news-tag">Fútbol Femenino</span>
+            <h3>Debut victorioso del plantel femenino</h3>
+            <p>Las guerreras lilas comenzaron con el pie derecho la nueva temporada con una goleada.</p>
+          </div>
+        </article>
+
+        <!-- NOTICIA 5 -->
+        <article class="news-card fade-up">
+          <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=800&auto=format&fit=crop" class="news-img" alt="Estadio">
+          <div class="news-content">
+            <span class="news-tag">Infraestructura</span>
+            <h3>Remodelación del estadio: nuevas luces LED</h3>
+            <p>El club invierte en iluminación de última generación para partidos nocturnos.</p>
+          </div>
+        </article>
+
+        <!-- NOTICIA 6 -->
+        <article class="news-card fade-up">
+          <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=800&auto=format&fit=crop" class="news-img" alt="Entrenamiento">
+          <div class="news-content">
+            <span class="news-tag">Pretemporada</span>
+            <h3>Arranque de la pretemporada 2026</h3>
+            <p>Todo el plantel se reunió para comenzar los trabajos físicos y tácticos de cara al torneo.</p>
+          </div>
+        </article>
+
+      </div>
+      
+      <!-- BOTÓN VER MÁS (OPCIONAL) -->
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="#" class="btn btn-outline"><i class="fas fa-newspaper"></i> Ver Todas las Noticias</a>
       </div>
     </div>
   </section>
 
+  
   <!-- EQUIPO FEMENINO -->
  <!-- 👇 SECCIÓN EQUIPO FEMENINO (Reemplaza todo este bloque) -->
   <section id="femenino" style="background: var(--dark);">
