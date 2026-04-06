@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Divisiones Inferiores y Cadetes del F.C. Santiago Ferrari. Inscripciones, cuerpo técnico y categorías.">
+  <title>Cadetes | Santiago Ferrari FC</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --lila: #9B59B6;       
+      --lila-light: #C39BD3; 
+      --lila-dark: #7D3C98;  
+      --lila-glow: rgba(155, 89, 182, 0.5); 
+      --black: #050505;
+      --dark: #121212;
+      --gray: #1E1E1E;
+      --text: #F0F0F0;
+      --muted: #A0A0A0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --transition: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--black); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
+    .container { width: 90%; max-width: 1280px; margin: 0 auto; }
+
+    /* HEADER */
+    header { position: fixed; top: 0; left: 0; width: 100%; padding: 20px 0; z-index: 100; background: transparent; transition: var(--transition); }
+    header.scrolled { background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(155, 89, 182, 0.2); padding: 12px 0; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; font-family: var(--font-heading); }
+    .logo-img { height: 50px; width: auto; object-fit: contain; filter: drop-shadow(0 0 8px rgba(155, 89, 182, 0.4)); transition: var(--transition); }
+    .logo:hover .logo-img { transform: scale(1.05) rotate(-2deg); filter: drop-shadow(0 0 15px var(--lila-light)); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: var(--transition); }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-links a.active::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 100%; height: 2px; background: var(--lila); box-shadow: 0 0 8px var(--lila); }
+    .menu-toggle { display: none; background: none; border: none; color: var(--lila-light); font-size: 1.6rem; cursor: pointer; }
+
+    /* SECTIONS */
+    section { padding: 100px 0; position: relative; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-header h2 { font-family: var(--font-heading); font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 800; text-transform: uppercase; margin-bottom: 16px; letter-spacing: -1px; }
+    .section-header p { color: var(--muted); max-width: 600px; margin: 0 auto; }
+    .divider { height: 4px; width: 60px; background: var(--lila); margin: 16px auto 0; border-radius: 2px; box-shadow: 0 0 10px var(--lila); }
+
+    /* DIVISIONS GRID */
+    .divisions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .div-card {
+      background: var(--gray); border-radius: 12px; padding: 24px; text-align: center;
+      border: 1px solid #2a2a2a; transition: var(--transition); position: relative; overflow: hidden;
+    }
+    .div-card:hover { transform: translateY(-6px); border-color: var(--lila); box-shadow: 0 12px 30px rgba(155, 89, 182, 0.2); }
+    .div-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--lila-dark), var(--lila));
+    }
+    .div-badge { display: inline-block; background: rgba(155,89,182,0.15); color: var(--lila-light); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 12px; }
+    .div-title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+    .div-meta { color: var(--muted); font-size: 0.9rem; margin: 6px 0; }
+    .div-meta i { color: var(--lila); margin-right: 6px; width: 16px; }
+    .div-status { display: inline-block; margin-top: 12px; padding: 6px 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; }
+    .status-open { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+    .status-full { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+
+    /* STAFF GRID */
+    .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-top: 40px; }
+    .staff-card { background: var(--dark); border-radius: 12px; overflow: hidden; border: 1px solid #222; transition: var(--transition); text-align: center; }
+    .staff-card:hover { transform: translateY(-4px); border-color: var(--lila); box-shadow: 0 8px 20px rgba(155,89,182,0.15); }
+    .staff-img { width: 100%; height: 180px; object-fit: cover; background: #151515; }
+    .staff-info { padding: 16px; }
+    .staff-name { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .staff-role { color: var(--lila-light); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .staff-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+
+    /* REGISTRATION FORM */
+    .reg-section { background: linear-gradient(to bottom, var(--black), var(--dark)); border-top: 1px solid #1a1a1a; }
+    .reg-container { max-width: 800px; margin: 0 auto; background: var(--gray); padding: 40px; border-radius: 16px; border: 1px solid rgba(155,89,182,0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
+    .reg-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full { grid-column: span 2; }
+    .form-label { color: var(--muted); font-size: 0.85rem; margin-bottom: 6px; font-weight: 600; }
+    .form-input, .form-select, .form-textarea {
+      width: 100%; padding: 14px; background: #0f0f0f; border: 1px solid #333; color: #fff;
+      border-radius: 8px; font-family: inherit; font-size: 1rem; transition: 0.3s;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--lila); box-shadow: 0 0 10px rgba(155, 89, 182, 0.2); }
+    .form-textarea { min-height: 120px; resize: vertical; }
+    .btn-submit {
+      grid-column: span 2; margin-top: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(135deg, var(--lila), var(--lila-dark));
+      color: #fff; padding: 16px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; border: none; border-radius: 8px; cursor: pointer; transition: var(--transition);
+      box-shadow: 0 4px 15px var(--lila-glow);
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--lila-glow); }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 40px 0 20px; text-align: center; border-top: 1px solid #111; }
+    footer p { color: #555; font-size: 0.85rem; margin-top: 10px; }
+    .footer-logo { font-size: 1.2rem; font-weight: 800; font-family: var(--font-heading); color: #fff; margin-bottom: 12px; display: block; }
+    .footer-logo span { color: var(--lila); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 70px; left: 0; width: 100%; background: rgba(5,5,5,0.98);
+        backdrop-filter: blur(10px); flex-direction: column; padding: 20px 0; gap: 0;
+        transform: translateY(-150%); transition: var(--transition); border-bottom: 2px solid var(--lila-dark);
+      }
+      .nav-links.active { transform: translateY(0); }
+      .nav-links a { padding: 16px; border-bottom: 1px solid #1a1a1a; width: 100%; text-align: center; }
+      .reg-form { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+      .btn-submit { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="assets/SF.png" alt="Escudo Santiago Ferrari" class="logo-img">
+        <div style="display:flex; flex-direction:column;">
+          <span style="line-height:1; font-size:0.9rem; font-weight:600; letter-spacing:1px;">SANTIAGO</span>
+          <span style="line-height:1; font-size:1.3rem; font-weight:900; letter-spacing:-0.5px;">FERRARI</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+      <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="historia.html">Historia</a>
+        <a href="cadetes.html" class="active">Cadetes</a>
+        <a href="femenino.html">Femenino</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO CADENTES -->
+  <section style="padding-top: 120px; padding-bottom: 60px; background: linear-gradient(to bottom, var(--black), var(--dark));">
+    <div class="container section-header fade-up">
+      <span style="display:inline-block; background:rgba(155,89,182,0.15); color:var(--lila-light); padding:6px 16px; border-radius:50px; font-size:0.8rem; font-weight:700; letter-spacing:1px; margin-bottom:16px;">🟣 FORMACIÓN DE FUTUROS CRACKS</span>
+      <h2>Divisiones Inferiores</h2>
+      <p>Donde nace la pasión. Formamos jugadores con valores, disciplina y amor por los colores lilas desde las categorías más bajas.</p>
+      <div class="divider"></div>
+    </div>
+  </section>
+
+  <!-- 5 DIVISIONES -->
+  <section style="padding: 0 0 80px;">
+    <div class="container">
+      <div class="divisions-grid">
+        <div class="div-card fade-up">
+          <span class="div-badge">Sub-13</span>
+          <h3 class="div-title">Baby Fútbol</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Mar y Jue 17:00 - 18:30</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Lucas R.</p>
+          <span class="div-status status-open">🟢 Inscripciones Abiertas</span>
+        </div>
+        <div class="div-card fade-up">
+          <span class="div-badge">Sub-15</span>
+          <h3 class="div-title">Infantiles</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Lun y Mié 17:30 - 19:00</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Martín V.</p>
+          <span class="div-status status-open">🟢 Inscripciones Abiertas</span>
+        </div>
+        <div class="div-card fade-up">
+          <span class="div-badge">Sub-17</span>
+          <h3 class="div-title">Cadetes</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Mar, Jue y Sáb 18:00 - 19:30</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Diego S.</p>
+          <span class="div-status status-full">🔴 Cupo Completo</span>
+        </div>
+        <div class="div-card fade-up">
+          <span class="div-badge">Sub-20</span>
+          <h3 class="div-title">Juveniles</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Lun, Mié y Vie 19:00 - 20:30</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Alejandro M.</p>
+          <span class="div-status status-open">🟢 Inscripciones Abiertas</span>
+        </div>
+        <div class="div-card fade-up">
+          <span class="div-badge">Reserva</span>
+          <h3 class="div-title">Primera B</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Todos los días 20:00 - 21:30</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Roberto L.</p>
+          <span class="div-status status-open">🟢 Listas de Prueba</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUERPO TÉCNICO (5) -->
+  <section style="background: var(--black); padding: 80px 0;">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Cuerpo Técnico</h2>
+        <p>Profesionales comprometidos con el desarrollo integral de cada jugador.</p>
+        <div class="divider"></div>
+      </div>
+      <div class="staff-grid">
+        <div class="staff-card fade-up">
+          <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=400&auto=format&fit=crop" alt="DT" class="staff-img">
+          <div class="staff-info">
+            <h3 class="staff-name">Diego Sánchez</h3>
+            <p class="staff-role">Director Técnico</p>
+            <p class="staff-desc">Lic. en Educación Física. 10 años formando juveniles en ligas regionales.</p>
+          </div>
+        </div>
+        <div class="staff-card fade-up">
+          <img src="https://images.unsplash.com/photo-1542843360-2547c9e6c4f9?q=80&w=400&auto=format&fit=crop" alt="Ayudante" class="staff-img">
+          <div class="staff-info">
+            <h3 class="staff-name">Martín Vega</h3>
+            <p class="staff-role">Ayudante de Campo</p>
+            <p class="staff-desc">Exjugador profesional. Especialista en táctica y lectura de juego.</p>
+          </div>
+        </div>
+        <div class="staff-card fade-up">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=400&auto=format&fit=crop" alt="Preparador Físico" class="staff-img">
+          <div class="staff-info">
+            <h3 class="staff-name">Alejandro Morales</h3>
+            <p class="staff-role">Preparador Físico</p>
+            <p class="staff-desc">Certificado FIFA. Enfoque en prevención de lesiones y rendimiento.</p>
+          </div>
+        </div>
+        <div class="staff-card fade-up">
+          <img src="https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=400&auto=format&fit=crop" alt="Arqueros" class="staff-img">
+          <div class="staff-info">
+            <h3 class="staff-name">Lucas Ríos</h3>
+            <p class="staff-role">Preparador de Arqueros</p>
+            <p class="staff-desc">Especialista en técnica de atajada, salidas y juego con pies.</p>
+          </div>
+        </div>
+        <div class="staff-card fade-up">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=400&auto=format&fit=crop" alt="Médico/Fisio" class="staff-img">
+          <div class="staff-info">
+            <h3 class="staff-name">Dra. Carolina R.</h3>
+            <p class="staff-role">Médico / Fisioterapeuta</p>
+            <p class="staff-desc">Atención deportiva, rehabilitación y protocolos de vuelta a la actividad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSCRIPCIONES -->
+  <section class="reg-section" style="padding: 80px 0;">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>📝 Inscripciones Abiertas</h2>
+        <p>Completá el formulario y nuestro cuerpo técnico se pondrá en contacto para coordinar pruebas o confirmar la plaza.</p>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="reg-container fade-up">
+        <form class="reg-form" action="https://formspree.io/f/TU_ID_INSCRIPCIONES" method="POST">
+          <input type="hidden" name="_subject" value="🟣 Nueva Inscripción Cadetes - Santiago Ferrari">
+          <input type="hidden" name="_next" value="https://tuusuario.github.io/santiago-ferrari-fc/index.html#gracias">
+          
+          <div class="form-group">
+            <label class="form-label">Nombre del Jugador</label>
+            <input type="text" name="nombre_jugador" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Fecha de Nacimiento</label>
+            <input type="date" name="fecha_nac" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">División a Inscribir</label>
+            <select name="division" class="form-select" required>
+              <option value="">Seleccioná...</option>
+              <option value="Sub-13">Sub-13 (Baby)</option>
+              <option value="Sub-15">Sub-15 (Infantiles)</option>
+              <option value="Sub-17">Sub-17 (Cadetes)</option>
+              <option value="Sub-20">Sub-20 (Juveniles)</option>
+              <option value="Reserva">Reserva (Primera B)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono del Responsable</label>
+            <input type="tel" name="telefono" class="form-input" required>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Correo Electrónico</label>
+            <input type="email" name="email" class="form-input" required>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Experiencia / Club Anterior</label>
+            <textarea name="experiencia" class="form-textarea" placeholder="¿Jugó antes? ¿En qué club? ¿Posición habitual?"></textarea>
+          </div>
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar Solicitud</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="index.html" class="footer-logo">SANTIAGO <span>FERRARI</span></a>
+      <p>&copy; <span id="year"></span> F.C. Social y Deportivo Santiago Ferrari. Formación, valores y fútbol.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); });
+
+    // Mobile menu
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => nav.classList.toggle('active'));
+    nav.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => nav.classList.remove('active')); });
+
+    // Fade animations
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
