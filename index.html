@@ -135,48 +135,45 @@
       box-shadow: 0 8px 20px var(--lila-glow);
     }
 
-    /* HEADER */
+        /* HEADER CON FONDO ANIMADO */
     header {
       position: fixed; top: 0; left: 0; width: 100%;
       padding: 20px 0; z-index: 100;
-      background: transparent; transition: var(--transition);
+      background: transparent;
+      transition: var(--transition);
+      overflow: hidden; /* Necesario para la animación */
     }
+    
+    /* Fondo animado (invisible por defecto) */
+    header::before {
+      content: '';
+      position: absolute; inset: 0;
+      /* Dos focos lilas que se mueven y escalan suavemente */
+      background: radial-gradient(circle at 20% 50%, var(--lila-dark) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 50%, var(--lila) 0%, transparent 50%);
+      background-size: 200% 200%;
+      animation: headerFloat 18s ease-in-out infinite;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      z-index: -1;
+    }
+    
+    /* Estado al hacer scroll (vidrio + fondo animado visible) */
     header.scrolled {
       background: rgba(5, 5, 5, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(155, 89, 182, 0.2);
       padding: 12px 0;
     }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; }
-    .logo {
-      display: flex; align-items: center; gap: 12px;
-      text-decoration: none; color: #fff;
-      font-family: var(--font-heading);
+    header.scrolled::before {
+      opacity: 0.35; /* Intensidad del fondo animado al scrollear */
     }
-    .logo-img {
-      height: 50px; width: auto; object-fit: contain;
-      filter: drop-shadow(0 0 8px rgba(155, 89, 182, 0.4));
-      transition: var(--transition);
+    
+    /* Animación de movimiento suave */
+    @keyframes headerFloat {
+      0%, 100% { background-position: 0% 50%; transform: scale(1); }
+      50%      { background-position: 100% 50%; transform: scale(1.08); }
     }
-    .logo:hover .logo-img {
-      transform: scale(1.05) rotate(-2deg);
-      filter: drop-shadow(0 0 15px var(--lila-light));
-    }
-    .nav-links { display: flex; gap: 30px; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none;
-      font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
-      position: relative; transition: var(--transition);
-    }
-    .nav-links a:hover, .nav-links a.active { color: #fff; }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -6px; left: 0;
-      width: 0; height: 2px; background: var(--lila);
-      transition: var(--transition); box-shadow: 0 0 8px var(--lila);
-    }
-    .nav-links a:hover::after { width: 100%; }
-    .menu-toggle { display: none; background: none; border: none; color: var(--lila-light); font-size: 1.6rem; cursor: pointer; }
-
     /* HERO */
     .hero {
       height: 100vh; min-height: 600px;
