@@ -31,10 +31,11 @@
       --transition: 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
         /* 🏆 BARRA DE AUSPICIADORES */
+       /* 🏆 BARRA DE AUSPICIADORES - LOGOS GRANDES */
     .sponsors-bar {
       background: var(--black);
       border-bottom: 1px solid rgba(155, 89, 182, 0.2);
-      padding: 12px 0;
+      padding: 20px 0;
       position: relative;
       z-index: 99;
     }
@@ -43,12 +44,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 60px;
       flex-wrap: wrap;
     }
     
     .sponsor-item {
-      opacity: 0.7;
+      opacity: 0.8;
       transition: var(--transition);
       filter: grayscale(100%);
     }
@@ -56,7 +57,7 @@
     .sponsor-item:hover {
       opacity: 1;
       filter: grayscale(0%);
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
     
     .sponsor-main {
@@ -65,46 +66,47 @@
     }
     
     .sponsor-logo {
-      max-height: 40px;
+      max-height: 70px;  /* ← MÁS GRANDE (antes 40px) */
       width: auto;
       object-fit: contain;
       transition: var(--transition);
     }
     
     .sponsor-main .sponsor-logo {
-      max-height: 50px;
+      max-height: 90px;  /* ← AÚN MÁS GRANDE (antes 50px) */
     }
     
     /* RESPONSIVE SPONSORS */
     @media (max-width: 768px) {
       .sponsors-bar {
-        padding: 8px 0;
+        padding: 15px 0;
       }
       .sponsors-track {
-        gap: 20px;
+        gap: 30px;
       }
       .sponsor-logo {
-        max-height: 30px;
+        max-height: 50px;  /* ← MÁS GRANDE EN MÓVIL (antes 30px) */
       }
       .sponsor-main .sponsor-logo {
-        max-height: 35px;
+        max-height: 65px;  /* ← MÁS GRANDE (antes 35px) */
       }
     }
     
     @media (max-width: 480px) {
       .sponsors-track {
-        gap: 15px;
+        gap: 20px;
       }
       .sponsor-logo {
-        max-height: 25px;
+        max-height: 40px;  /* ← MÁS GRANDE EN CELULAR (antes 25px) */
       }
-      .sponsor-item {
-        opacity: 0.6;
+      .sponsor-main .sponsor-logo {
+        max-height: 55px;
       }
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
+   
+  body {
       background: var(--black);
       color: var(--text);
       font-family: var(--font-body);
