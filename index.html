@@ -508,40 +508,95 @@
   </section>
 
   <!-- MATCH TICKER -->
+    <!-- MATCH TICKER - 3 PARTIDOS -->
   <div id="partidos" class="match-ticker fade-up">
     <div class="container">
+      <div class="section-header">
+        <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 40px;">Próximos Partidos</h2>
+      </div>
+      
+      <!-- PARTIDO 1: PRIMERA DIVISIÓN -->
       <div class="match-card">
-        <!-- LOGO LOCAL -->
         <div class="team-logo-container">
           <img src="assets/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
           <span class="team-name">SANTIAGO FERRARI</span>
         </div>
         
-        <!-- INFO DEL PARTIDO -->
         <div class="match-info">
-          <div class="match-meta">
-            <span class="competition">Oficial</span>
-            <strong class="match-date">06 ABR | 19:00</strong>
+          <div class="match-category">
+            <span class="division-badge">🟣3ERA </span>
           </div>
-          <div class="match-vs">
-            <span class="vs-text">VS</span>
+          <div class="match-meta">
+            <span class="competition">Liga Oficial </span>
+            <strong class="match-date">06 ABR | 19:00</strong>
           </div>
           <div class="match-venue">
             <i class="fas fa-map-marker-alt"></i> Cancha AAS
           </div>
         </div>
         
-        <!-- LOGO VISITANTE -->
         <div class="team-logo-container">
-          <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Villa Linda" class="team-logo away-logo">
+          <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Villa Linda" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=VL'">
           <span class="team-name">VILLA LINDA</span>
         </div>
       </div>
-      
-      <!-- LINK A DETALLES -->
-      <div style="text-align: center; margin-top: 20px;">
-        <a href="#" style="color: var(--lila-light); text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px;">
-          <i class="fas fa-info-circle"></i> Ver detalles del partido
+
+      <!-- PARTIDO 2: SEGUNDA DIVISIÓN -->
+      <div class="match-card" style="margin-top: 24px;">
+        <div class="team-logo-container">
+          <img src="assets/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
+          <span class="team-name">SANTIAGO FERRARI</span>
+        </div>
+        
+        <div class="match-info">
+          <div class="match-category">
+            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🟣 SEGUNDA</span>
+          </div>
+          <div class="match-meta">
+            <span class="competition">Liga Oficial</span>
+            <strong class="match-date">06 ABR | 20:00</strong>
+          </div>
+          <div class="match-venue">
+            <i class="fas fa-map-marker-alt"></i> Estadio Municipal
+          </div>
+        </div>
+        
+        <div class="team-logo-container">
+          <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Deportivo Norte" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=DN'">
+          <span class="team-name">VILLA LINDA</span>
+        </div>
+      </div>
+
+      <!-- PARTIDO 3: FEMENINO -->
+      <div class="match-card" style="margin-top: 24px;">
+        <div class="team-logo-container">
+          <img src="assets/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
+          <span class="team-name">SANTIAGO FERRARI</span>
+        </div>
+        
+        <div class="match-info">
+          <div class="match-category">
+            <span class="division-badge" style="background: rgba(155, 89, 182, 0.2); color: var(--lila-light); border-color: rgba(155, 89, 182, 0.3);">👟 FEMENINO</span>
+          </div>
+          <div class="match-meta">
+            <span class="competition">Liga Oficial</span>
+            <strong class="match-date">06 ABR | 21:00</strong>
+          </div>
+          <div class="match-venue">
+            <i class="fas fa-map-marker-alt"></i> Cancha AAS
+          </div>
+        </div>
+        
+        <div class="team-logo-container">
+          <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Atlético Sur" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=AS'">
+          <span class="team-name">VILL LINDA</span>
+        </div>
+      </div>
+
+      <!-- BOTÓN VER TODOS -->
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="#" class="btn btn-outline">
+          <i class="fas fa-calendar-alt"></i> Ver Fixture Completo
         </a>
       </div>
     </div>
