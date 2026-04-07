@@ -765,7 +765,165 @@
         height: 35px;
       }
     }
+        /* 📸 GALERÍA DE FOTOS */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
     
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(155, 89, 182, 0.3);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(125, 60, 152, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .gallery-overlay i {
+      font-size: 2rem;
+      color: #fff;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      transform: scale(0.8);
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-item:hover .gallery-overlay i {
+      transform: scale(1);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    
+    .lightbox.active {
+      display: flex;
+      animation: lightboxFade 0.3s ease;
+    }
+    
+    @keyframes lightboxFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.3);
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .lightbox-close:hover {
+      color: var(--lila-light);
+      transform: rotate(90deg);
+    }
+    
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(155, 89, 182, 0.6);
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .lightbox-prev:hover, .lightbox-next:hover {
+      background: var(--lila);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .lightbox-prev { left: -60px; }
+    .lightbox-next { right: -60px; }
+    
+    .lightbox-caption {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE LIGHTBOX */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .lightbox-prev { left: -10px; padding: 8px 10px; }
+      .lightbox-next { right: -10px; padding: 8px 10px; }
+      .lightbox-close { top: -35px; right: 0; font-size: 1.5rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1437,6 +1595,66 @@
         <div class="achievement-item"><i class="fas fa-medal"></i><strong>3</strong><span>Socios</span></div>
         <div class="achievement-item"><i class="fas fa-users"></i><strong>45+</strong><span>Jugadoras Activas</span></div>
       </div>
+            <!-- 📸 GALERÍA DE ENTRENAMIENTOS -->
+      <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff;" class="fade-up">
+        📸 Entrenamientos & Día a Día
+      </h3>
+      
+      <div class="gallery-grid">
+        <!-- FOTO 1 -->
+        <div class="gallery-item fade-up" onclick="openLightbox(0)">
+          <img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=600&auto=format&fit=crop" alt="Entrenamiento físico">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+        <!-- FOTO 2 -->
+        <div class="gallery-item fade-up" onclick="openLightbox(1)">
+          <img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb5a?q=80&w=600&auto=format&fit=crop" alt="Práctica táctica">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+        <!-- FOTO 3 -->
+        <div class="gallery-item fade-up" onclick="openLightbox(2)">
+          <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=600&auto=format&fit=crop" alt="Calentamiento">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+        <!-- FOTO 4 -->
+        <div class="gallery-item fade-up" onclick="openLightbox(3)">
+          <img src="https://images.unsplash.com/photo-1542843360-2547c9e6c4f9?q=80&w=600&auto=format&fit=crop" alt="Trabajo en equipo">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+        <!-- FOTO 5 -->
+        <div class="gallery-item fade-up" onclick="openLightbox(4)">
+          <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?q=80&w=600&auto=format&fit=crop" alt="Entrenamiento en cancha">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+        <!-- FOTO 6 -->
+        <div class="gallery-item fade-up" onclick="openLightbox(5)">
+          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=600&auto=format&fit=crop" alt="Preparación física">
+          <div class="gallery-overlay">
+            <i class="fas fa-search-plus"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIGHTBOX MODAL -->
+      <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+          <button class="lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+          <img src="" alt="Foto ampliada" id="lightbox-img">
+          <button class="lightbox-next" onclick="changeImage(1)">&#10095;</button>
+          <p class="lightbox-caption" id="lightbox-caption"></p>
+        </div>
+      </div>
       
       <div class="tryouts-cta fade-up">
         <h4><i class="fas fa-bullhorn"></i> ¿Querés ser parte del equipo?</h4>
@@ -1781,6 +1999,166 @@
         }
       }
     });
+
+        /* 📸 GALERÍA DE FOTOS */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(155, 89, 182, 0.3);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(125, 60, 152, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .gallery-overlay i {
+      font-size: 2rem;
+      color: #fff;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      transform: scale(0.8);
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-item:hover .gallery-overlay i {
+      transform: scale(1);
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    
+    .lightbox.active {
+      display: flex;
+      animation: lightboxFade 0.3s ease;
+    }
+    
+    @keyframes lightboxFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 0 40px rgba(155, 89, 182, 0.3);
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .lightbox-close:hover {
+      color: var(--lila-light);
+      transform: rotate(90deg);
+    }
+    
+    .lightbox-prev, .lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(155, 89, 182, 0.6);
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+    
+    .lightbox-prev:hover, .lightbox-next:hover {
+      background: var(--lila);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .lightbox-prev { left: -60px; }
+    .lightbox-next { right: -60px; }
+    
+    .lightbox-caption {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE LIGHTBOX */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .lightbox-prev { left: -10px; padding: 8px 10px; }
+      .lightbox-next { right: -10px; padding: 8px 10px; }
+      .lightbox-close { top: -35px; right: 0; font-size: 1.5rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </script>
 </body>
 </html>
