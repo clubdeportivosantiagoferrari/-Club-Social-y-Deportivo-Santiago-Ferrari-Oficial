@@ -920,6 +920,30 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Cambiar tamaño de logos */
+.sponsor-logo { max-height: 80px; } /* Más grandes */
+.sponsor-logo { max-height: 50px; } /* Más chicos */
+
+/* Sin efecto blanco y negro */
+.sponsor-item { filter: grayscale(0%); }
+
+/* Sin animación hover */
+.sponsor-item:hover { transform: none; }
+
+/* Fondo con gradiente lila */
+.sponsors-bar { 
+  background: linear-gradient(135deg, var(--lila-dark), var(--black)); 
+}
+
+/* Más espacio entre logos */
+.sponsors-track { gap: 80px; }
+
+/* Logo principal aún más destacado */
+.sponsor-main .sponsor-logo {
+  max-height: 100px;
+  filter: drop-shadow(0 0 15px var(--lila-glow));
+}
   </style>
 </head>
 <body>
@@ -955,7 +979,34 @@
       </nav>
     </div>
   </header>
-
+ <!-- 🏆 BARRA DE AUSPICIADORES -->
+  <div class="sponsors-bar">
+    <div class="container">
+      <div class="sponsors-track">
+        
+        <!-- Auspiciador Principal (más grande) -->
+        <a href="#" class="sponsor-item sponsor-main" target="_blank">
+          <img src="https://i.postimg.cc/43DTggbk/verschae-Editada.png" alt="Emirates" class="sponsor-logo">
+        </a>
+        
+        <!-- 
+        <a href="#" class="sponsor-item" target="_blank">
+          <img src="https://via.placeholder.com/120x60/1E1E1E/FFFFFF?text=PUMA" alt="Puma" class="sponsor-logo">
+        </a>
+        <a href="#" class="sponsor-item" target="_blank">
+          <img src="https://via.placeholder.com/120x60/1E1E1E/FFFFFF?text=MSC" alt="MSC" class="sponsor-logo">
+        </a>
+        <a href="#" class="sponsor-item" target="_blank">
+          <img src="https://via.placeholder.com/120x60/1E1E1E/FFFFFF?text=KONAMI" alt="Konami" class="sponsor-logo">
+        </a>
+        <a href="#" class="sponsor-item" target="_blank">
+          <img src="https://via.placeholder.com/120x60/1E1E1E/FFFFFF?text=BITPANDA" alt="Bitpanda" class="sponsor-logo">
+        </a>
+        
+      </div>
+    </div>
+  </div> -->
+  
   <!-- HERO -->
   <section id="inicio" class="hero">
     <div class="hero-content fade-up">
