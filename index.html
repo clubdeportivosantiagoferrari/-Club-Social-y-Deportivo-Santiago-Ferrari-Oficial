@@ -580,7 +580,191 @@
       .match-date { font-size: 1rem; }
     }
 
+        /* 👇 SECCIÓN CADETES */
+    #cadetes {
+      background: linear-gradient(to bottom, var(--black), var(--dark));
+      border-top: 1px solid rgba(155, 89, 182, 0.2);
+    }
     
+    .divisions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    
+    .division-card {
+      background: var(--gray);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid #2a2a2a;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .division-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--lila);
+      box-shadow: 0 12px 30px rgba(155, 89, 182, 0.2);
+    }
+    .division-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--lila-dark), var(--lila));
+    }
+    .div-badge {
+      display: inline-block; background: rgba(155, 89, 182, 0.15); color: var(--lila-light);
+      padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 12px;
+    }
+    .div-title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
+    .div-meta { color: var(--muted); font-size: 0.9rem; margin: 6px 0; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .div-meta i { color: var(--lila); }
+
+    /* FIXTURE CADETES */
+    .fixture-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .fixture-card {
+      background: var(--gray);
+      border-radius: 12px;
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 100px 1fr 150px;
+      gap: 24px;
+      align-items: center;
+      border: 1px solid #2a2a2a;
+      transition: var(--transition);
+    }
+    .fixture-card:hover {
+      border-color: var(--lila);
+      transform: translateX(5px);
+      box-shadow: 0 8px 25px rgba(155, 89, 182, 0.15);
+    }
+    
+    .fixture-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(155, 89, 182, 0.1);
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid rgba(155, 89, 182, 0.2);
+    }
+    .fixture-day {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--lila-light);
+      line-height: 1;
+    }
+    .fixture-month {
+      font-size: 0.8rem;
+      color: var(--lila);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .fixture-time {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    
+    .fixture-match {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .fixture-team {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .fixture-team.home { color: #fff; }
+    .fixture-team.away { color: var(--muted); }
+    .fixture-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+    .fixture-vs {
+      background: var(--lila-dark);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    
+    .fixture-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: right;
+    }
+    .fixture-category {
+      background: rgba(155, 89, 182, 0.2);
+      color: var(--lila-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      align-self: flex-end;
+    }
+    .fixture-venue {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .fixture-venue i {
+      color: var(--lila);
+      margin-right: 4px;
+    }
+
+    /* RESPONSIVE FIXTURE */
+    @media (max-width: 768px) {
+      .fixture-card {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        text-align: center;
+      }
+      .fixture-match {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .fixture-team {
+        justify-content: center;
+      }
+      .fixture-info {
+        text-align: center;
+        align-items: center;
+      }
+      .fixture-category {
+        align-self: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .fixture-card {
+        padding: 16px;
+      }
+      .fixture-day {
+        font-size: 1.5rem;
+      }
+      .fixture-logo {
+        width: 35px;
+        height: 35px;
+      }
+    }
     
   </style>
 </head>
@@ -1261,7 +1445,147 @@
       </div>
     </div>
   </section>
+  <!-- 👇 SECCIÓN CADETES -->
+  <section id="cadetes">
+    <div class="container">
+      <div class="section-header fade-up">
+        <h2>Divisiones Inferiores</h2>
+        <p>Conocé nuestros equipos y el calendario de partidos de cadetes.</p>
+        <div class="divider"></div>
+      </div>
 
+      <!-- EQUIPOS -->
+      <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom: 32px; color:#fff; text-align:center;" class="fade-up">Nuestros Equipos</h3>
+      <div class="divisions-grid" style="margin-bottom: 60px;">
+        <div class="division-card fade-up">
+          <span class="div-badge">Sub-13</span>
+          <h3 class="div-title">Baby Fútbol</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Mar y Jue 17:00</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Lucas R.</p>
+        </div>
+        <div class="division-card fade-up">
+          <span class="div-badge">Sub-15</span>
+          <h3 class="div-title">Infantiles</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Lun y Mié 17:30</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Martín V.</p>
+        </div>
+        <div class="division-card fade-up">
+          <span class="div-badge">Sub-17</span>
+          <h3 class="div-title">Cadetes</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Mar, Jue y Sáb</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Diego S.</p>
+        </div>
+        <div class="division-card fade-up">
+          <span class="div-badge">Sub-20</span>
+          <h3 class="div-title">Juveniles</h3>
+          <p class="div-meta"><i class="fas fa-calendar"></i> Lun, Mié y Vie</p>
+          <p class="div-meta"><i class="fas fa-user-tie"></i> Prof. Alejandro M.</p>
+        </div>
+      </div>
+
+      <!-- FIXTURE CADETES -->
+      <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom: 32px; color:#fff; text-align:center;" class="fade-up">Fixture Inferiores</h3>
+      <div class="fixture-container fade-up">
+        
+        <!-- PARTIDO 1 -->
+        <div class="fixture-card">
+          <div class="fixture-date">
+            <span class="fixture-day">06</span>
+            <span class="fixture-month">ABR</span>
+            <span class="fixture-time">19:00</span>
+          </div>
+          <div class="fixture-match">
+            <div class="fixture-team home">
+              <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo">
+              <span>SANTIAGO FERRARI</span>
+            </div>
+            <div class="fixture-vs">VS</div>
+            <div class="fixture-team away">
+              <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="fixture-logo">
+              <span>VILLA LINDA</span>
+            </div>
+          </div>
+          <div class="fixture-info">
+            <span class="fixture-category">Sub-17</span>
+            <span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span>
+          </div>
+        </div>
+
+        <!-- PARTIDO 2 -->
+        <div class="fixture-card">
+          <div class="fixture-date">
+            <span class="fixture-day">06</span>
+            <span class="fixture-month">ABR</span>
+            <span class="fixture-time">20:00</span>
+          </div>
+          <div class="fixture-match">
+            <div class="fixture-team home">
+              <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo">
+              <span>SANTIAGO FERRARI</span>
+            </div>
+            <div class="fixture-vs">VS</div>
+            <div class="fixture-team away">
+              <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="fixture-logo">
+              <span>VILLA LINDA</span>
+            </div>
+          </div>
+          <div class="fixture-info">
+            <span class="fixture-category">Sub-15</span>
+            <span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span>
+          </div>
+        </div>
+
+        <!-- PARTIDO 3 -->
+        <div class="fixture-card">
+          <div class="fixture-date">
+            <span class="fixture-day">06</span>
+            <span class="fixture-month">ABR</span>
+            <span class="fixture-time">21:00</span>
+          </div>
+          <div class="fixture-match">
+            <div class="fixture-team home">
+              <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo">
+              <span>SANTIAGO FERRARI</span>
+            </div>
+            <div class="fixture-vs">VS</div>
+            <div class="fixture-team away">
+              <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="fixture-logo">
+              <span>VILLA LINDA</span>
+            </div>
+          </div>
+          <div class="fixture-info">
+            <span class="fixture-category">Sub-13</span>
+            <span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span>
+          </div>
+        </div>
+
+        <!-- PARTIDO 4 -->
+        <div class="fixture-card">
+          <div class="fixture-date">
+            <span class="fixture-day">13</span>
+            <span class="fixture-month">ABR</span>
+            <span class="fixture-time">17:00</span>
+          </div>
+          <div class="fixture-match">
+            <div class="fixture-team home">
+              <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo">
+              <span>SANTIAGO FERRARI</span>
+            </div>
+            <div class="fixture-vs">VS</div>
+            <div class="fixture-team away">
+              <img src="https://via.placeholder.com/40x40/1E3A8A/FFFFFF?text=JU" alt="JU" class="fixture-logo">
+              <span>JUVENTUD UNIDA</span>
+            </div>
+          </div>
+          <div class="fixture-info">
+            <span class="fixture-category">Sub-20</span>
+            <span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Estadio Municipal</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
    
   <!-- CLUB STATS -->
   <section id="club" class="stats-section">
