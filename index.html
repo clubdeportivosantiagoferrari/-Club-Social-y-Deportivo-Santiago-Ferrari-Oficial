@@ -544,6 +544,25 @@
       .fixture-day { font-size: 1.5rem; }
       .fixture-logo { width: 35px; height: 35px; }
     }
+
+  .countdown-banner {
+  background: linear-gradient(135deg, var(--lila-dark), var(--lila));
+  border-radius: 12px; padding: 20px; margin: 20px 0;
+  text-align: center; border: 2px solid var(--lila-light);
+}
+.countdown-title { font-weight: 700; margin-bottom: 15px; color: #fff; }
+.countdown-timer { display: flex; justify-content: center; gap: 15px; }
+.countdown-item {
+  background: rgba(255,255,255,0.15); padding: 10px 20px;
+  border-radius: 8px; min-width: 70px;
+}
+.countdown-item span {
+  display: block; font-size: 1.8rem; font-weight: 900;
+  font-family: var(--font-heading); color: #fff;
+}
+.countdown-item small {
+  color: var(--lila-light); font-size: 0.75rem; text-transform: uppercase;
+}
   </style>
 </head>
 <body>
@@ -592,7 +611,16 @@
       </div>
     </div>
   </section>
-
+<!-- Agrega esto antes del match ticker -->
+  <div class="countdown-banner fade-up">
+  <div class="countdown-title">Próximo Partido: Santiago Ferrari vs Villa Linda</div>
+  <div class="countdown-timer" id="countdown">
+    <div class="countdown-item"><span id="days">00</span><small>Días</small></div>
+    <div class="countdown-item"><span id="hours">00</small><small>Hs</small></div>
+    <div class="countdown-item"><span id="minutes">00</span><small>Min</small></div>
+    <div class="countdown-item"><span id="seconds">00</span><small>Seg</small></div>
+  </div>
+</div>
   <!-- MATCH TICKER -->
   <div id="partidos" class="match-ticker fade-up">
     <div class="container">
@@ -1210,6 +1238,25 @@
     function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
     document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
     lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+    // Configura la fecha del próximo partido
+const matchDate = new Date('2026-04-11T17:30:00').getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const diff = matchDate - now;
+  
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = '<span style="color:#00ff88;font-weight:700;">¡EN VIVO AHORA! ⚽</span>';
+    return;
+  }
+  
+  document.getElementById('days').textContent = String(Math.floor(diff / (1000*60*60*24))).padStart(2,'0');
+  document.getElementById('hours').textContent = String(Math.floor((diff % (1000*60*60*24)) / (1000*60*60))).padStart(2,'0');
+  document.getElementById('minutes').textContent = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2,'0');
+  document.getElementById('seconds').textContent = String(Math.floor((diff % (1000*60)) / 1000)).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
   </script>
 </body>
 </html>
