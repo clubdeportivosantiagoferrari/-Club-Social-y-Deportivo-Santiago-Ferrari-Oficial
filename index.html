@@ -562,53 +562,60 @@
       .fixture-day { font-size: 1.8rem; }
       .fixture-logo { width: 35px; height: 35px; }
     }
-        /* 🟣 SECCIÓN AUSPICIADORES */
+            /* 🟣 SECCIÓN AUSPICIADORES - LOGOS GRANDES Y PREMIUM */
     #auspiciadores {
       background: var(--black);
-      padding: 60px 0;
+      padding: 80px 0; /* Más espacio vertical */
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
     }
     #auspiciadores .section-header h2 {
-      font-size: 1.8rem;
-      margin-bottom: 12px;
+      font-size: 2.2rem; /* Título más imponente */
+      margin-bottom: 16px;
     }
     #auspiciadores .section-header p {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     
     .sponsor-label {
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
+      letter-spacing: 3px;
+      margin-bottom: 24px;
       font-family: var(--font-heading);
       text-align: center;
     }
     
+    /* ESTILO PARA EL PATROCINADOR PRINCIPAL */
     .main-sponsor {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 60px;
     }
     .main-sponsor-link {
       display: inline-block;
+      background: rgba(255,255,255,0.03); /* Fondo muy sutil */
+      padding: 30px 50px; /* Mucho espacio alrededor del logo */
+      border-radius: 16px;
       transition: var(--transition);
     }
     .main-sponsor-link:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 8px 25px var(--lila-glow));
+      transform: scale(1.03);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     .sponsor-logo-main {
-      max-height: 100px;
+      max-height: 140px; /* ✅ LOGO PRINCIPAL GIGANTE */
       width: auto;
       transition: var(--transition);
     }
     
+    /* ESTILO PARA LA GRILLA DE LOGOS */
     .sponsors-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 30px;
+      /* 3 columnas grandes en escritorio */
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 32px;
       align-items: center;
       justify-items: center;
     }
@@ -617,39 +624,57 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 15px;
+      width: 100%;
+      background: var(--gray); /* Fondo tarjeta */
+      padding: 30px; /* Espacio interno generoso */
+      border-radius: 12px;
+      border: 1px solid #2a2a2a;
       transition: var(--transition);
-      filter: grayscale(100%) brightness(1.2);
-      opacity: 0.7;
+      filter: grayscale(100%) brightness(1.5); /* Blanco brillante */
+      opacity: 0.8;
+      aspect-ratio: 16/9; /* Mantiene la forma rectangular uniforme */
     }
     
     .sponsor-item:hover {
       filter: grayscale(0%) brightness(1);
       opacity: 1;
-      transform: scale(1.1);
+      transform: translateY(-5px);
+      border-color: var(--lila);
+      box-shadow: 0 10px 20px rgba(155, 89, 182, 0.15);
     }
     
     .sponsor-logo {
-      max-height: 50px;
+      max-height: 70px; /* ✅ LOGOS DE LA GRILLA GRANDES */
       width: auto;
+      max-width: 100%;
       transition: var(--transition);
     }
     
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .sponsors-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+      }
+      .sponsor-logo { max-height: 60px; }
+      .sponsor-logo-main { max-height: 120px; }
+    }
+
     @media (max-width: 768px) {
       .sponsors-grid {
-        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
       }
-      .sponsor-logo { max-height: 40px; }
-      .sponsor-logo-main { max-height: 80px; }
+      .sponsor-item { padding: 20px; }
+      .sponsor-logo { max-height: 50px; }
+      .sponsor-logo-main { max-height: 100px; }
+      .main-sponsor-link { padding: 20px 30px; }
     }
     
     @media (max-width: 480px) {
       .sponsors-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        grid-template-columns: 1fr; /* 1 columna en móvil para máxima visibilidad */
       }
-      #auspiciadores { padding: 40px 0; }
+      .sponsor-item { padding: 24px; aspect-ratio: auto; height: auto; }
+      #auspiciadores { padding: 50px 0; }
     }
   </style>
 </head>
