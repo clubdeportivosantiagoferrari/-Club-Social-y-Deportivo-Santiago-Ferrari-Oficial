@@ -562,7 +562,100 @@
       .fixture-day { font-size: 1.8rem; }
       .fixture-logo { width: 35px; height: 35px; }
     }
-       
+           /* 🟣 HEADER FIJO CON AUSPICIADORES */
+    #main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--black);
+      transition: var(--transition);
+      border-bottom: 1px solid transparent;
+    }
+    
+    /* Barra de auspiciadores */
+    .sponsor-strip {
+      background: var(--dark);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+    
+    .sponsor-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    
+    .sponsor-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    
+    .sponsor-logo {
+      height: 28px;
+      width: auto;
+      filter: grayscale(100%) brightness(1.2);
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    
+    .sponsor-link:hover .sponsor-logo {
+      filter: grayscale(0%) brightness(1);
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    
+    /* Estado al hacer scroll (se compacta) */
+    #main-header.scrolled .sponsor-strip {
+      padding: 6px 0;
+    }
+    #main-header.scrolled .sponsor-logo {
+      height: 22px;
+    }
+    #main-header.scrolled {
+      background: rgba(5, 5, 5, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+    #main-header.scrolled .nav-container {
+      padding: 10px 0;
+    }
+    #main-header.scrolled .logo-img {
+      height: 42px;
+    }
+    
+    /* Ajuste de espaciado para que el contenido no quede tapado */
+    body {
+      padding-top: 115px; /* Altura total del header fijo */
+    }
+    #main-header.scrolled ~ body,
+    body.header-scrolled {
+      padding-top: 95px; /* Se reduce al hacer scroll */
+    }
+    
+    /* Responsive móvil */
+    @media (max-width: 768px) {
+      .sponsor-track {
+        gap: 16px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 0 10px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .sponsor-logo { height: 24px; min-width: 60px; }
+      #main-header.scrolled .sponsor-logo { height: 18px; }
+      body { padding-top: 105px; }
+      #main-header.scrolled ~ body, body.header-scrolled { padding-top: 85px; }
+      
+      .nav-links { top: 105px; }
+      #main-header.scrolled .nav-links { top: 85px; }
+    }
   </style>
 </head>
 <body>
@@ -577,8 +670,20 @@
   </div>
 
   <!-- HEADER -->
-  <header id="header">
-    <div class="container nav-container">
+ <header id="main-header">
+    <!-- Barra de Auspiciadores (siempre visible) -->
+    <div class="sponsor-strip">
+      <div class="container sponsor-track">
+        <a href="#" target="_blank" class="sponsor-link"><img src="https://via.placeholder.com/120x40/9B59B6/FFFFFF?text=EMIRATES" alt="Emirates" class="sponsor-logo"></a>
+        <a href="#" target="_blank" class="sponsor-link"><img src="https://via.placeholder.com/100x40/1E1E1E/FFFFFF?text=PUMA" alt="Puma" class="sponsor-logo"></a>
+        <a href="#" target="_blank" class="sponsor-link"><img src="https://via.placeholder.com/100x40/1E1E1E/FFFFFF?text=MSC" alt="MSC" class="sponsor-logo"></a>
+        <a href="#" target="_blank" class="sponsor-link"><img src="https://via.placeholder.com/100x40/1E1E1E/FFFFFF?text=KONAMI" alt="Konami" class="sponsor-logo"></a>
+        <a href="#" target="_blank" class="sponsor-link"><img src="https://via.placeholder.com/100x40/1E1E1E/FFFFFF?text=LOCAL" alt="Local" class="sponsor-logo"></a>
+      </div>
+    </div>
+
+    <!-- Navegación Principal -->
+    <div class="nav-container">
       <a href="#" class="logo">
         <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Escudo Santiago Ferrari" class="logo-img" onerror="this.src='https://i.postimg.cc/FH5hqRRm/SF.png'">
         <div style="display:flex; flex-direction:column;">
@@ -1168,9 +1273,13 @@
   <!-- JAVASCRIPT -->
   <script>
     // Header scroll
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 50));
-
+       // Header scroll effect + sponsor shrink
+    const mainHeader = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      const isScrolled = window.scrollY > 50;
+      mainHeader.classList.toggle('scrolled', isScrolled);
+      document.body.classList.toggle('header-scrolled', isScrolled);
+    });
     // Mobile menu
     const toggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav-links');
