@@ -1521,6 +1521,39 @@
     function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
     document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
     lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+     // 🟣 Tabs para tablas de cadetes
+    function showCadeteTable(e, tableName) {
+      if (e) e.preventDefault();
+      // Ocultar todas las tablas de cadetes
+      ['cadete-d','cadete-c','cadete-b','cadete-a','cadete-juvenil'].forEach(id => {
+        document.getElementById(id)?.classList.remove('active');
+      });
+      // Desactivar todos los botones de cadetes
+      document.querySelectorAll('#cadetes .tab-btn').forEach(btn => btn.classList.remove('active'));
+      // Mostrar tabla seleccionada
+      document.getElementById(tableName)?.classList.add('active');
+      // Activar botón correspondiente
+      e?.currentTarget?.classList.add('active');
+      // Guardar preferencia
+      localStorage.setItem('lastCadeteTable', tableName);
+    }
+    
+    // Cargar última tabla de cadetes vista
+    window.addEventListener('DOMContentLoaded', () => {
+      const lastCadete = localStorage.getItem('lastCadeteTable');
+      if (lastCadete) {
+        const names = ['cadete-d','cadete-c','cadete-b','cadete-a','cadete-juvenil'];
+        const idx = names.indexOf(lastCadete);
+        if (idx !== -1) {
+          // Resetear todas
+          document.querySelectorAll('#cadetes .division-content').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('#cadetes .tab-btn').forEach(b => b.classList.remove('active'));
+          // Activar la guardada
+          document.getElementById(lastCadete)?.classList.add('active');
+          document.querySelectorAll('#cadetes .tab-btn')[idx]?.classList.add('active');
+        }
+      }
+    });
   </script>
 </body>
 </html>
