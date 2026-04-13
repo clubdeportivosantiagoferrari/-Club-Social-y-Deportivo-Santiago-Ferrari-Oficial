@@ -63,7 +63,65 @@
     .btn-outline { background: transparent; border: 2px solid var(--lila-light); box-shadow: none; }
     .btn-outline:hover { background: var(--lila); border-color: var(--lila); box-shadow: 0 8px 20px var(--lila-glow); }
 
-   
+    /* HEADER CON AUSPICIADORES */
+    #main-header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background: var(--black); transition: var(--transition);
+      border-bottom: 1px solid transparent;
+    }
+    .sponsor-strip {
+      background: var(--dark); padding: 16px 0;
+      border-bottom: 1px solid var(--border-color); overflow: hidden;
+    }
+    .sponsor-track {
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .sponsor-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .sponsor-logo {
+      height: 48px; width: auto; max-width: 140px;
+      filter: grayscale(100%) brightness(1.2); opacity: 0.85;
+      transition: var(--transition);
+    }
+    .sponsor-link:hover .sponsor-logo {
+      filter: grayscale(0%) brightness(1); opacity: 1; transform: scale(1.06);
+    }
+    #main-header.scrolled .sponsor-strip { padding: 10px 0; }
+    #main-header.scrolled .sponsor-logo { height: 38px; }
+    #main-header.scrolled {
+      background: rgba(5, 5, 5, 0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+    #main-header.scrolled .nav-container { padding: 8px 0; }
+    #main-header.scrolled .logo-img { height: 40px; }
+
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; }
+    .logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: #fff; font-family: var(--font-heading);
+    }
+    .logo-img {
+      height: 50px; width: auto; object-fit: contain;
+      filter: drop-shadow(0 0 8px var(--lila-glow)); transition: var(--transition);
+    }
+    .logo:hover .logo-img { transform: scale(1.05) rotate(-2deg); filter: drop-shadow(0 0 15px var(--lila-light)); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none; font-weight: 600;
+      font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+      position: relative; transition: var(--transition); font-family: var(--font-heading);
+    }
+    .nav-links a:hover, .nav-links a.active { color: #fff; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -6px; left: 0;
+      width: 0; height: 2px; background: var(--lila);
+      transition: var(--transition); box-shadow: 0 0 8px var(--lila);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .menu-toggle { display: none; background: none; border: none; color: var(--lila-light); font-size: 1.6rem; cursor: pointer; }
 
     /* HERO */
     .hero {
