@@ -980,6 +980,8 @@
     </div>
   </section>
  
+  <!-- SUPER 50 -->
+  
   <div id="super50" class="division-content">
         <div class="table-container">
           <table class="standings-table">
@@ -1494,7 +1496,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       const last = localStorage.getItem('lastDivision');
       if (last) {
-        const names = ['primera','segunda','tercera','femenino-div','senior-div'];
+        const names = ['primera','segunda','tercera','femenino-div','senior-div','super50'];
         const idx = names.indexOf(last);
         if (idx !== -1) {
           document.querySelectorAll('.division-content').forEach(c => c.classList.remove('active'));
