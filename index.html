@@ -833,6 +833,7 @@
         <button class="tab-btn" onclick="showDivision(event, 'tercera')">🟣 Tercera</button>
         <button class="tab-btn" onclick="showDivision(event, 'femenino-div')">🟣 Femenino</button>
         <button class="tab-btn" onclick="showDivision(event, 'senior-div')">🟣 Senior</button>
+        <button class="tab-btn" onclick="showDivision(event, 'super50-div')">🟣 SUPER 50</button>
       </div>
 
       <!-- PRIMERA -->
@@ -978,6 +979,28 @@
         <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 14/ABR/2026</p>
       </div>
     </div>
+          <!-- SUPER 50 -->
+      <div id="super50-div" class="division-content">
+        <div class="table-container">
+          <table class="standings-table">
+            <thead>
+              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
+            </thead>
+            <tbody>
+              <tr class="highlight">
+                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td>
+                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td>
+              </tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Super 50+ • Actualizado: 14/ABR/2026</p>
+      </div>
   </section>
  
 
@@ -1470,7 +1493,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       const last = localStorage.getItem('lastDivision');
       if (last) {
-        const names = ['primera','segunda','tercera','femenino-div','senior-div'];
+        const names = ['primera','segunda','tercera','femenino-div','senior-div','super50-div'];
         const idx = names.indexOf(last);
         if (idx !== -1) {
           document.querySelectorAll('.division-content').forEach(c => c.classList.remove('active'));
