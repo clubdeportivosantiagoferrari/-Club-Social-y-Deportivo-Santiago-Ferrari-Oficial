@@ -1496,7 +1496,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       const last = localStorage.getItem('lastDivision');
       if (last) {
-        const names = ['primera','segunda','tercera','femenino-div','senior-div','super50'];
+        const names = ['primera','segunda','tercera','femenino-div','senior-div'];
         const idx = names.indexOf(last);
         if (idx !== -1) {
           document.querySelectorAll('.division-content').forEach(c => c.classList.remove('active'));
