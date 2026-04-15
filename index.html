@@ -673,6 +673,45 @@
   max-width: 1100px; /* Limita el ancho para que no se estire en pantallas grandes */
   margin: 0 auto;    /* Centra la tabla */
 }
+        /* 🟣 FOOTER ESTILO AC MILAN */
+    .premium-footer {
+      position: relative;
+      background: var(--black);
+      color: var(--text);
+      padding-top: 0;
+      border-top: 3px solid var(--lila);
+    }
+    
+    .footer-wave-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: var(--black);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      z-index: 1;
+    }
+    
+    .premium-footer::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(90deg, var(--lila-dark), var(--lila), transparent);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%);
+      opacity: 0.7;
+      z-index: 2;
+    }
+    
+    @media (max-width: 768px) {
+      .premium-footer .container > div:first-child {
+        flex-direction: column !important;
+        gap: 20px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1382,38 +1421,101 @@
   </section>
 
   <!-- FOOTER PREMIUM -->
+    <!-- 🟣 FOOTER ESTILO AC MILAN -->
   <footer class="premium-footer">
     <div class="footer-wave-top"></div>
-    <div class="container footer-main">
-      <div class="footer-col brand-col">
-        <div class="footer-logo-wrap">
-          <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Escudo" class="f-logo" onerror="this.src='https://i.postimg.cc/FH5hqRRm/SF.png'">
-          <div><h3 class="f-club-name">SANTIAGO FERRARI</h3><span class="f-club-sub">Social y Deportivo</span></div>
+    
+    <!-- Sección Principal del Footer -->
+    <div class="container" style="padding: 60px 0 40px 0;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap;">
+        <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--lila-light); letter-spacing: 3px;">#SIEMPRELILA</div>
+        
+        <div style="text-align: center;">
+          <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" style="width: 120px; height: 120px; object-fit: contain; filter: drop-shadow(0 0 20px var(--lila-glow));">
+          <div style="font-family: var(--font-display); font-size: 2rem; color: #fff; margin-top: 16px; letter-spacing: 4px;">SANTIAGO<br>FERRARI</div>
+          <div style="color: var(--muted); font-size: 0.9rem; margin-top: 8px;">Fundado 1999</div>
         </div>
-        <p class="f-desc">Más que un club. Una familia lila unida por el fútbol, los valores y la pasión que nos define.</p>
-        <div class="f-socials">
-          <a href="https://www.instagram.com/csdsantiagoferrarioficial/" class="f-social" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61562914994061" class="f-social" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-         <!-- <a href="#" class="f-social" aria-label="X/Twitter"><i class="fab fa-x-twitter"></i></a>-->
-          <a href="#" class="f-social" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        
+        <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--lila-light); letter-spacing: 3px;">#GARRAYPASIÓN</div>
+      </div>
+      
+      <!-- Redes Sociales -->
+      <div style="text-align: center; margin-bottom: 40px;">
+        <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">SÍGUENOS EN REDES</div>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://instagram.com/santiagoferrari" target="_blank" style="width: 45px; height: 45px; background: var(--gray); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--lila-light); font-size: 1.4rem; transition: var(--transition);" onmouseover="this.style.background='var(--lila)'; this.style.color='#fff'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--gray)'; this.style.color='var(--lila-light)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com/santiagoferrari" target="_blank" style="width: 45px; height: 45px; background: var(--gray); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--lila-light); font-size: 1.4rem; transition: var(--transition);" onmouseover="this.style.background='var(--lila)'; this.style.color='#fff'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--gray)'; this.style.color='var(--lila-light)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com/santiagoferrari" target="_blank" style="width: 45px; height: 45px; background: var(--gray); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--lila-light); font-size: 1.4rem; transition: var(--transition);" onmouseover="this.style.background='var(--lila)'; this.style.color='#fff'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--gray)'; this.style.color='var(--lila-light)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://youtube.com/@santiagoferrari" target="_blank" style="width: 45px; height: 45px; background: var(--gray); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--lila-light); font-size: 1.4rem; transition: var(--transition);" onmouseover="this.style.background='var(--lila)'; this.style.color='#fff'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--gray)'; this.style.color='var(--lila-light)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://tiktok.com/@santiagoferrari" target="_blank" style="width: 45px; height: 45px; background: var(--gray); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--lila-light); font-size: 1.4rem; transition: var(--transition);" onmouseover="this.style.background='var(--lila)'; this.style.color='#fff'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--gray)'; this.style.color='var(--lila-light)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/56990226657" target="_blank" style="width: 45px; height: 45px; background: var(--gray); border: 1px solid var(--border-color); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--lila-light); font-size: 1.4rem; transition: var(--transition);" onmouseover="this.style.background='var(--lila)'; this.style.color='#fff'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--gray)'; this.style.color='var(--lila-light)'; this.style.transform='translateY(0)'">
+            <i class="fab fa-whatsapp"></i>
+          </a>
         </div>
       </div>
-      <div class="footer-col links-col">
-        <h4 class="f-title">Navegación</h4>
-        <ul class="f-links">
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#partidos">Próximos Partidos</a></li>
-          <li><a href="#noticias">Noticias</a></li>
-          <li><a href="#femenino-team">Equipo Femenino</a></li>
-          <li><a href="#club">Historia & Stats</a></li>
-        </ul>
+      
+      <!-- Divider -->
+      <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--lila), transparent); margin: 40px 0;"></div>
+      
+      <!-- Links y Copyright -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 40px;">
+        <div>
+          <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">CLUB</div>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;"><a href="#inicio" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Inicio</a></li>
+            <li style="margin-bottom: 10px;"><a href="#partidos" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Partidos</a></li>
+            <li style="margin-bottom: 10px;"><a href="#noticias" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Noticias</a></li>
+            <li style="margin-bottom: 10px;"><a href="#contacto" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">EQUIPOS</div>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;"><a href="#femenino-team" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Femenino</a></li>
+            <li style="margin-bottom: 10px;"><a href="#cadetes" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Cadetes</a></li>
+            <li style="margin-bottom: 10px;"><a href="#" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Primera División</a></li>
+            <li style="margin-bottom: 10px;"><a href="#" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Senior</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">LEGAL</div>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;"><a href="#" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Privacidad</a></li>
+            <li style="margin-bottom: 10px;"><a href="#" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Términos de Uso</a></li>
+            <li style="margin-bottom: 10px;"><a href="#" style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: var(--transition);" onmouseover="this.style.color='var(--lila-light)'" onmouseout="this.style.color='var(--muted)'">Cookies</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">CONTACTO</div>
+          <ul style="list-style: none; padding: 0; color: var(--muted); font-size: 0.9rem;">
+            <li style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--lila); margin-right: 8px;"></i> csdsantiagoferrari@gmail.com</li>
+            <li style="margin-bottom: 10px;"><i class="fas fa-phone" style="color: var(--lila); margin-right: 8px;"></i> +56 9 9022 6657</li>
+            <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="color: var(--lila); margin-right: 8px;"></i> Viña del Mar, Chile</li>
+          </ul>
+        </div>
       </div>
-    </div>
-    </div>
-    <div class="footer-bar">
-      <div class="container">
-        <p>&copy; <span id="f-year"></span> F.C. Social y Deportivo Santiago Ferrari. Todos los derechos reservados.</p>
-        <p class="f-made">Diseñado con 💜 para el fútbol lila</p>
+      
+      <!-- Copyright -->
+      <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p style="color: #555; font-size: 0.85rem; margin: 0;">
+          © <span id="footer-year"></span> F.C. Social y Deportivo Santiago Ferrari. Todos los derechos reservados.
+        </p>
+        <p style="color: var(--lila-light); font-size: 0.8rem; margin: 8px 0 0 0;">
+          Diseñado con 💜 para el fútbol lila
+        </p>
       </div>
     </div>
   </footer>
