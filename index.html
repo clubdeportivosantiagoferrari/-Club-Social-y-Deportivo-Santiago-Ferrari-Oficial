@@ -44,7 +44,7 @@
       font-family: var(--font-body);
       line-height: 1.6;
       overflow-x: hidden;
-      padding-top: 90px; /* Espacio para header fijo simple */
+      padding-top: 90px;
     }
     body.header-scrolled { padding-top: 75px; }
 
@@ -250,7 +250,7 @@
     .contact-form textarea { min-height: 140px; resize: vertical; }
 
     /* FOOTER PREMIUM */
-    .premium-footer { position: relative; background: var(--dark); color: var(--text); padding-top: 60px; }
+    .premium-footer { position: relative; background: var(--dark); color: var(--text); padding-top: 0; border-top: 3px solid var(--lila); }
     .footer-wave-top {
       position: absolute; top: 0; left: 0; width: 100%; height: 50px;
       background: var(--black); clip-path: polygon(0 100%, 100% 0, 100% 100%); z-index: 1;
@@ -260,55 +260,10 @@
       background: linear-gradient(90deg, var(--lila-dark), var(--lila), transparent);
       clip-path: polygon(0 100%, 100% 0, 100% 100%); opacity: 0.7; z-index: 2;
     }
-    .footer-main {
-      display: grid; grid-template-columns: 1.2fr 0.8fr 1fr; gap: 40px;
-      padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 3;
-    }
-    .footer-logo-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .f-logo { width: 48px; height: 48px; filter: drop-shadow(0 0 10px var(--lila-glow)); }
-    .f-club-name { font-family: var(--font-display); font-size: 2rem; font-weight: 400; line-height: 1; margin: 0; letter-spacing: 2px; }
-    .f-club-sub { font-size: 0.8rem; color: var(--lila-light); letter-spacing: 1.5px; text-transform: uppercase; font-family: var(--font-heading); }
-    .f-desc { color: var(--muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-    .f-socials { display: flex; gap: 10px; }
-    .f-social {
-      width: 38px; height: 38px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      color: var(--lila-light); font-size: 1rem; transition: var(--transition); text-decoration: none;
-    }
-    .f-social:hover { background: var(--lila); color: #fff; border-color: var(--lila); transform: translateY(-3px) rotate(3deg); box-shadow: 0 5px 15px var(--lila-glow); }
-    .f-title {
-      font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: #fff;
-      margin-bottom: 20px; padding-bottom: 8px; position: relative; letter-spacing: 2px;
-    }
-    .f-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background: var(--lila); }
-    .f-links { list-style: none; padding: 0; }
-    .f-links li { margin-bottom: 10px; }
-    .f-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.95rem;
-      transition: 0.3s; display: inline-flex; align-items: center; gap: 6px;
-    }
-    .f-links a::before { content: '▸'; color: var(--lila); opacity: 0; transition: 0.3s; font-size: 0.8rem; }
-    .f-links a:hover { color: var(--lila-light); padding-left: 5px; }
-    .f-links a:hover::before { opacity: 1; }
-    .f-cta-text { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
-    .btn-join {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: linear-gradient(135deg, var(--lila), var(--lila-dark));
-      color: #fff; padding: 12px 24px; border-radius: 6px;
-      font-weight: 700; font-size: 0.9rem; text-decoration: none;
-      transition: var(--transition); margin-bottom: 16px; font-family: var(--font-heading);
-    }
-    .btn-join:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--lila-glow); }
-    .f-contact-mini { display: flex; flex-direction: column; gap: 6px; font-size: 0.85rem; color: var(--muted); }
-    .f-contact-mini i { color: var(--lila); margin-right: 6px; }
-    .footer-bar { background: var(--black); padding: 20px 0; text-align: center; position: relative; z-index: 3; }
-    .footer-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-    .footer-bar p { margin: 0; font-size: 0.85rem; color: #555; }
-    .f-made { color: var(--lila-light); font-size: 0.8rem; }
-
+    
     /* TABLA DE POSICIONES */
     .table-container { overflow-x: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); -webkit-overflow-scrolling: touch; }
-    .standings-table { width: 100%; border-collapse: collapse; background: var(--gray); color: var(--text); font-size: 0.9rem; min-width: 650px; }
+    .standings-table { width: 100%; max-width: 1100px; margin: 0 auto; border-collapse: collapse; background: var(--gray); color: var(--text); font-size: 0.9rem; min-width: 650px; }
     .standings-table th {
       background: var(--lila-dark); color: #fff; padding: 14px 10px; text-align: center;
       font-weight: 700; font-family: var(--font-heading); text-transform: uppercase;
@@ -349,7 +304,7 @@
       background: var(--gray); border: 1px solid #333; border-top: 3px solid var(--lila);
       border-radius: 12px; padding: 30px 40px; display: grid;
       grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center;
-      justify-items: center; max-width: 900px; margin: 0 auto;
+      justify-items: center; max-width: 900px; margin: 24px auto 0 auto;
       box-shadow: 0 15px 30px rgba(0,0,0,0.6); transition: var(--transition);
     }
     .match-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px var(--lila-glow); border-top-color: var(--lila-light); }
@@ -668,43 +623,6 @@
       .fixture-day { font-size: 1.8rem; }
       .fixture-logo { width: 35px; height: 35px; }
     }
-    .standings-table {
-  width: 100%;
-  max-width: 1100px; /* Limita el ancho para que no se estire en pantallas grandes */
-  margin: 0 auto;    /* Centra la tabla */
-}
-        /* 🟣 FOOTER ESTILO AC MILAN */
-    .premium-footer {
-      position: relative;
-      background: var(--black);
-      color: var(--text);
-      padding-top: 0;
-      border-top: 3px solid var(--lila);
-    }
-    
-    .footer-wave-top {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background: var(--black);
-      clip-path: polygon(0 100%, 100% 0, 100% 100%);
-      z-index: 1;
-    }
-    
-    .premium-footer::before {
-      content: '';
-      position: absolute;
-      top: -50px;
-      left: 0;
-      width: 100%;
-      height: 50px;
-      background: linear-gradient(90deg, var(--lila-dark), var(--lila), transparent);
-      clip-path: polygon(0 100%, 100% 0, 100% 100%);
-      opacity: 0.7;
-      z-index: 2;
-    }
     
     @media (max-width: 768px) {
       .premium-footer .container > div:first-child {
@@ -768,67 +686,82 @@
         <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 40px;">Próximos Partidos</h2>
       </div>
 
-      <div class="match-card" style="margin-top: 24px;">
+      <div class="match-card">
         <div class="team-logo-container">
           <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
           <span class="team-name">SANTIAGO FERRARI</span>
         </div>
         <div class="match-info">
           <div class="match-category">
-            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PROXIMO PARTIDO </span>
+            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
           </div>
           <div class="match-meta">
             <span class="competition">3ERA DIVISIÓN</span>
             <strong class="match-date">24 ABR | 19:00</strong>
           </div>
           <div class="match-venue">
-            <i class="fas fa-map-marker-alt"></i> Cancha Atletico Agua Santa
+            <i class="fas fa-map-marker-alt"></i> Cancha Atlético Agua Santa
           </div>
         </div>
-        <div class="match-card" style="margin-top: 24px;">
+        <div class="team-logo-container">
+          <img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="A. Agua Santa" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=AAS'">
+          <span class="team-name">A.AGUA SANTA</span>
+        </div>
+      </div>
+
+      <div class="match-card">
         <div class="team-logo-container">
           <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
           <span class="team-name">SANTIAGO FERRARI</span>
         </div>
         <div class="match-info">
           <div class="match-category">
-            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PROXIMO PARTIDO </span>
+            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
           </div>
           <div class="match-meta">
             <span class="competition">2DA DIVISIÓN</span>
             <strong class="match-date">24 ABR | 20:00</strong>
           </div>
           <div class="match-venue">
-            <i class="fas fa-map-marker-alt"></i> Cancha Atletico Agua Santa
+            <i class="fas fa-map-marker-alt"></i> Cancha Atlético Agua Santa
           </div>
         </div>
-    
+        <div class="team-logo-container">
+          <img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="A. Agua Santa" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=AAS'">
+          <span class="team-name">A.AGUA SANTA</span>
+        </div>
+      </div>
 
-    <div class="match-card" style="margin-top: 24px;">
+      <div class="match-card">
         <div class="team-logo-container">
           <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
           <span class="team-name">SANTIAGO FERRARI</span>
         </div>
         <div class="match-info">
           <div class="match-category">
-            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PROXIMO PARTIDO </span>
+            <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
           </div>
           <div class="match-meta">
             <span class="competition">1ERA DIVISIÓN</span>
             <strong class="match-date">24 ABR | 21:00</strong>
           </div>
           <div class="match-venue">
-            <i class="fas fa-map-marker-alt"></i> Cancha Atletico Agua Santa
+            <i class="fas fa-map-marker-alt"></i> Cancha Atlético Agua Santa
           </div>
         </div>
+        <div class="team-logo-container">
+          <img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="A. Agua Santa" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=AAS'">
+          <span class="team-name">A.AGUA SANTA</span>
+        </div>
+      </div>
 
-    <div style="text-align: center; margin-top: 32px;">
+      <div style="text-align: center; margin-top: 32px;">
         <a href="#" class="btn btn-outline"><i class="fas fa-calendar-alt"></i> Ver Fixture Completo</a>
       </div>
     </div>
   </div>
   
-  <!-- 🟣 SECCIÓN AUSPICIADORES (INDEPENDIENTE, NO EN HEADER) -->
+  <!-- 🟣 SECCIÓN AUSPICIADORES -->
   <section id="auspiciadores">
     <div class="container">
       <div class="section-header fade-up">
@@ -866,176 +799,141 @@
       </div>
 
       <!-- PRIMERA -->
-    <div id="primera" class="division-content active">
+      <div id="primera" class="division-content active">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr>
-                <th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th>
-              </tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="VL" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td>
-                <td>2</td><td>1</td><td>1</td><td>0</td><td>7</td><td>2</td><td>+5</td><td><strong>4</strong></td>
-              </tr>
-              <tr>
-                <td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="SF" class="team-logo-small"><span>LAS PALMAS</span></div></td>
-                <td>2</td><td>1</td><td>1</td><td>0</td><td>4</td><td>1</td><td>+3</td><td>4</td>
-              </tr>
-              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="RE" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>0</td><td>+8</td><td>3</td></tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>7</td><td>2</td><td>+5</td><td><strong>4</strong></td></tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>4</td><td>1</td><td>+3</td><td>4</td></tr>
+              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>8</td><td>0</td><td>+8</td><td>3</td></tr>
               <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>1</td><td>+4</td><td>3</td></tr>
-              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="VM" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>6</td><td>4</td><td>+2</td><td>3</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="JU" class="team-logo-small"><span>UNION INDEPENDIENTE</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td><td>3</td><td>+2</td><td>3</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="LP" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>1</td><td>+2</td><td>3</td></tr>
-              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VM" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
-              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="AS" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>9</td><td>-7</td><td>0</td></tr>
-              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="VS" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>11</td><td>-9</td><td>0</td></tr>
-              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="SM" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>1</td><td>12</td><td>-11</td><td>0</td></tr>
+              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>6</td><td>4</td><td>+2</td><td>3</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td><td>3</td><td>+2</td><td>3</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>1</td><td>+2</td><td>3</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
+              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>9</td><td>-7</td><td>0</td></tr>
+              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>11</td><td>-9</td><td>0</td></tr>
+              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>1</td><td>12</td><td>-11</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 16/ABR/2026</p>
       </div>
 
-<!-- SEGUNDA -->
+      <!-- SEGUNDA -->
       <div id="segunda" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><strong>LAS PALMAS</strong></div></td>
-                <td>2</td><td>2</td><td>0</td><td>0</td><td>7</td><td>0</td><td>+7</td><td><strong>6</strong></td>
-              </tr>
-              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.pngg" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>5</td><td>3</td><td>+2</td><td>4</td></tr>
-              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.pnG" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>7</td><td>3</td><td>+4</td><td>3</td></tr>
-              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="NA" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td><td>2</td><td>+3</td><td>3</td></tr>
-              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="UI" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>0</td><td>+3</td><td>1</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="JU" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>2</td><td>+2</td><td>3</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="LP" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>7</td><td>-5</td><td>3</td></tr>
-              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VM" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
-              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>9</td><td>-7</td><td>0</td></tr>
-              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="VS" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
-              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="SM" class="team-logo-small"><span>UNION INDEPENDIENTE</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>6</td><td>-6</td><td>0</td></tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><strong>LAS PALMAS</strong></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>7</td><td>0</td><td>+7</td><td><strong>6</strong></td></tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>5</td><td>3</td><td>+2</td><td>4</td></tr>
+              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>7</td><td>3</td><td>+4</td><td>3</td></tr>
+              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td><td>2</td><td>+3</td><td>3</td></tr>
+              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>0</td><td>+3</td><td>3</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>+2</td><td>3</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>7</td><td>-5</td><td>3</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>9</td><td>-7</td><td>0</td></tr>
+              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>6</td><td>-6</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 14/ABR/2026</p>
       </div>
 
-     <!-- TERCERA -->
+      <!-- TERCERA -->
       <div id="tercera" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="SF" class="team-logo-small"><strong>JUVENTUD UNIDA</strong></div></td>
-                <td>2</td><td>2</td><td>0</td><td>0</td><td>3</td><td>0</td><td>+3</td><td><strong>6</strong></td>
-              </tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><strong>JUVENTUD UNIDA</strong></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>3</td><td>0</td><td>+3</td><td><strong>6</strong></td></tr>
               <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>4</td><td>1</td><td>+3</td><td>4</td></tr>
-              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="RE" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>3</td><td>2</td><td>+1</td><td>3</td></tr>
-              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.pngg" alt="SM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>2</td><td>1</td><td>3</td></tr>
-              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="NA" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>3</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="NA" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>2</td><td>0</td><td>2</td><td>0</td><td>2</td><td>2</td><td>0</td><td>2</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="JU" class="team-logo-small"><span>SOL DE MAYO </span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
-              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="LP" class="team-logo-small"><span>UNION INDEPENDIENTE</span></div></td><td>2</td><td>0</td><td>1</td><td>1</td><td>3</td><td>4</td><td>-1</td><td>1</td></tr>
-              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="VM" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>1</td><td>1</td><td>2</td><td>4</td><td>-2</td><td>1</td></tr>
-              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="AS" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
-              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="VS" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
-             
+              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>3</td><td>2</td><td>+1</td><td>3</td></tr>
+              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>2</td><td>+1</td><td>3</td></tr>
+              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td>3</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>2</td><td>0</td><td>2</td><td>0</td><td>2</td><td>2</td><td>0</td><td>2</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>2</td><td>0</td><td>1</td><td>1</td><td>3</td><td>4</td><td>-1</td><td>1</td></tr>
+              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>1</td><td>1</td><td>2</td><td>4</td><td>-2</td><td>1</td></tr>
+              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+            </tbody>
           </table>
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 14/ABR/2026</p>
       </div>
      
-      <!-- FEMENINO DIVISIÓN -->
+      <!-- FEMENINO -->
       <div id="femenino-div" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="SF" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td>
-                <td>2</td><td>2</td><td>0</td><td>0</td><td>9</td><td>0</td><td>+9</td><td><strong>6</strong></td>
-              </tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>9</td><td>0</td><td>+9</td><td><strong>6</strong></td></tr>
               <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>6</td><td>1</td><td>+5</td><td>3</td></tr>
-              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="RE" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>2</td><td>1</td><td></td><td>1</td><td>3</td><td>2</td><td>+1</td><td>3</td></tr>
+              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>3</td><td>2</td><td>+1</td><td>3</td></tr>
               <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="JU" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="LP" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="VM" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
-              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="AS" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>7</td><td>-5</td><td>0</td></tr>
-              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="SM" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>7</td><td>-7</td><td>0</td></tr>
+              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>7</td><td>-6</td><td>0</td></tr>
+              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>7</td><td>-7</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 19/ABR/2026</p>
       </div>
     
-      <!-- SENIOR DIVISIÓN -->
+      <!-- SENIOR -->
       <div id="senior-div" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SF" class="team-logo-small"><strong>SOL DE MAYO</strong></div></td>
-                <td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>0</td><td>+4</td><td><strong>3</strong></td>
-              </tr>
-              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="VL" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>+2</td><td>3</td></tr>
-              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="RE" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>2</td><td>+2</td><td>3</td></tr>
-              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="NA" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>1</td><td>+2</td><td>3</td></tr>
-              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="UI" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>1</td><td>+2</td><td>3</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="JU" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td>-2</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="LP" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td>-2</td><td>0</td></tr>
-              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VM" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>4</td><td>-2</td><td>0</td></tr>
-              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="AS" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>0</td></tr>
-              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="VS" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="SM" class="team-logo-small"><span>VELEZ SARSIFIELD</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>4</td><td>-4</td><td>0</td></tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><strong>SOL DE MAYO</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>0</td><td>+4</td><td><strong>3</strong></td></tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>+2</td><td>3</td></tr>
+              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>2</td><td>+2</td><td>3</td></tr>
+              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>1</td><td>+2</td><td>3</td></tr>
+              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>1</td><td>+2</td><td>3</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td>-2</td><td>0</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td>-2</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>4</td><td>-2</td><td>0</td></tr>
+              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>2</td><td>-2</td><td>0</td></tr>
+              <tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>4</td><td>-4</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 14/ABR/2026</p>
       </div>
-    </div>
-          <!-- SUPER 50 -->
+
+      <!-- SUPER 50 -->
       <div id="super50-div" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="SF" class="team-logo-small"><strong>REAL ESPAÑA </strong></div></td>
-                <td>2</td><td>2</td><td>0</td><td>0</td><td>9</td><td>0</td><td>+9</td><td><strong>6</strong></td>
-              </tr>
-              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="VL" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
-              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="RE" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="NA" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
-              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="JU" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>2</td><td>0</td><td>1</td><td>1</td><td>1</td><td>3</td><td>-2</td><td>1</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="LP" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>9</td><td>0</td><td>+9</td><td><strong>6</strong></td></tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+              <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+              <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+              <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>2</td><td>0</td><td>1</td><td>1</td><td>1</td><td>3</td><td>-2</td><td>1</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="UI" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="UI" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>7</td><td>-7</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>7</td><td>-7</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="table-footer"><i class="fas fa-info-circle"></i>  • Actualizado: 19/ABR/2026</p>
+        <p class="table-footer"><i class="fas fa-info-circle"></i> Super 50+ • Actualizado: 19/ABR/2026</p>
       </div>
+
     </div>
   </section>
- 
 
   <!-- NOTICIAS -->
   <section id="noticias">
@@ -1047,11 +945,11 @@
       </div>
       <div class="news-grid">
         <article class="news-card fade-up">
-          <img src="assets/primeranoticias.jpg" class="news-img" alt="Partido" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
+          <img src="https://i.postimg.cc/T1pyyxYt/Whats-App-Image-2026-04-07-at-12-33-24-AM.jpg" class="news-img" alt="Partido" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">Primera División</span>
-            <h3> PRIMERA DIVISIÓN - CD SANTIAGO FERRARI 💜⚽</h3>
-            <p>Hoy no ganó el resultado... pero ganó el corazón.🙏 Gracias por el aguante.🔥 Gracias por la pasión.💪 Mañana, más fuertes. Nuestra primera cayo ante un rival complicado. A seguir trabajando.</p>
+            <h3>PRIMERA DIVISIÓN - CD SANTIAGO FERRARI 💜⚽</h3>
+            <p>Hoy no ganó el resultado... pero ganó el corazón.🙏 Gracias por el aguante.🔥 Gracias por la pasión.💪 Mañana, más fuertes. Nuestra primera cayó ante un rival complicado. A seguir trabajando.</p>
           </div>
         </article>
         <article class="news-card fade-up">
@@ -1059,7 +957,7 @@
           <div class="news-content">
             <span class="news-tag">Tercera División</span>
             <h3>🟣🔥 ¡VICTORIA DE LA TERCERA! 🔥 ⚽</h3>
-            <p>💪 Partido apretado, corazón grande.¡Orgullo Ferrari! ❤️⚽#VamosFerrari #Tercera.</p>
+            <p>💪 Partido apretado, corazón grande.¡Orgullo Ferrari! ❤️⚽ #VamosFerrari #Tercera.</p>
           </div>
         </article>
         <article class="news-card fade-up">
@@ -1074,17 +972,15 @@
           <img src="https://i.postimg.cc/7ZcMGGDT/Whats-App-Image-2026-04-14-at-9-58-57-PM.jpg" class="news-img" alt="Senior" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">División Segunda</span>
-            <h3>🟣REMONTADA ⚽</h3>
-            <p>"¡¡¡QUÉ PARTIDAZO!!! 🔥🔥🔥 ¡Esto es de película! Una remontada histórica de la Segunda División del Club Deportivo Santiago Ferrari: perder 2-0 desde el primer minuto y dar vuelta el partido 4-2 es pura GARRA y CORAZÓN. Y con un arquero que fue una muralla... ."</p>
+            <h3>🟣 REMONTADA ⚽</h3>
+            <p>"¡¡¡QUÉ PARTIDAZO!!! 🔥🔥🔥 ¡Esto es de película! Una remontada histórica de la Segunda División del Club Deportivo Santiago Ferrari: perder 2-0 desde el primer minuto y dar vuelta el partido 4-2 es pura GARRA y CORAZÓN. Y con un arquero que fue una muralla..."</p>
           </div>
         </article>
       </div>
-
-       <div style="text-align: center; margin-top: 40px;">
+      <div style="text-align: center; margin-top: 40px;">
         <a href="#" class="btn btn-outline"><i class="fas fa-newspaper"></i> Ver Todas las Noticias</a>
       </div>
     </div>
-  
   </section>
 
   <!-- EQUIPO FEMENINO -->
@@ -1100,7 +996,7 @@
         <div>
           <h3>Fuerza Lila en la Cancha</h3>
           <p>El equipo femenino crece temporada tras temporada, formando jugadoras técnicas, inteligentes y comprometidas con los valores del club.</p>
-          <p><strong style="color:var(--lila-light);">Categorías:</strong> Sub-14 • Sub-35 </p>
+          <p><strong style="color:var(--lila-light);">Categorías:</strong> Sub-14 • Sub-35</p>
           <a href="#contacto" class="btn" style="margin-top:10px;"><i class="fas fa-futbol"></i> Quiero Probar</a>
         </div>
       </div>
@@ -1256,7 +1152,7 @@
         </div>
       </div>
 
-         <!-- TABLAS DE POSICIONES CADETES -->
+      <!-- TABLAS DE POSICIONES CADETES -->
       <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 32px; color:#fff; text-align:center;" class="fade-up">Posiciones por Categoría</h3>
       
       <!-- Tabs de navegación -->
@@ -1272,21 +1168,16 @@
       <div id="cadete-d" class="division-content active">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-               <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td>
-                <td>1</td><td>1</td><td>0</td><td>0</td><td>7</td><td>0</td><td>+7</td><td><strong>3</strong></td>
-              </tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>7</td><td>0</td><td>+7</td><td><strong>3</strong></td></tr>
               <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>7</td><td>-7</td><td>0</td></tr>
               <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="RE" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="LP" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
@@ -1297,21 +1188,16 @@
       <div id="cadete-c" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td>
-                <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td>
-              </tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
               <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="RE" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-               <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="LP" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
@@ -1322,21 +1208,17 @@
       <div id="cadete-b" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-               <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="SF" class="team-logo-small"><strong>JUVENTU UNIDA</strong></div></td>
-                <td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>+5</td><td><strong>3</strong></td>
-              </tr>
-              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="VL" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td>3</td></tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><strong>JUVENTUD UNIDA</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>+5</td><td><strong>3</strong></td></tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td>3</td></tr>
               <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
               <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="JU" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="RE" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="LP" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
           </table>
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-12 a Sub-14 • Actualizado: 15/ABR/2026</p>
@@ -1346,21 +1228,17 @@
       <div id="cadete-a" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                 <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="SF" class="team-logo-small"><strong>VILLA LINDA</strong></div></td>
-                <td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>3</strong></td>
-              </tr>
-              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="VL" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><strong>VILLA LINDA</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td><strong>3</strong></td></tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td>3</td></tr>
               <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
               <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="JU" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="RE" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="LP" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            </tbody>
           </table>
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-14 a Sub-16 • Actualizado: 15/ABR/2026</p>
@@ -1370,21 +1248,16 @@
       <div id="cadete-juvenil" class="division-content">
         <div class="table-container">
           <table class="standings-table">
-            <thead>
-              <tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr>
-            </thead>
+            <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
             <tbody>
-              <tr class="highlight">
-                <td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="SF" class="team-logo-small"><strong>VILLA LINDA</strong></div></td>
-                <td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>+5</td><td><strong>3</strong></td>
-              </tr>
-              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="VL" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
+              <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><strong>VILLA LINDA</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>+5</td><td><strong>3</strong></td></tr>
+              <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
               <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
               <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="RE" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="LP" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
             </tbody>
           </table>
         </div>
@@ -1435,8 +1308,7 @@
     </div>
   </section>
 
-  <!-- FOOTER PREMIUM -->
-    <!-- 🟣 FOOTER ESTILO AC MILAN -->
+  <!-- 🟣 FOOTER ESTILO AC MILAN -->
   <footer class="premium-footer">
     <div class="footer-wave-top"></div>
     
@@ -1513,7 +1385,7 @@
         <div>
           <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">CONTACTO</div>
           <ul style="list-style: none; padding: 0; color: var(--muted); font-size: 0.9rem;">
-            
+            <li style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--lila); margin-right: 8px;"></i> csdsantiagoferrari@gmail.com</li>
             <li style="margin-bottom: 10px;"><i class="fas fa-phone" style="color: var(--lila); margin-right: 8px;"></i> +56 9 9022 6657</li>
             <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt" style="color: var(--lila); margin-right: 8px;"></i> Nueva Aurora, Viña del Mar, Chile</li>
           </ul>
@@ -1527,6 +1399,7 @@
         </p>
         <p style="color: var(--lila-light); font-size: 0.8rem; margin: 8px 0 0 0;">
           Diseñado por auraenteprise
+        </p>
       </div>
     </div>
   </footer>
@@ -1538,7 +1411,7 @@
 
   <!-- JAVASCRIPT -->
   <script>
-    // Header scroll effect (simple)
+    // Header scroll effect
     const mainHeader = document.getElementById('main-header');
     window.addEventListener('scroll', () => {
       const isScrolled = window.scrollY > 50;
@@ -1567,7 +1440,7 @@
     setTimeout(() => { const l = document.getElementById('loader'); if (l && !l.classList.contains('hidden')) { l.classList.add('hidden'); l.parentNode?.removeChild(l); }}, 5000);
 
     // Footer year
-    document.getElementById('f-year').textContent = new Date().getFullYear();
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
 
     // Division tabs (Principales)
     function showDivision(e, div) {
@@ -1592,7 +1465,7 @@
       }
     });
 
-    // 🟣 Tabs para tablas de cadetes
+    // Tabs para tablas de cadetes
     function showCadeteTable(e, tableName) {
       if (e) e.preventDefault();
       ['cadete-d','cadete-c','cadete-b','cadete-a','cadete-juvenil'].forEach(id => {
@@ -1633,39 +1506,6 @@
     function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
     document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
     lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-     // 🟣 Tabs para tablas de cadetes
-    function showCadeteTable(e, tableName) {
-      if (e) e.preventDefault();
-      // Ocultar todas las tablas de cadetes
-      ['cadete-d','cadete-c','cadete-b','cadete-a','cadete-juvenil'].forEach(id => {
-        document.getElementById(id)?.classList.remove('active');
-      });
-      // Desactivar todos los botones de cadetes
-      document.querySelectorAll('#cadetes .tab-btn').forEach(btn => btn.classList.remove('active'));
-      // Mostrar tabla seleccionada
-      document.getElementById(tableName)?.classList.add('active');
-      // Activar botón correspondiente
-      e?.currentTarget?.classList.add('active');
-      // Guardar preferencia
-      localStorage.setItem('lastCadeteTable', tableName);
-    }
-    
-    // Cargar última tabla de cadetes vista
-    window.addEventListener('DOMContentLoaded', () => {
-      const lastCadete = localStorage.getItem('lastCadeteTable');
-      if (lastCadete) {
-        const names = ['cadete-d','cadete-c','cadete-b','cadete-a','cadete-juvenil'];
-        const idx = names.indexOf(lastCadete);
-        if (idx !== -1) {
-          // Resetear todas
-          document.querySelectorAll('#cadetes .division-content').forEach(c => c.classList.remove('active'));
-          document.querySelectorAll('#cadetes .tab-btn').forEach(b => b.classList.remove('active'));
-          // Activar la guardada
-          document.getElementById(lastCadete)?.classList.add('active');
-          document.querySelectorAll('#cadetes .tab-btn')[idx]?.classList.add('active');
-        }
-      }
-    });
   </script>
 </body>
 </html>
