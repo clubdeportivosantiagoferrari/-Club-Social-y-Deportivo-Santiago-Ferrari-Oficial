@@ -192,7 +192,16 @@
     }
     .player-card:hover { transform: translateY(-6px); border-color: var(--lila); box-shadow: 0 12px 30px var(--lila-glow); }
     .player-photo-container { position: relative; width: 100%; height: 280px; overflow: hidden; background-color: #1a1a1a; }
-    .player-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s ease; }
+    
+    /* CORRECCIÓN DE IMAGEN PARA QUE CALCE JUSTO */
+    .player-photo { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; /* Hace que la imagen llene el cuadro recortando lo que sobra */
+      object-position: center center; /* Centra la imagen para cortar por el medio */
+      transition: transform 0.5s ease; 
+    }
+    
     .player-card:hover .player-photo { transform: scale(1.05); }
     .player-number-overlay {
       position: absolute; bottom: 10px; right: 10px;
@@ -1190,7 +1199,6 @@
       <div class="slider-container fade-up">
         <div class="slider-track">
           <!-- GRUPO 1: Jugadores Infantiles D -->
-          <!-- Reemplaza las URLs de las imágenes con las fotos reales de tus jugadores infantiles -->
           <div class="player-card">
             <div class="player-photo-container">
               <img src="https://i.postimg.cc/3RVjHQBg/Whats-App-Image-2026-05-10-at-3-20-47-PM.jpg" alt="Jugador 1" class="player-photo">
@@ -1213,7 +1221,7 @@
           </div>
           <div class="player-card">
             <div class="player-photo-container">
-              <img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg alt="Jugador 3" class="player-photo">
+              <img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg" alt="Jugador 3" class="player-photo">
               <span class="player-number-overlay">16</span>
             </div>
             <div class="player-info">
@@ -1265,7 +1273,7 @@
           </div>
           <div class="player-card">
             <div class="player-photo-container">
-              <img src="https://i.postimg.cc/TYh42skF/Whats-App-Image-2026-03-14-at-12-01-23-AM.jpg" alt="Jugador 2" class="player-photo">
+              <img src="https://i.postimg.cc/R0jqSSkm/Whats-App-Image-2026-05-10-at-4-54-40-PM.jpg" alt="Jugador 2" class="player-photo">
               <span class="player-number-overlay">1</span>
             </div>
             <div class="player-info">
