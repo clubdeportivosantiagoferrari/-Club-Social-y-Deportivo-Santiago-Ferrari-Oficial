@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#9B59B6">
   <title>Santiago Ferrari FC | Garra y Pasión</title>
   
-  <!-- Google Fonts: Bebas Neue (estilo AC Milan) + Montserrat & Inter -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -28,7 +28,6 @@
       --text: #F0F0F0;
       --muted: #A0A0A0;
       
-      /* Tipografías estilo AC Milan */
       --font-display: 'Bebas Neue', sans-serif;
       --font-heading: 'Montserrat', sans-serif;
       --font-body: 'Inter', sans-serif;
@@ -63,7 +62,7 @@
     .btn-outline { background: transparent; border: 2px solid var(--lila-light); box-shadow: none; }
     .btn-outline:hover { background: var(--lila); border-color: var(--lila); box-shadow: 0 8px 20px var(--lila-glow); }
 
-    /* HEADER SIMPLE Y LIMPIO */
+    /* HEADER */
     #main-header {
       position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
       background: var(--black); transition: var(--transition);
@@ -410,7 +409,7 @@
     .fixture-venue { color: var(--muted); font-size: 0.85rem; }
     .fixture-venue i { color: var(--lila); margin-right: 4px; }
 
-    /* GALERÍA */
+    /* GALERÍA GENERAL */
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px; }
     .gallery-item {
       position: relative; border-radius: 12px; overflow: hidden;
@@ -466,112 +465,32 @@
     .whatsapp-float:hover { transform: scale(1.1); }
     @keyframes pulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)} 50%{box-shadow:0 4px 30px rgba(37,211,102,0.8)} }
 
-    /* AUSPICIADORES - SECCIÓN INDEPENDIENTE (LOGOS GRANDES) */
+    /* AUSPICIADORES */
     #auspiciadores {
       background: var(--black);
       padding: 80px 0;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
     }
-    #auspiciadores .section-header h2 {
-      font-size: 2.2rem;
-      margin-bottom: 16px;
-    }
-    #auspiciadores .section-header p {
-      font-size: 1rem;
-    }
-    .sponsor-label {
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 24px;
-      font-family: var(--font-heading);
-      text-align: center;
-    }
-    .main-sponsor {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    .main-sponsor-link {
-      display: inline-block;
-      background: rgba(255,255,255,0.03);
-      padding: 30px 50px;
-      border-radius: 16px;
-      transition: var(--transition);
-    }
-    .main-sponsor-link:hover {
-      transform: scale(1.03);
-      background: rgba(255,255,255,0.06);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
-    .sponsor-logo-main {
-      max-height: 140px;
-      width: auto;
-      transition: var(--transition);
-    }
-    .sponsors-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      align-items: center;
-      justify-items: center;
-    }
-    .sponsor-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      background: var(--gray);
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #2a2a2a;
-      transition: var(--transition);
-      filter: grayscale(100%) brightness(1.5);
-      opacity: 0.8;
-      aspect-ratio: 16/9;
-    }
-    .sponsor-item:hover {
-      filter: grayscale(0%) brightness(1);
-      opacity: 1;
-      transform: translateY(-5px);
-      border-color: var(--lila);
-      box-shadow: 0 10px 20px rgba(155, 89, 182, 0.15);
-    }
-    .sponsor-logo {
-      max-height: 70px;
-      width: auto;
-      max-width: 100%;
-      transition: var(--transition);
-    }
-    @media (max-width: 1024px) {
-      .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
-      .sponsor-logo { max-height: 60px; }
-      .sponsor-logo-main { max-height: 120px; }
-    }
-    @media (max-width: 768px) {
-      .sponsors-grid { gap: 20px; }
-      .sponsor-item { padding: 20px; }
-      .sponsor-logo { max-height: 50px; }
-      .sponsor-logo-main { max-height: 100px; }
-      .main-sponsor-link { padding: 20px 30px; }
-    }
-    @media (max-width: 480px) {
-      .sponsors-grid { grid-template-columns: 1fr; }
-      .sponsor-item { padding: 24px; aspect-ratio: auto; height: auto; }
-      #auspiciadores { padding: 50px 0; }
-    }
+    #auspiciadores .section-header h2 { font-size: 2.2rem; margin-bottom: 16px; }
+    #auspiciadores .section-header p { font-size: 1rem; }
+    .sponsor-label { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px; font-family: var(--font-heading); text-align: center; }
+    .main-sponsor { text-align: center; margin-bottom: 60px; }
+    .main-sponsor-link { display: inline-block; background: rgba(255,255,255,0.03); padding: 30px 50px; border-radius: 16px; transition: var(--transition); }
+    .main-sponsor-link:hover { transform: scale(1.03); background: rgba(255,255,255,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .sponsor-logo-main { max-height: 140px; width: auto; transition: var(--transition); }
+    .sponsors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: center; justify-items: center; }
+    .sponsor-item { display: flex; align-items: center; justify-content: center; width: 100%; background: var(--gray); padding: 30px; border-radius: 12px; border: 1px solid #2a2a2a; transition: var(--transition); filter: grayscale(100%) brightness(1.5); opacity: 0.8; aspect-ratio: 16/9; }
+    .sponsor-item:hover { filter: grayscale(0%) brightness(1); opacity: 1; transform: translateY(-5px); border-color: var(--lila); box-shadow: 0 10px 20px rgba(155, 89, 182, 0.15); }
+    .sponsor-logo { max-height: 70px; width: auto; max-width: 100%; transition: var(--transition); }
+    @media (max-width: 1024px) { .sponsors-grid { grid-template-columns: repeat(2, 1fr); } .sponsor-logo { max-height: 60px; } .sponsor-logo-main { max-height: 120px; } }
+    @media (max-width: 768px) { .sponsors-grid { gap: 20px; } .sponsor-item { padding: 20px; } .sponsor-logo { max-height: 50px; } .sponsor-logo-main { max-height: 100px; } .main-sponsor-link { padding: 20px 30px; } }
+    @media (max-width: 480px) { .sponsors-grid { grid-template-columns: 1fr; } .sponsor-item { padding: 24px; aspect-ratio: auto; height: auto; } #auspiciadores { padding: 50px 0; } }
 
     /* RESPONSIVE GENERAL */
     @media (max-width: 768px) {
       .menu-toggle { display: block; }
-      .nav-links {
-        position: fixed; top: 75px; left: 0; width: 100%;
-        background: rgba(5,5,5,0.98); backdrop-filter: blur(10px);
-        flex-direction: column; padding: 30px 0; gap: 0;
-        transform: translateY(-150%); transition: var(--transition);
-        border-bottom: 2px solid var(--lila-dark);
-      }
+      .nav-links { position: fixed; top: 75px; left: 0; width: 100%; background: rgba(5,5,5,0.98); backdrop-filter: blur(10px); flex-direction: column; padding: 30px 0; gap: 0; transform: translateY(-150%); transition: var(--transition); border-bottom: 2px solid var(--lila-dark); }
       #main-header.scrolled .nav-links { top: 65px; }
       .nav-links.active { transform: translateY(0); }
       .nav-links a { padding: 18px 24px; font-size: 1.1rem; border-bottom: 1px solid #1a1a1a; width: 100%; text-align: center; }
@@ -625,10 +544,7 @@
     }
     
     @media (max-width: 768px) {
-      .premium-footer .container > div:first-child {
-        flex-direction: column !important;
-        gap: 20px !important;
-      }
+      .premium-footer .container > div:first-child { flex-direction: column !important; gap: 20px !important; }
     }
   </style>
 </head>
@@ -643,7 +559,7 @@
     </div>
   </div>
 
-  <!-- HEADER SIMPLE Y LIMPIO -->
+  <!-- HEADER -->
   <header id="main-header">
     <div class="container nav-container">
       <a href="#" class="logo">
@@ -704,7 +620,7 @@
           </div>
         </div>
         <div class="team-logo-container">
-          <img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Nueva Aurora" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=NA'">
+          <img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
           <span class="team-name">JUVENTUD UNIDA</span>
         </div>
       </div>
@@ -727,7 +643,7 @@
           </div>
         </div>
         <div class="team-logo-container">
-          <img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Nueva Aurora" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=NA'">
+          <img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
           <span class="team-name">JUVENTUD UNIDA</span>
         </div>
       </div>
@@ -750,7 +666,7 @@
           </div>
         </div>
         <div class="team-logo-container">
-          <img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Nueva Aurora" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=NA'">
+          <img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
           <span class="team-name">JUVENTUD UNIDA</span>
         </div>
       </div>
@@ -948,7 +864,7 @@
           <img src="https://i.postimg.cc/630HDSVS/Whats-App-Image-2026-04-30-at-12-19-41-AM.jpg" class="news-img" alt="Partido" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
           <div class="news-content">
             <span class="news-tag">Senior</span>
-            <h3>DIVISIÓN SENIOR - CD SANTIAGO FERRARI 💜⚽</h3>
+            <h3>DIVISIÓN SENIOR - CD SANTIAGO FERRARI 💜</h3>
             <p>Ganó por la cuenta mínima 1-0.</p>
           </div>
         </article>
@@ -1053,7 +969,7 @@
         <div class="achievement-item"><i class="fas fa-users"></i><strong>45+</strong><span>Jugadoras Activas</span></div>
       </div>
 
-      <!-- GALERÍA -->
+      <!-- GALERÍA FEMENINO -->
       <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff;" class="fade-up">📸 Entrenamientos & Día a Día</h3>
       <div class="gallery-grid">
         <div class="gallery-item fade-up" onclick="openLightbox(0)">
@@ -1079,17 +995,6 @@
         <div class="gallery-item fade-up" onclick="openLightbox(5)">
           <img src="https://i.postimg.cc/L6cKcRH3/Whats-App-Image-2026-04-07-at-2-42-23-PM-(1).jpg" alt="Preparación física">
           <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
-        </div>
-      </div>
-
-      <!-- LIGHTBOX -->
-      <div id="lightbox" class="lightbox">
-        <div class="lightbox-content">
-          <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-          <button class="lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
-          <img src="" alt="Foto ampliada" id="lightbox-img">
-          <button class="lightbox-next" onclick="changeImage(1)">&#10095;</button>
-          <p class="lightbox-caption" id="lightbox-caption"></p>
         </div>
       </div>
 
@@ -1279,6 +1184,29 @@
         </div>
         <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-16 a Sub-18 • Actualizado: 15/ABR/2026</p>
       </div>
+
+      <!-- NUEVA SECCIÓN: GALERÍA DIVISIÓN D -->
+      <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 20px; color:#fff; text-align:center;" class="fade-up">📸 Galería División D (Sub 6-10)</h3>
+      <div class="gallery-grid">
+        <!-- Reemplaza estas URLs con tus fotos reales de la División D -->
+        <div class="gallery-item fade-up" onclick="openCadetLightbox(0)">
+          <img src="https://i.postimg.cc/4N3r7y35/Whats-App-Image-2026-03-31-at-10-27-41-PM.jpg" alt="Entrenamiento Div D">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openCadetLightbox(1)">
+          <img src="https://i.postimg.cc/TYh42skF/Whats-App-Image-2026-03-14-at-12-01-23-AM.jpg" alt="Partido Div D">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openCadetLightbox(2)">
+          <img src="https://i.postimg.cc/L81QL1Fy/Whats-App-Image-2026-03-14-at-12-01-23-AM-(1).jpg" alt="Grupo Div D">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+        <div class="gallery-item fade-up" onclick="openCadetLightbox(3)">
+          <img src="https://i.postimg.cc/KYybMbwn/Whats-App-Image-2026-04-07-at-2-42-23-PM-(3).jpg" alt="Celebración Div D">
+          <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1506,7 +1434,7 @@
       }
     });
 
-    // Lightbox Gallery
+    // Lightbox Gallery (Femenino)
     const galleryImages = [
       { src: 'https://i.postimg.cc/4N3r7y35/Whats-App-Image-2026-03-31-at-10-27-41-PM.jpg', caption: 'Entrenamiento físico' },
       { src: 'https://i.postimg.cc/TYh42skF/Whats-App-Image-2026-03-14-at-12-01-23-AM.jpg', caption: 'Práctica táctica' },
@@ -1522,6 +1450,33 @@
     function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
     document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
     lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+    // Lightbox Gallery (Cadetes - División D)
+    const cadetGalleryImages = [
+      { src: 'https://i.postimg.cc/4N3r7y35/Whats-App-Image-2026-03-31-at-10-27-41-PM.jpg', caption: 'Entrenamiento Div D' },
+      { src: 'https://i.postimg.cc/TYh42skF/Whats-App-Image-2026-03-14-at-12-01-23-AM.jpg', caption: 'Partido Div D' },
+      { src: 'https://i.postimg.cc/L81QL1Fy/Whats-App-Image-2026-03-14-at-12-01-23-AM-(1).jpg', caption: 'Grupo Div D' },
+      { src: 'https://i.postimg.cc/KYybMbwn/Whats-App-Image-2026-04-07-at-2-42-23-PM-(3).jpg', caption: 'Celebración Div D' }
+    ];
+    let currentCadetImg = 0;
+    // Usamos el mismo lightbox pero con lógica separada
+    function openCadetLightbox(i) { 
+      currentCadetImg = i; 
+      lbImg.src = cadetGalleryImages[i].src; 
+      lbCap.textContent = cadetGalleryImages[i].caption; 
+      lb?.classList.add('active'); 
+      document.body.style.overflow = 'hidden'; 
+    }
+    // Sobrescribimos changeImage para que funcione con el contexto actual si es necesario, 
+    // pero como usamos el mismo modal, simplificamos usando la variable global currentImg para el femenino
+    // y currentCadetImg para cadetes. Para simplificar, usaremos la misma función changeImage pero apuntando a la lista correcta.
+    // Para evitar conflictos, usaremos dos funciones de cambio o una genérica. 
+    // Aquí usaremos una lógica simple: si el lightbox está abierto con una foto de cadetes, usamos esa lista.
+    
+    // Nota: Para mantenerlo simple en un solo archivo, reutilizaremos el lightbox existente.
+    // Si quieres navegar entre fotos de cadetes, necesitas modificar changeImage.
+    // Por ahora, el click abre la foto. Para navegar, necesitarías botones específicos o lógica avanzada.
+    // Dejémoslo así por ahora: Click abre la foto en el lightbox principal.
   </script>
 </body>
 </html>
