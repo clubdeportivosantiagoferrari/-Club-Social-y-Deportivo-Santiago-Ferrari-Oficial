@@ -650,6 +650,25 @@ body.header-scrolled { padding-top: 65px; }
   color: #f87171;
   border: 1px solid rgba(220, 38, 38, 0.3);
 }
+     /* PAYPAL FLOTANTE */
+    .paypal-float {
+      position: fixed; bottom: 24px; left: 24px; z-index: 1000;
+      background: #003087; /* Azul oficial de PayPal */
+      color: #fff; width: 60px; height: 60px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; box-shadow: 0 4px 20px rgba(0, 48, 135, 0.4);
+      transition: var(--transition); animation: pulse-paypal 2s infinite; text-decoration: none;
+    }
+    .paypal-float:hover { transform: scale(1.1); }
+    @keyframes pulse-paypal { 
+      0%, 100% { box-shadow: 0 4px 20px rgba(0, 48, 135, 0.4); } 
+      50% { box-shadow: 0 4px 30px rgba(0, 48, 135, 0.8); } 
+    }
+    
+    /* Ajuste para móviles: sube un poco el botón para que no estorbe */
+    @media (max-width: 768px) {
+      .paypal-float { bottom: 80px; left: 16px; width: 50px; height: 50px; font-size: 1.5rem; }
+    }
 </style>
 </head>
 <body>
@@ -2464,6 +2483,11 @@ Diseñado por auraenteprise
 <a href="https://wa.me/56990226657?text=Hola%20Santiago%20Ferrari!%20Quiero%20más%20info%20💜" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
 <i class="fab fa-whatsapp"></i>
 </a>
+   <!-- BOTÓN FLOTANTE PAYPAL -->
+  <!-- ⚠️ IMPORTANTE: Reemplaza "TU_USUARIO_AQUI" con tu link real de PayPal.me o tu link de donación -->
+  <a href="https://www.paypal.com/paypalme/TU_USUARIO_AQUI" class="paypal-float" target="_blank" aria-label="Apoyar al club con PayPal" title="Apoyar al club con PayPal">
+    <i class="fab fa-paypal"></i>
+  </a>
 <!-- JAVASCRIPT -->
 <script>
 // Header scroll effect
