@@ -2349,21 +2349,6 @@ body.header-scrolled { padding-top: 65px; }
   </div>
 </section>
 
-     <!-- INSTAGRAM FEED -->
-<!-- INSTAGRAM FEED -->
-<section id="instagram" style="background: var(--dark); padding: 80px 0;">
-  <div class="container">
-    <div class="section-header fade-up">
-      <h2><i class="fab fa-instagram" style="color: var(--lila-light); margin-right: 10px;"></i> Síguenos en Instagram</h2>
-      <p>Descubre nuestras últimas publicaciones y momentos del club</p>
-      <div class="divider"></div>
-    </div>
-    
-    <!-- Elfsight Instagram Feed -->
-    <div class="elfsight-app-92be06da-c743-40fc-b8f9-eacb2ceb922f" data-elfsight-app-lazy></div>
-    
-  </div>
-</section>
 <!-- 🟣 FOOTER ESTILO AC MILAN -->
 <footer class="premium-footer">
 <div class="footer-wave-top"></div>
@@ -2544,69 +2529,7 @@ function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) %
 document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
 lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 
-// INSTAGRAM FEED
-async function loadInstagramFeed() {
-  const grid = document.getElementById('instagram-grid');
-  
-  // OPCIÓN A: Usando Instagram Basic Display API (Requiere token)
-  // Reemplaza 'TU_ACCESS_TOKEN' con tu token real
-  const accessToken = 'TU_ACCESS_TOKEN_AQUI';
-  const userId = 'TU_USER_ID_AQUI';
-  
-  try {
-    const response = await fetch(
-      `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token=${accessToken}&limit=6`
-    );
-    
-    const data = await response.json();
-    
-    if (data.error) {
-      throw new Error(data.error.message);
-    }
-    
-    grid.innerHTML = '';
-    
-    data.data.forEach(post => {
-      const item = document.createElement('div');
-      item.className = 'instagram-item fade-up';
-      
-      const imageUrl = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
-      
-      item.innerHTML = `
-        <img src="${imageUrl}" alt="${post.caption || 'Instagram post'}" loading="lazy">
-        <div class="instagram-overlay">
-          <i class="fab fa-instagram"></i>
-        </div>
-      `;
-      
-      item.addEventListener('click', () => {
-        window.open(post.permalink, '_blank');
-      });
-      
-      grid.appendChild(item);
-    });
-    
-  } catch (error) {
-    console.error('Error loading Instagram feed:', error);
-    
-    // Fallback: Mostrar placeholder
-    grid.innerHTML = `
-      <div class="instagram-error">
-        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 10px;"></i>
-        <p>No se pudieron cargar las publicaciones de Instagram</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">Visítanos en @csdsantiagoferrarioficial</p>
-      </div>
-    `;
-  }
-}
 
-// Cargar feed cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', loadInstagramFeed);
-
-// O recargar cada 5 minutos
-setInterval(loadInstagramFeed, 300000);
-<!-- Elfsight Instagram Feed Script -->
-<script src="https://elfsightcdn.com/platform.js" async></script>
 </script>
 </body>
 </html>
