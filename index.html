@@ -650,25 +650,6 @@ body.header-scrolled { padding-top: 65px; }
   color: #f87171;
   border: 1px solid rgba(220, 38, 38, 0.3);
 }
-     /* PAYPAL FLOTANTE */
-    .paypal-float {
-      position: fixed; bottom: 24px; left: 24px; z-index: 1000;
-      background: #003087; /* Azul oficial de PayPal */
-      color: #fff; width: 60px; height: 60px;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      font-size: 1.8rem; box-shadow: 0 4px 20px rgba(0, 48, 135, 0.4);
-      transition: var(--transition); animation: pulse-paypal 2s infinite; text-decoration: none;
-    }
-    .paypal-float:hover { transform: scale(1.1); }
-    @keyframes pulse-paypal { 
-      0%, 100% { box-shadow: 0 4px 20px rgba(0, 48, 135, 0.4); } 
-      50% { box-shadow: 0 4px 30px rgba(0, 48, 135, 0.8); } 
-    }
-    
-    /* Ajuste para móviles: sube un poco el botón para que no estorbe */
-    @media (max-width: 768px) {
-      .paypal-float { bottom: 80px; left: 16px; width: 50px; height: 50px; font-size: 1.5rem; }
-    }
 </style>
 </head>
 <body>
@@ -700,7 +681,6 @@ body.header-scrolled { padding-top: 65px; }
 <a href="#femenino-team">Femenino</a>
 <a href="#cadetes">Cadetes</a>
 <a href="#club">El Club</a>
-<a href="#hazte-socio">Hazte Socio</a>
 <a href="#contacto">Contacto</a>
 </nav>
 </div>
@@ -714,7 +694,7 @@ body.header-scrolled { padding-top: 65px; }
 <p>Club Social y Deportivo Santiago Ferrari. Historia, esfuerzo y gloria desde el corazón del barrio.</p>
 <div class="hero-buttons">
 <a href="#partidos" class="btn"><i class="fas fa-calendar-check"></i> Próximo Partido</a>
-<a href="#hazte-socio" class="btn btn-outline"><i class="fas fa-id-card"></i> Hacete Socio</a>
+<a href="#contacto" class="btn btn-outline"><i class="fas fa-id-card"></i> Hacete Socio</a>
 </div>
 </div>
 </section>
@@ -732,19 +712,19 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <div class="match-info">
 <div class="match-category">
-<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 AMISTOSO</span>
+<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
 </div>
 <div class="match-meta">
-<span class="competition">División Super 50</span>
-<strong class="match-date">23 AGOSTO | 09:30 AM</strong>
+<span class="competition">División Femenina</span>
+<strong class="match-date">06 JUN |18:30 PM</strong>
 </div>
 <div class="match-venue">
-<i class="fas fa-map-marker-alt"></i> Estadio Municipal de Placilla de Peñuelas
+<i class="fas fa-map-marker-alt"></i> Cancha Atletico Agua santa
 </div>
 </div>
 <div class="team-logo-container">
-<img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
-<span class="team-name">SOY DE MAYO</span>
+<img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
+<span class="team-name">LAS PALMAS</span>
 </div>
 </div>
 
@@ -755,19 +735,46 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <div class="match-info">
 <div class="match-category">
-<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 AMISTOSO</span>
+<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
 </div>
 <div class="match-meta">
-<span class="competition">Division Super Senior</span>
-<strong class="match-date">23 AGOSTO |10:30 AM</strong>
+<span class="competition">Division Super50</span>
+<strong class="match-date">06 JUN |19:30 PM</strong>
 </div>
 <div class="match-venue">
-<i class="fas fa-map-marker-alt"></i> Estadio Municipal de Placilla de Peñuelas
+<i class="fas fa-map-marker-alt"></i> Cancha Atletico Agua santa
 </div>
 </div>
 <div class="team-logo-container">
-<img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
-<span class="team-name">SOL DE MAYO</span>
+<img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
+<span class="team-name">LAS PALMAS</span>
+</div>
+</div>
+
+<div class="match-card">
+<div class="team-logo-container">
+<img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
+<span class="team-name">SANTIAGO FERRARI</span>
+</div>
+<div class="match-info">
+<div class="match-category">
+<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
+</div>
+<div class="match-meta">
+<span class="competition">División Senior</span>
+<strong class="match-date">06 JUN | 20:40 PM</strong>
+</div>
+<div class="match-venue">
+<i class="fas fa-map-marker-alt"></i> Cancha Atleitco Agua santa
+</div>
+</div>
+<div class="team-logo-container">
+<img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
+<span class="team-name">LAS PALMAS</span>
+</div>
+</div>
+<div style="text-align: center; margin-top: 32px;">
+<a href="#" class="btn btn-outline"><i class="fas fa-calendar-alt"></i> Ver Fixture Completo</a>
 </div>
 </div>
 </div>
@@ -2277,33 +2284,7 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </div>
-  <!-- SECCIÓN HAZTE SOCIO (PAYPAL) -->
-  <section id="hazte-socio" style="background: var(--dark); padding: 80px 0; border-top: 1px solid var(--border-color);">
-    <div class="container" style="text-align: center;">
-      <div class="section-header fade-up">
-        <h2><i class="fas fa-id-card" style="color: var(--lila-light); margin-right: 10px;"></i> Hazte Socio</h2>
-        <p>Apoya al club y obtén beneficios exclusivos. Tu aporte nos ayuda a seguir creciendo.</p>
-        <div class="divider"></div>
-      </div>
-      
-      <!-- TARJETA DE PAYPAL -->
-      <div style="max-width: 450px; margin: 0 auto; background: var(--gray); padding: 40px; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-        <i class="fab fa-paypal" style="font-size: 3rem; color: #003087; margin-bottom: 20px;"></i>
-        <h3 style="color: #fff; margin-bottom: 10px;">Suscripción Mensual</div>
-        <p style="color: var(--muted); margin-bottom: 30px; font-size: 0.95rem;">
-          Aporta mensualmente para apoyar el desarrollo de nuestras divisiones adultas, inferiores y rama femenina.
-        </p>
-        
-        <!-- ⚠️ AQUÍ PEGAS EL CÓDIGO QUE TE DA PAYPAL (Reemplaza este botón de ejemplo) ⚠️ -->
-        <a href="https://www.paypal.com/ncp/payment/TU_CODIGO_AQUI" target="_blank" class="btn" style="width: 100%; justify-content: center; font-size: 1.1rem;">
-          <i class="fab fa-paypal"></i> Suscribirse con PayPal
-        </a>
-        <!-- ⚠️ FIN DEL CÓDIGO DE PAYPAL ⚠️ -->
-        
-      </div>
-    </div>
-  </section>
- <!-- CONTACT -->
+<!-- CONTACT -->
 <section id="contacto">
 <div class="container">
 <div class="section-header fade-up">
@@ -2457,11 +2438,6 @@ Diseñado por auraenteprise
 <a href="https://wa.me/56990226657?text=Hola%20Santiago%20Ferrari!%20Quiero%20más%20info%20💜" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
 <i class="fab fa-whatsapp"></i>
 </a>
-   <!-- BOTÓN FLOTANTE PAYPAL -->
-  <!-- ⚠️ IMPORTANTE: Reemplaza "TU_USUARIO_AQUI" con tu link real de PayPal.me o tu link de donación -->
-  <a href="https://www.paypal.com/paypalme/TU_USUARIO_AQUI" class="paypal-float" target="_blank" aria-label="Apoyar al club con PayPal" title="Apoyar al club con PayPal">
-    <i class="fab fa-paypal"></i>
-  </a>
 <!-- JAVASCRIPT -->
 <script>
 // Header scroll effect
