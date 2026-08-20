@@ -2350,26 +2350,18 @@ body.header-scrolled { padding-top: 65px; }
 </section>
 
      <!-- INSTAGRAM FEED -->
-<section id="instagram-feed">
+<!-- INSTAGRAM FEED -->
+<section id="instagram" style="background: var(--dark); padding: 80px 0;">
   <div class="container">
-    <div class="instagram-header fade-up">
+    <div class="section-header fade-up">
       <h2><i class="fab fa-instagram" style="color: var(--lila-light); margin-right: 10px;"></i> Síguenos en Instagram</h2>
-      <p>@csdsantiagoferrarioficial • Últimas publicaciones</p>
+      <p>Descubre nuestras últimas publicaciones y momentos del club</p>
+      <div class="divider"></div>
     </div>
     
-    <div class="instagram-grid" id="instagram-grid">
-      <div class="instagram-loading">
-        <i class="fas fa-spinner fa-spin"></i>
-        <p>Cargando publicaciones...</p>
-      </div>
-    </div>
+    <!-- Elfsight Instagram Feed -->
+    <div class="elfsight-app-92be06da-c743-40fc-b8f9-eacb2ceb922f" data-elfsight-app-lazy></div>
     
-    <div class="instagram-cta fade-up">
-      <a href="https://www.instagram.com/csdsantiagoferrarioficial/" target="_blank" class="instagram-profile">
-        <i class="fab fa-instagram"></i>
-        <span>Ver más en Instagram</span>
-      </a>
-    </div>
   </div>
 </section>
 <!-- 🟣 FOOTER ESTILO AC MILAN -->
@@ -2613,6 +2605,8 @@ document.addEventListener('DOMContentLoaded', loadInstagramFeed);
 
 // O recargar cada 5 minutos
 setInterval(loadInstagramFeed, 300000);
+<!-- Elfsight Instagram Feed Script -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
 </script>
 </body>
 </html>
