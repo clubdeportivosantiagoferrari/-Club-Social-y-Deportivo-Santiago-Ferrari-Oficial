@@ -522,6 +522,134 @@ body.header-scrolled { padding-top: 65px; }
 @media (max-width: 768px) {
 .premium-footer .container > div:first-child { flex-direction: column !important; gap: 20px !important; }
 }
+ /* INSTAGRAM FEED */
+#instagram-feed {
+  background: var(--dark);
+  padding: 80px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.instagram-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.instagram-header h2 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.instagram-header p {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.instagram-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.instagram-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px var(--lila-glow);
+}
+
+.instagram-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.instagram-item:hover img {
+  transform: scale(1.1);
+}
+
+.instagram-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(155, 89, 182, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.instagram-item:hover .instagram-overlay {
+  opacity: 1;
+}
+
+.instagram-overlay i {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.instagram-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.instagram-profile {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--gray);
+  padding: 16px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: var(--transition);
+  border: 2px solid var(--border-color);
+}
+
+.instagram-profile:hover {
+  background: var(--lila);
+  border-color: var(--lila);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--lila-glow);
+}
+
+.instagram-profile i {
+  font-size: 1.5rem;
+}
+
+/* Loading State */
+.instagram-loading {
+  text-align: center;
+  padding: 60px;
+  color: var(--muted);
+}
+
+.instagram-loading i {
+  font-size: 3rem;
+  animation: pulse 2s infinite;
+}
+
+/* Error State */
+.instagram-error {
+  text-align: center;
+  padding: 40px;
+  background: rgba(220, 38, 38, 0.1);
+  border-radius: 12px;
+  color: #f87171;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+}
 </style>
 </head>
 <body>
@@ -2197,8 +2325,9 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </section>
 
-     <!-- SECCIÓN FACEBOOK WIDGET -->
-<section id="facebook-widget" style="background: var(--dark); padding: 60px 0;">
+ <!-- SECCIÓN FACEBOOK WIDGET -->
+
+  <section id="facebook-widget" style="background: var(--dark); padding: 60px 0;">
   <div class="container" style="text-align: center;">
     <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: #fff; margin-bottom: 30px; letter-spacing: 2px;">
       <i class="fab fa-facebook" style="color: #1877F2; margin-right: 10px;"></i>
@@ -2220,6 +2349,29 @@ body.header-scrolled { padding-top: 65px; }
   </div>
 </section>
 
+     <!-- INSTAGRAM FEED -->
+<section id="instagram-feed">
+  <div class="container">
+    <div class="instagram-header fade-up">
+      <h2><i class="fab fa-instagram" style="color: var(--lila-light); margin-right: 10px;"></i> Síguenos en Instagram</h2>
+      <p>@csdsantiagoferrarioficial • Últimas publicaciones</p>
+    </div>
+    
+    <div class="instagram-grid" id="instagram-grid">
+      <div class="instagram-loading">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Cargando publicaciones...</p>
+      </div>
+    </div>
+    
+    <div class="instagram-cta fade-up">
+      <a href="https://www.instagram.com/csdsantiagoferrarioficial/" target="_blank" class="instagram-profile">
+        <i class="fab fa-instagram"></i>
+        <span>Ver más en Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
 <!-- 🟣 FOOTER ESTILO AC MILAN -->
 <footer class="premium-footer">
 <div class="footer-wave-top"></div>
@@ -2399,6 +2551,68 @@ function closeLightbox() { lb?.classList.remove('active'); document.body.style.o
 function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
 document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
 lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+// INSTAGRAM FEED
+async function loadInstagramFeed() {
+  const grid = document.getElementById('instagram-grid');
+  
+  // OPCIÓN A: Usando Instagram Basic Display API (Requiere token)
+  // Reemplaza 'TU_ACCESS_TOKEN' con tu token real
+  const accessToken = 'TU_ACCESS_TOKEN_AQUI';
+  const userId = 'TU_USER_ID_AQUI';
+  
+  try {
+    const response = await fetch(
+      `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token=${accessToken}&limit=6`
+    );
+    
+    const data = await response.json();
+    
+    if (data.error) {
+      throw new Error(data.error.message);
+    }
+    
+    grid.innerHTML = '';
+    
+    data.data.forEach(post => {
+      const item = document.createElement('div');
+      item.className = 'instagram-item fade-up';
+      
+      const imageUrl = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+      
+      item.innerHTML = `
+        <img src="${imageUrl}" alt="${post.caption || 'Instagram post'}" loading="lazy">
+        <div class="instagram-overlay">
+          <i class="fab fa-instagram"></i>
+        </div>
+      `;
+      
+      item.addEventListener('click', () => {
+        window.open(post.permalink, '_blank');
+      });
+      
+      grid.appendChild(item);
+    });
+    
+  } catch (error) {
+    console.error('Error loading Instagram feed:', error);
+    
+    // Fallback: Mostrar placeholder
+    grid.innerHTML = `
+      <div class="instagram-error">
+        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+        <p>No se pudieron cargar las publicaciones de Instagram</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Visítanos en @csdsantiagoferrarioficial</p>
+      </div>
+    `;
+  }
+}
+
+// Cargar feed cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', loadInstagramFeed);
+
+// O recargar cada 5 minutos
+setInterval(loadInstagramFeed, 300000);
 </script>
 </body>
 </html>
