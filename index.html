@@ -178,12 +178,11 @@ transition: var(--transition); border: 1px solid #2a2a2a;
 }
 .player-card:hover { transform: translateY(-6px); border-color: var(--lila); box-shadow: 0 12px 30px var(--lila-glow); }
 .player-photo-container { position: relative; width: 100%; height: 280px; overflow: hidden; background-color: #1a1a1a; }
-/* CORRECCIÓN DE IMAGEN PARA QUE CALCE JUSTO */
 .player-photo {
 width: 100%;
 height: 100%;
-object-fit: cover; /* Hace que la imagen llene el cuadro recortando lo que sobra */
-object-position: center center; /* Centra la imagen para cortar por el medio */
+object-fit: cover;
+object-position: center center;
 transition: transform 0.5s ease;
 }
 .player-card:hover .player-photo { transform: scale(1.05); }
@@ -522,139 +521,10 @@ body.header-scrolled { padding-top: 65px; }
 @media (max-width: 768px) {
 .premium-footer .container > div:first-child { flex-direction: column !important; gap: 20px !important; }
 }
- /* INSTAGRAM FEED */
-#instagram-feed {
-  background: var(--dark);
-  padding: 80px 0;
-  border-top: 1px solid var(--border-color);
-}
-
-.instagram-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.instagram-header h2 {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.instagram-header p {
-  color: var(--muted);
-  font-size: 1.1rem;
-}
-
-.instagram-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.instagram-item {
-  position: relative;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.instagram-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px var(--lila-glow);
-}
-
-.instagram-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.instagram-item:hover img {
-  transform: scale(1.1);
-}
-
-.instagram-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(155, 89, 182, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.instagram-item:hover .instagram-overlay {
-  opacity: 1;
-}
-
-.instagram-overlay i {
-  color: #fff;
-  font-size: 2rem;
-}
-
-.instagram-cta {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.instagram-profile {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--gray);
-  padding: 16px 32px;
-  border-radius: 50px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  transition: var(--transition);
-  border: 2px solid var(--border-color);
-}
-
-.instagram-profile:hover {
-  background: var(--lila);
-  border-color: var(--lila);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--lila-glow);
-}
-
-.instagram-profile i {
-  font-size: 1.5rem;
-}
-
-/* Loading State */
-.instagram-loading {
-  text-align: center;
-  padding: 60px;
-  color: var(--muted);
-}
-
-.instagram-loading i {
-  font-size: 3rem;
-  animation: pulse 2s infinite;
-}
-
-/* Error State */
-.instagram-error {
-  text-align: center;
-  padding: 40px;
-  background: rgba(220, 38, 38, 0.1);
-  border-radius: 12px;
-  color: #f87171;
-  border: 1px solid rgba(220, 38, 38, 0.3);
-}
 </style>
 </head>
 <body>
-
- <!-- ⚡ PANTALLA DE CARGA -->
+<!-- ⚡ PANTALLA DE CARGA -->
 <div id="loader" class="page-loader">
 <div class="loader-content">
 <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Cargando Santiago Ferrari" class="loader-logo" onerror="this.style.display='none'">
@@ -662,8 +532,7 @@ body.header-scrolled { padding-top: 65px; }
 <p class="loader-text">CARGANDO...</p>
 </div>
 </div>
-
- <!-- HEADER -->
+<!-- HEADER -->
 <header id="main-header">
 <div class="container nav-container">
 <a href="#" class="logo">
@@ -685,8 +554,7 @@ body.header-scrolled { padding-top: 65px; }
 </nav>
 </div>
 </header>
-
- <!-- HERO -->
+<!-- HERO -->
 <section id="inicio" class="hero">
 <div class="hero-content fade-up">
 <span class="hero-tag"><i class="fas fa-star" style="margin-right:5px; font-size:0.6rem;"></i> Sitio Web Oficial</span>
@@ -698,8 +566,7 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-
- <!-- MATCH TICKER -->
+<!-- MATCH TICKER -->
 <div id="partidos" class="match-ticker fade-up">
 <div class="container">
 <div class="section-header">
@@ -716,18 +583,17 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <div class="match-meta">
 <span class="competition">División Tercera</span>
-<strong class="match-date">28 AGOS |19:00 PM</strong>
+<strong class="match-date">13 MAY | 19:00</strong>
 </div>
 <div class="match-venue">
-<i class="fas fa-map-marker-alt"></i> Cancha Atletico Agua santa
+<i class="fas fa-map-marker-alt"></i> Cancha Atlético Agua Santa
 </div>
 </div>
 <div class="team-logo-container">
-<img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
-<span class="team-name">SOL DE MAYO</span>
+<img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
+<span class="team-name">JUVENTUD UNIDA</span>
 </div>
 </div>
-
 <div class="match-card">
 <div class="team-logo-container">
 <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
@@ -738,19 +604,18 @@ body.header-scrolled { padding-top: 65px; }
 <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
 </div>
 <div class="match-meta">
-<span class="competition">Division Segunda </span>
-<strong class="match-date">28 AGOS |20:00 PM</strong>
+<span class="competition">División Segunda</span>
+<strong class="match-date">13 MAY | 20:00</strong>
 </div>
 <div class="match-venue">
-<i class="fas fa-map-marker-alt"></i> Cancha Atletico Agua santa
+<i class="fas fa-map-marker-alt"></i> Cancha Atlético Agua Santa
 </div>
 </div>
 <div class="team-logo-container">
-<img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
-<span class="team-name">SOL DE MAYO</span>
+<img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
+<span class="team-name">JUVENTUD UNIDA</span>
 </div>
 </div>
-
 <div class="match-card">
 <div class="team-logo-container">
 <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
@@ -762,15 +627,15 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <div class="match-meta">
 <span class="competition">División Primera</span>
-<strong class="match-date">28 AGOS | 21:00 PM</strong>
+<strong class="match-date">13 MAY | 21:00</strong>
 </div>
 <div class="match-venue">
-<i class="fas fa-map-marker-alt"></i> Cancha AtletIco Agua santa
+<i class="fas fa-map-marker-alt"></i> Cancha Atlético Agua Santa
 </div>
 </div>
 <div class="team-logo-container">
-<img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
-<span class="team-name">SOL DE MAYO</span>
+<img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="Juventud Unida" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=JU'">
+<span class="team-name">JUVENTUD UNIDA</span>
 </div>
 </div>
 <div style="text-align: center; margin-top: 32px;">
@@ -778,35 +643,33 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </div>
-
- <!-- 🟣 SECCIÓN AUSPICIADORES -->
+<!-- 🟣 SECCIÓN AUSPICIADORES -->
 <section id="auspiciadores">
-<div class="container">
-<div class="section-header fade-up">
-<h2>Nuestros Auspiciadores</h2>
-<p>Gracias a quienes hacen posible este sueño</p>
-<div class="divider"></div>
-</div>
-
- <!-- Patrocinador Principal -->
-<div class="main-sponsor fade-up">
-<p class="sponsor-label">Patrocinador Oficial</p>
-<a href="#" target="_blank" class="main-sponsor-link">
-<img src="https://i.postimg.cc/hhWqzkvP/imgs-image-4k-enhanced.png" alt="Patrocinador Principal" class="sponsor-logo-main">
-</a>
- </div>
- <h3 style="font-family:var(--font-heading); font-size:1.2rem; margin:40px 0 20px; color:var(--muted); text-align:center; text-transform: uppercase; letter-spacing: 2px;">Auspicantes Oficiales</h3>
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>Nuestros Auspiciadores</h2>
+      <p>Gracias a quienes hacen posible este sueño</p>
+      <div class="divider"></div>
+    </div>
+    <!-- Patrocinador Principal -->
+    <div class="main-sponsor fade-up">
+      <p class="sponsor-label">Patrocinador Oficial</p>
+      <a href="#" target="_blank" class="main-sponsor-link">
+        <img src="https://i.postimg.cc/hhWqzkvP/imgs-image-4k-enhanced.png" alt="Patrocinador Principal" class="sponsor-logo-main">
+      </a>
+    </div>
+    <h3 style="font-family:var(--font-heading); font-size:1.2rem; margin:40px 0 20px; color:var(--muted); text-align:center; text-transform: uppercase; letter-spacing: 2px;">Auspicantes Oficiales</h3>
     <div class="sponsors-grid">
       <!-- Auspiciante 1 -->
       <div class="sponsor-item">
         <a href="#" target="_blank">
-          <!-- REEMPLAZA ESTA URL CON TU LOGO -->
           <img src="https://i.postimg.cc/7YywVKv0/Whats-App-Image-2026-05-11-at-8-18-48-PM-(1).jpg" alt="Sponsor 1" class="sponsor-logo">
         </a>
       </div>
+    </div>
+  </div>
 </section>
-
- <!-- TABLA DE POSICIONES PRINCIPALES -->
+<!-- TABLA DE POSICIONES PRINCIPALES -->
 <section id="tabla-posiciones" style="background: var(--dark);">
 <div class="container">
 <div class="section-header fade-up">
@@ -822,76 +685,71 @@ body.header-scrolled { padding-top: 65px; }
 <button class="tab-btn" onclick="showDivision(event, 'senior-div')">🟣 Senior</button>
 <button class="tab-btn" onclick="showDivision(event, 'super50-div')">🟣 SUPER 50</button>
 </div>
-
- <!-- PRIMERA -->
-<div id="primera" class="division-content active">   
+<!-- PRIMERA -->
+<div id="primera" class="division-content active">
 <div class="table-container">
-<table class="standings-table"> 
+<table class="standings-table">
 <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
-<tbody>  
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><strong>REAL ESPAÑA </strong></div></td><td>8</td><td>5</td><td>2</td><td>1</td><td>26</td><td>8</td><td>+18</td><td><strong>17</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="NA" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>7</td><td>4</td><td>2</td><td>1</td><td>26</td><td>12</td><td>+14</td><td>14</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="LP" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>7</td><td>4</td><td>2</td><td>1</td><td>27</td><td>16</td><td>+11</td><td>14</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AAS" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>7</td><td>4</td><td>2</td><td>1</td><td>17</td><td>7</td><td>+10</td><td>14</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="NA" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>5</td><td>4</td><td>1</td><td>0</td><td>14</td><td>3</td><td>+11</td><td>13</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="LP" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>6</td><td>3</td><td>3</td><td>0</td><td>18</td><td>9</td><td>+9</td><td>12</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="VM" class="team-logo-small"><span>NUEVA AURORA </span></div></td><td>7</td><td>3</td><td>1</td><td>3</td><td>28</td><td>18</td><td>+10</td><td>10</td></tr>
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>8</td><td>2</td><td>1</td><td>5</td><td>19</td><td>25</td><td>-6</td><td>7</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>8</td><td>1</td><td>1</td><td>6</td><td>14</td><td>35</td><td>-21</td><td>4</td></tr>
-<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>6</td><td>0</td><td>1</td><td>5</td><td>7</td><td>22</td><td>-15</td><td>1</td></tr>
-<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>7</td><td>0</td><td>0</td><td>7</td><td>47</td><td>41</td><td>-39</td><td>0</td></tr>
+<tbody>
+<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td><td>3</td><td>2</td><td>1</td><td>0</td><td>9</td><td>2</td><td>+6</td><td><strong>7</strong></td></tr>
+<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="LP" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>3</td><td>2</td><td>1</td><td>0</td><td>10</td><td>5</td><td>+5</td><td>7</td></tr>
+<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>2</td><td>+4</td><td>7</td></tr>
+<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="NA" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>8</td><td>1</td><td>+7</td><td>6</td></tr>
+<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="NA" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>3</td><td>2</td><td>0</td><td>1</td><td>7</td><td>4</td><td>+3</td><td>6</td></tr>
+<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AAS" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>3</td><td>1</td><td>1</td><td>1</td><td>10</td><td>3</td><td>+7</td><td>4</td></tr>
+<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="VM" class="team-logo-small"><span>NUEVA AURORA </span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>8</td><td>3</td><td>+5</td><td>3</td></tr>
+<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>3</td><td>1</td><td>0</td><td>2</td><td>7</td><td>8</td><td>-1</td><td>3</td></tr>
+<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>3</td><td>0</td><td>0</td><td>3</td><td>3</td><td>11</td><td>-8</td><td>0</td></tr>
+<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>11</td><td>-9</td><td>0</td></tr>
+<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>17</td><td>-17</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado:17/JUL/2026</p>
+<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 28/ABR/2026</p>
 </div>
-
- <!-- SEGUNDA -->
+<!-- SEGUNDA -->
 <div id="segunda" class="division-content">
 <div class="table-container">
 <table class="standings-table">
 <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
 <tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src=" https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="LP" class="team-logo-small"><strong>VILLA MONTE</strong></div></td><td>6</td><td>5</td><td>0</td><td>1</td><td>15</td><td>2</td><td>+13</td><td><strong>16</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>6</td><td>4</td><td>2</td><td>0</td><td>11</td><td>4</td><td>+7</td><td>14</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="VM" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>5</td><td>4</td><td>1</td><td>0</td><td>17</td><td>1</td><td>+16</td><td>13</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>8</td><td>4</td><td>1</td><td>3</td><td>19</td><td>7</td><td>+12</td><td>13</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>7</td><td>4</td><td>1</td><td>2</td><td>16</td><td>8</td><td>+8</td><td>13</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>7</td><td>3</td><td>1</td><td>3</td><td>9</td><td>11</td><td>-2</td><td>10</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>7</td><td>2</td><td>2</td><td>3</td><td>7</td><td>7</td><td>0</td><td>8</td></tr>
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>7</td><td>2</td><td>1</td><td>4</td><td>12</td><td>20</td><td>-8</td><td>7</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>8</td><td>2</td><td>0</td><td>6</td><td>8</td><td>29</td><td>-21</td><td>6</td></tr>
-<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>7</td><td>1</td><td>1</td><td>5</td><td>8</td><td>16</td><td>-8</td><td>4</td></tr>
-<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>8</td><td>1</td><td>1</td><td>6</td><td>6</td><td>23</td><td>-17</td><td>4</td></tr>
-
+<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><strong>LAS PALMAS</strong></div></td><td>3</td><td>3</td><td>0</td><td>0</td><td>10</td><td>0</td><td>+10</td><td><strong>9</strong></td></tr>
+<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>3</td><td>+3</td><td>7</td></tr>
+<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>6</td><td>0</td><td>+6</td><td>6</td></tr>
+<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>3</td><td>2</td><td>0</td><td>1</td><td>6</td><td>4</td><td>+2</td><td>6</td></tr>
+<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>3</td><td>1</td><td>1</td><td>1</td><td>5</td><td>4</td><td>+1</td><td>4</td></tr>
+<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>3</td><td>1</td><td>0</td><td>2</td><td>7</td><td>4</td><td>+3</td><td>3</td></tr>
+<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>5</td><td>-2</td><td>3</td></tr>
+<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>3</td><td>1</td><td>0</td><td>2</td><td>5</td><td>10</td><td>-5</td><td>3</td></tr>
+<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>7</td><td>-5</td><td>3</td></tr>
+<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>4</td><td>-4</td><td>0</td></tr>
+<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>9</td><td>-9</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 17/JUL/2026</p>
+<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 28/ABR/2026</p>
 </div>
-
- <!-- TERCERA -->
+<!-- TERCERA -->
 <div id="tercera" class="division-content">
 <div class="table-container">
 <table class="standings-table">
 <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
 <tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="JU" class="team-logo-small"><strong>VILLA MONTE</strong></div></td><td>6</td><td>5</td><td>1</td><td>0</td><td>23</td><td>6</td><td>+17</td><td><strong>16</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>8</td><td>5</td><td>1</td><td>2</td><td>22</td><td>11</td><td>+11</td><td>16</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>6</td><td>4</td><td>1</td><td>0</td><td>15</td><td>2</td><td>+13</td><td>13</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="LP" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>8</td><td>4</td><td>0</td><td>4</td><td>7</td><td>6</td><td>1</td><td>12</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="VM" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>5</td><td>3</td><td>2</td><td>0</td><td>9</td><td>1</td><td>+8</td><td>11</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>8</td><td>3</td><td>1</td><td>4</td><td>12</td><td>15</td><td>-3</td><td>10</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>7</td><td>2</td><td>3</td><td>2</td><td>6</td><td>8</td><td>-2</td><td>9</td></tr>
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>7</td><td>2</td><td>2</td><td>3</td><td>8</td><td>9</td><td>-1</td><td>8</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>7</td><td>1</td><td>1</td><td>5</td><td>6</td><td>10</td><td>-4</td><td>4</td></tr>
-<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>7</td><td>1</td><td>0</td><td>5</td><td>5</td><td>20</td><td>-15</td><td>3</td></tr>
-<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>6</td><td>0</td><td>0</td><td>6</td><td>1</td><td>27</td><td>-26</td><td>0</td></tr>
-
+<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="JU" class="team-logo-small"><strong>LAS PALMAS</strong></div></td><td>3</td><td>2</td><td>1</td><td>0</td><td>8</td><td>1</td><td>+7</td><td><strong>7</strong></td></tr>
+<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>3</td><td>2</td><td>0</td><td>1</td><td>8</td><td>2</td><td>+6</td><td>6</td></tr>
+<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>6</td><td>2</td><td>+4</td><td>6</td></tr>
+<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="LP" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>3</td><td>0</td><td>+3</td><td>6</td></tr>
+<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>3</td><td>1</td><td>1</td><td>1</td><td>7</td><td>4</td><td>+3</td><td>4</td></tr>
+<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>3</td><td>1</td><td>1</td><td>1</td><td>3</td><td>4</td><td>-1</td><td>4</td></tr>
+<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>3</td><td>1</td><td>0</td><td>1</td><td>2</td><td>5</td><td>-3</td><td>3</td></tr>
+<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>3</td><td>0</td><td>2</td><td>1</td><td>2</td><td>5</td><td>-3</td><td>2</td></tr>
+<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>3</td><td>0</td><td>1</td><td>2</td><td>2</td><td>4</td><td>-2</td><td>1</td></tr>
+<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>3</td><td>0</td><td>0</td><td>3</td><td>1</td><td>7</td><td>-6</td><td>0</td></tr>
+<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>8</td><td>-8</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 17/JUL/2026</p>
+<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 28/ABR/2026</p>
 </div>
 <!-- FEMENINO -->
 <div id="femenino-div" class="division-content">
@@ -899,65 +757,61 @@ body.header-scrolled { padding-top: 65px; }
 <table class="standings-table">
 <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
 <tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="RE" class="team-logo-small"><strong>NUEVA AURORA</strong></div></td><td>5</td><td>4</td><td>1</td><td>0</td><td>17</td><td>4</td><td>+13</td><td><strong>13</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="SM" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>5</td><td>4</td><td>0</td><td>1</td><td>21</td><td>2</td><td>+19</td><td>12</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="NA" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>5</td><td>3</td><td>1</td><td>1</td><td>18</td><td>5</td><td>+13</td><td>10</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>4</td><td>3</td><td>0</td><td>1</td><td>11</td><td>4</td><td>+7</td><td>9</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td><td>2</td><td>+4</td><td>6</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>4</td><td>2</td><td>0</td><td>2</td><td>7</td><td>4</td><td>3</td><td>6</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>5</td><td>1</td><td>0</td><td>4</td><td>3</td><td>12</td><td>-9</td><td>3</td></tr>
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>5</td><td>1</td><td>0</td><td>4</td><td>6</td><td>19</td><td>-13</td><td>3</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>5</td><td>0</td><td>0</td><td>5</td><td>0</td><td>35</td><td>-35</td><td>0</td></tr>
-
+<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td><td>3</td><td>3</td><td>0</td><td>0</td><td>18</td><td>0</td><td>+18</td><td><strong>9</strong></td></tr>
+<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>10</td><td>0</td><td>+10</td><td>6</td></tr>
+<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>6</td><td>1</td><td>+5</td><td>3</td></tr>
+<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>2</td><td>0</td><td>+2</td><td>3</td></tr>
+<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>4</td><td>-1</td><td>3</td></tr>
+<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
+<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>15</td><td>-15</td><td>0</td></tr>
+<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>3</td><td>0</td><td>0</td><td>3</td><td>1</td><td>17</td><td>-16</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado:09/JUL/2026</p>
+<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 01/MAY/2026</p>
 </div>
- 
 <!-- SENIOR -->
-<div id="senior-div" class="division-content"> 
+<div id="senior-div" class="division-content">
 <div class="table-container">
 <table class="standings-table">
 <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
 <tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="SM" class="team-logo-small"><strong>NUEVA AURORA</strong></div></td><td>7</td><td>7</td><td>0</td><td>0</td><td>27</td><td>3</td><td>+24</td><td><strong>21</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="NA" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>7</td><td>6</td><td>0</td><td>1</td><td>23</td><td>11</td><td>+12</td><td>18</td></tr> 
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="RE" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>6</td><td>3</td><td>1</td><td>2</td><td>13</td><td>10</td><td>+3</td><td>10</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="VM" class="team-logo-small"><span>LAS PALMAS </span></div></td><td>4</td><td>3</td><td>0</td><td>1</td><td>18</td><td>5</td><td>+13</td><td>9</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>7</td><td>2</td><td>3</td><td>2</td><td>17</td><td>14</td><td>+3</td><td>9</td></tr>
- <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>5</td><td>3</td><td>0</td><td>2</td><td>11</td><td>12</td><td>-1</td><td>9</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>7</td><td>3</td><td>0</td><td>4</td><td>5</td><td>12</td><td>-7</td><td>9</td></tr>
-
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>7</td><td>2</td><td>1</td><td>4</td><td>12</td><td>13</td><td>-1</td><td>7</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="LP" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>6</td><td>2</td><td>0</td><td>4</td><td>14</td><td>18</td><td>-4</td><td>6</td></tr>
-<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>6</td><td>0</td><td>1</td><td>5</td><td>6</td><td>20</td><td>-14</td><td>1</td></tr>
-<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>6</td><td>0</td><td>0</td><td>6</td><td>1</td><td>29</td><td>-28</td><td>0</td></tr>
+<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="SM" class="team-logo-small"><strong>LAS PALMAS</strong></div></td><td>3</td><td>2</td><td>0</td><td>1</td><td>9</td><td>5</td><td>+4</td><td><strong>6</strong></td></tr>
+<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>5</td><td>2</td><td>+3</td><td>6</td></tr>
+<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>4</td><td>1</td><td>+3</td><td>6</td></tr>
+<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>3</td><td>2</td><td>0</td><td>1</td><td>5</td><td>4</td><td>+1</td><td>6</td></tr>
+<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>3</td><td>2</td><td>0</td><td>1</td><td>5</td><td>5</td><td>0</td><td>6</td></tr>
+<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>3</td><td>1</td><td>1</td><td>1</td><td>8</td><td>6</td><td>2</td><td>4</td></tr>
+<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>3</td><td>1</td><td>1</td><td>1</td><td>7</td><td>7</td><td>0</td><td>4</td></tr>
+<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="LP" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>3</td><td>1</td><td>0</td><td>2</td><td>5</td><td>6</td><td>-1</td><td>3</td></tr>
+<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>3</td><td>5</td><td>-2</td><td>3</td></tr>
+<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
+<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="VS" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>3</td><td>0</td><td>0</td><td>3</td><td>2</td><td>9</td><td>-7</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado:09/JUL/2026</p>
+<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/MAY/2026</p>
 </div>
-
- <!-- SUPER 50 -->
+<!-- SUPER 50 -->
 <div id="super50-div" class="division-content">
 <div class="table-container">
 <table class="standings-table">
 <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
 <tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="RE" class="team-logo-small"><strong>NUEVA AURORA</strong></div></td><td>5</td><td>4</td><td>0</td><td>1</td><td>14</td><td>2</td><td>+12</td><td><strong>12</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="NA" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>7</td><td>3</td><td>1</td><td>3</td><td>13</td><td>5</td><td>+8</td><td>10</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>5</td><td>3</td><td>1</td><td>1</td><td>11</td><td>3</td><td>+8</td><td>10</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLETICO AGUA SANTA</span></div></td><td>5</td><td>3</td><td>1</td><td>1</td><td>7</td><td>6</td><td>+1</td><td>10</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>4</td><td>2</td><td>1</td><td>1</td><td>6</td><td>3</td><td>3</td><td>7</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>4</td><td>2</td><td>1</td><td>1</td><td>3</td><td>2</td><td>1</td><td>7</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>4</td><td>1</td><td>1</td><td>2</td><td>7</td><td>3</td><td>+4</td><td>4</td></tr>
- <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>4</td><td>1</td><td>0</td><td>3</td><td>2</td><td>9</td><td>-7</td><td>3</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>6</td><td>0</td><td>0</td><td>6</td><td>1</td><td>31</td><td>-30</td><td>0</td></tr>
+<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><strong>REAL ESPAÑA</strong></div></td><td>3</td><td>3</td><td>0</td><td>0</td><td>12</td><td>0</td><td>+12</td><td><strong>9</strong></td></tr>
+<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>3</td><td>2</td><td>1</td><td>0</td><td>5</td><td>2</td><td>+3</td><td>7</td></tr>
+<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>3</td><td>-1</td><td>4</td></tr>
+<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>3</td></tr>
+<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="SM" class="team-logo-small"><span>SOL DE MAYO</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>2</td><td>-1</td><td>0</td></tr>
+<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
+<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>8</td><td>-8</td><td>0</td></tr>
 </tbody>
 </table>
 </div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 06/JUL/2026</p>
+<p class="table-footer"><i class="fas fa-info-circle"></i> Super 50+ • Actualizado: 01/MAY/2026</p>
 </div>
 </div>
 </section>
@@ -971,35 +825,35 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <div class="news-grid">
 <article class="news-card fade-up">
-<img src="https://i.postimg.cc/QCQVrWps/Whats-App-Image-2026-05-26-at-9-03-51-PM.jpg" class="news-img" alt="Partido" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
+<img src="https://i.postimg.cc/630HDSVS/Whats-App-Image-2026-04-30-at-12-19-41-AM.jpg" class="news-img" alt="Partido" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
 <div class="news-content">
-<span class="news-tag">Tercera División</span>
-<h3>Contra Nueva Aurora💜</h3>
-<p>Ganó por goleada 6-0 </p>
+<span class="news-tag">Senior</span>
+<h3>DIVISIÓN SENIOR - CD SANTIAGO FERRARI 💜</h3>
+<p>Ganó por la cuenta mínima 1-0.</p>
 </div>
 </article>
 <article class="news-card fade-up">
-<img src="https://i.postimg.cc/NGXPBh01/Whats-App-Image-2026-05-14-at-12-13-47-AM.jpg" class="news-img" alt="Super 60" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
+<img src="https://i.postimg.cc/02jmVV4X/Whats-App-Image-2026-04-05-at-8-54-24-PM.jpg" class="news-img" alt="Super 60" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
 <div class="news-content">
-<span class="news-tag">Segund División</span>
-<h3> ¡Gano por la cuenta minima! </h3>
-<p>Division segunda gano el partido 1-0 contra Nueva Aurora!</p>
+<span class="news-tag">SUPER 50</span>
+<h3>🟣 ¡CAYÓ 2-0! ⚽</h3>
+<p>Nuestro equipo Super Senior 60 cayó 2-0 contra Atlético. ¡Arriba muchachos, a seguir luchando!</p>
 </div>
 </article>
 <article class="news-card fade-up">
-<img src="https://i.postimg.cc/MTSfBjyG/Whats-App-Image-2026-04-14-at-2-54-16-PM.jpg" class="news-img" alt="Femenino" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
+<img src="https://i.postimg.cc/vBQhLhRK/Whats-App-Image-2026-04-30-at-12-22-00-AM.jpg" class="news-img" alt="Femenino" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
 <div class="news-content">
-<span class="news-tag">Primera División </span>
-<h3>Perdio</h3>
-<p>En un partido trabado, pero se reconoce el esfuerzo del equipo, aun queda la segunda rueda. Vamos muchachos .</p>
+<span class="news-tag">DIVISIÓN FEMENINA 💜⚽</span>
+<h3>Perdió 2-0</h3>
+<p>A pesar de la derrota, se demostró una gran mejora del equipo. Este año es de experiencia y eso se está viendo. ¡Gracias por el aguante de la barra!</p>
 </div>
 </article>
 <article class="news-card fade-up">
-<img src="https://i.postimg.cc/FH5hqRRm/SF.png" class="news-img" alt="Super 60" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
+<img src="https://i.postimg.cc/02jmVV4X/Whats-App-Image-2026-04-05-at-8-54-24-PM.jpg" class="news-img" alt="Super 60" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
 <div class="news-content">
-<span class="news-tag">Fecha Pendiente</span>
-<h3>🟣 Noticias ⚽</h3>
-<p>Aun no se confirma el partido pendiente contra Club Las Palmas</p>
+<span class="news-tag">SUPER 50</span>
+<h3>🟣 ¡CAYÓ 2-0! ⚽</h3>
+<p>Nuestro equipo Super Senior 60 cayó 2-0 contra Atlético. ¡Arriba muchachos, a seguir luchando!</p>
 </div>
 </article>
 </div>
@@ -1108,1145 +962,302 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
+
 <!-- CADETES -->
 <section id="cadetes">
-<div class="container">
-<div class="section-header fade-up">
-<h2>Divisiones Inferiores</h2>
-<p>Conocé nuestros equipos y el calendario de partidos de cadetes.</p>
-<div class="divider"></div>
-</div>
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom: 32px; color:#fff; text-align:center;" class="fade-up">Nuestros Equipos</h3>
-<div class="divisions-grid" style="margin-bottom: 60px;">
-<div class="division-card fade-up"><span class="div-badge">División D</span><h3 class="div-title">Sub 6 - 10</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Leandro Contreras</p></div>
-<div class="division-card fade-up"><span class="div-badge">División C</span><h3 class="div-title">SUB 10 - 12</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Ulises Campos</p></div>
-<div class="division-card fade-up"><span class="div-badge">División B</span><h3 class="div-title">Sub 12 - 14</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Aníbal Toledo</p></div>
-<div class="division-card fade-up"><span class="div-badge">División A</span><h3 class="div-title">Sub 14 - 16</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Juan Uribe</p></div>
-<div class="division-card fade-up"><span class="div-badge">Juvenil</span><h3 class="div-title">Sub 16 - 18</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT David Zamora</p></div>
-</div>
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>Divisiones Inferiores</h2>
+      <p>Conocé nuestros equipos y el calendario de partidos de cadetes.</p>
+      <div class="divider"></div>
+    </div>
+    
+    <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom: 32px; color:#fff; text-align:center;" class="fade-up">Nuestros Equipos</h3>
+    <div class="divisions-grid" style="margin-bottom: 60px;">
+      <div class="division-card fade-up"><span class="div-badge">División D</span><h3 class="div-title">Sub 6 - 10</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Leandro Contreras</p></div>
+      <div class="division-card fade-up"><span class="div-badge">División C</span><h3 class="div-title">SUB 10 - 12</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Ulises Campos</p></div>
+      <div class="division-card fade-up"><span class="div-badge">División B</span><h3 class="div-title">Sub 12 - 14</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Aníbal Toledo</p></div>
+      <div class="division-card fade-up"><span class="div-badge">División A</span><h3 class="div-title">Sub 14 - 16</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT Juan Uribe</p></div>
+      <div class="division-card fade-up"><span class="div-badge">Juvenil</span><h3 class="div-title">Sub 16 - 18</h3><p class="div-meta"><i class="fas fa-user-tie"></i> DT David Zamora</p></div>
+    </div>
 
- <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom: 32px; color:#fff; text-align:center;" class="fade-up">Fixture Cadetes </h3>
-<div class="fixture-container fade-up">
-<div class="fixture-card">
-<div class="fixture-date"><span class="fixture-day">29</span><span class="fixture-month">AGOS </span><span class="fixture-time">13:00 AM </span></div>
-<div class="fixture-match">
-<div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
-<div class="fixture-vs">VS</div>
-<div class="fixture-team away"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AAS" class="fixture-logo"><span>SOL DE MAYO</span></div>
-</div>
-<div class="fixture-info"><span class="fixture-category">División C</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
-</div>
+    <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin-bottom: 32px; color:#fff; text-align:center;" class="fade-up">Fixture Cadetes por confirmar</h3>
+    <div class="fixture-container fade-up">
+      <div class="fixture-card">
+        <div class="fixture-date"><span class="fixture-day">09</span><span class="fixture-month">MAY </span><span class="fixture-time">11:00</span></div>
+        <div class="fixture-match">
+          <div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
+          <div class="fixture-vs">VS</div>
+          <div class="fixture-team away"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="fixture-logo"><span>ATLETICO AGUA SANTA</span></div>
+        </div>
+        <div class="fixture-info"><span class="fixture-category">División D</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
+      </div>
+      <div class="fixture-card">
+        <div class="fixture-date"><span class="fixture-day">09</span><span class="fixture-month">MAY</span><span class="fixture-time">11:45</span></div>
+        <div class="fixture-match">
+          <div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
+          <div class="fixture-vs">VS</div>
+          <div class="fixture-team away"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="fixture-logo"><span>ATLETICO AGUA SANTA</span></div>
+        </div>
+        <div class="fixture-info"><span class="fixture-category">División C</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
+      </div>
+      <div class="fixture-card">
+        <div class="fixture-date"><span class="fixture-day">09</span><span class="fixture-month">MAY</span><span class="fixture-time">12:30</span></div>
+        <div class="fixture-match">
+          <div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
+          <div class="fixture-vs">VS</div>
+          <div class="fixture-team away"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="fixture-logo"><span>ATLETICO AGUA SANTA</span></div>
+        </div>
+        <div class="fixture-info"><span class="fixture-category">División B</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
+      </div>
+      <div class="fixture-card">
+        <div class="fixture-date"><span class="fixture-day">09</span><span class="fixture-month">MAY</span><span class="fixture-time">13:25</span></div>
+        <div class="fixture-match">
+          <div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
+          <div class="fixture-vs">VS</div>
+          <div class="fixture-team away"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="fixture-logo"><span>ATLETICO AGUA SANTA</span></div>
+        </div>
+        <div class="fixture-info"><span class="fixture-category">División A</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
+      </div>
+      <div class="fixture-card">
+        <div class="fixture-date"><span class="fixture-day">09</span><span class="fixture-month">MAY</span><span class="fixture-time">14:30</span></div>
+        <div class="fixture-match">
+          <div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
+          <div class="fixture-vs">VS</div>
+          <div class="fixture-team away"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="fixture-logo"><span>ATLETICO AGUA SANTA</span></div>
+        </div>
+        <div class="fixture-info"><span class="fixture-category">Juvenil</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
+      </div>
+    </div>
 
- <<div class="fixture-card">
-<div class="fixture-date"><span class="fixture-day">29</span><span class="fixture-month">AGOS</span><span class="fixture-time">13:30 PM</span></div>
-<div class="fixture-match">
-<div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
-<div class="fixture-vs">VS</div>
-<div class="fixture-team away"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="AAS" class="fixture-logo"><span>SOL DE MAYO </span></div>
-</div>
-<div class="fixture-info"><span class="fixture-category">División B</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
-</div>
-<!--
- <div class="fixture-card">
-<div class="fixture-date"><span class="fixture-day">14</span><span class="fixture-month">JUN</span><span class="fixture-time">11:00 AM</span></div>
-<div class="fixture-match">
-<div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
-<div class="fixture-vs">VS</div>
-<div class="fixture-team away"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AAS" class="fixture-logo"><span>NUEVA AURORA</span></div>
-</div>
-<div class="fixture-info"><span class="fixture-category">Division B</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
-</div>
+    <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 32px; color:#fff; text-align:center;" class="fade-up">Posiciones por Categoría</h3>
+    <div class="division-tabs fade-up" style="margin-bottom: 24px;">
+      <button class="tab-btn active" onclick="showCadeteTable(event, 'cadete-d')">🟣 División D</button>
+      <button class="tab-btn" onclick="showCadeteTable(event, 'cadete-c')">🟣 División C</button>
+      <button class="tab-btn" onclick="showCadeteTable(event, 'cadete-b')">🟣 División B</button>
+      <button class="tab-btn" onclick="showCadeteTable(event, 'cadete-a')">🟣 División A</button>
+      <button class="tab-btn" onclick="showCadeteTable(event, 'cadete-juvenil')">🟣 Juveniles</button>
+    </div>
 
- <div class="fixture-card">
-<div class="fixture-date"><span class="fixture-day">14</span><span class="fixture-month">JUN</span><span class="fixture-time">12:00 pm</span></div>
-<div class="fixture-match">
-<div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
-<div class="fixture-vs">VS</div>
-<div class="fixture-team away"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AAS" class="fixture-logo"><span>NUEVA AURORA</span></div>
-</div>
-<div class="fixture-info"><span class="fixture-category">División A</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
-</div>
+    <!-- DIVISIÓN D TABLA -->
+    <div id="cadete-d" class="division-content active">
+      <div class="table-container">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>7</td><td>0</td><td>+7</td><td><strong>3</strong></td></tr>
+            <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>7</td><td>-7</td><td>0</td></tr>
+            <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-6 a Sub-10 • Actualizado: 15/ABR/2026</p>
+    </div>
 
-<div class="fixture-card">
-<div class="fixture-date"><span class="fixture-day">14</span><span class="fixture-month">JUN</span><span class="fixture-time">13:00 pm</span></div>
-<div class="fixture-match">
-<div class="fixture-team home"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="fixture-logo"><span>SANTIAGO FERRARI</span></div>
-<div class="fixture-vs">VS</div>
-<div class="fixture-team away"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="AAS" class="fixture-logo"><span>NUEVA AURORA</span></div>
-</div>
-<div class="fixture-info"><span class="fixture-category">Juvenil</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
-</div>
-</div>-->
+    <!-- DIVISIÓN C TABLA -->
+    <div id="cadete-c" class="division-content">
+      <div class="table-container">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td><strong>0</strong></td></tr>
+            <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-10 a Sub-12 • Actualizado: 15/ABR/2026</p>
+    </div>
 
- 
- <!-- TABLAS DE POSICIONES CADETES -->
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 32px; color:#fff; text-align:center;" class="fade-up">Posiciones por Categoría</h3>
-<!-- Tabs de navegación -->
-<div class="division-tabs fade-up" style="margin-bottom: 24px;">
-<button class="tab-btn active" onclick="showCadeteTable(event, 'cadete-d')">🟣 División D</button>
-<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-c')">🟣 División C</button>
-<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-b')">🟣 División B</button>
-<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-a')">🟣 División A</button>
-<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-juvenil')">🟣 Juveniles</button>
-</div>
+    <!-- DIVISIÓN B TABLA -->
+    <div id="cadete-b" class="division-content">
+      <div class="table-container">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><strong>JUVENTUD UNIDA</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>+5</td><td><strong>3</strong></td></tr>
+            <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td>3</td></tr>
+            <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
+            <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+            <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-12 a Sub-14 • Actualizado: 15/ABR/2026</p>
+    </div>
 
- <!-- DIVISIÓN D -->
-<div id="cadete-d" class="division-content active">
-<div class="table-container">
-<table class="standings-table">
-<thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
-<tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><strong>SANTIAGO FERRARI</strong></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>9</td><td>0</td><td>+9</td><td><strong>6</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>1</td><td>+3</td><td>3</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>0</td><td>3</td><td>3</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="RE" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>1</td><td>5</td><td>-4</td><td>0</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>8</td><td>-8</td><td>0</td></tr>
+    <!-- DIVISIÓN A TABLA -->
+    <div id="cadete-a" class="division-content">
+      <div class="table-container">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><strong>VILLA LINDA</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td><strong>3</strong></td></tr>
+            <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>+1</td><td>3</td></tr>
+            <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+            <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>-1</td><td>0</td></tr>
+            <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-14 a Sub-16 • Actualizado: 15/ABR/2026</p>
+    </div>
 
-</tbody>
-</table>
-</div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Sub-6 a Sub-10 • Actualizado: 12/MAY/2026</p>
-</div>
+    <!-- JUVENILES TABLA -->
+    <div id="cadete-juvenil" class="division-content">
+      <div class="table-container">
+        <table class="standings-table">
+          <thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><strong>VILLA LINDA</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>+5</td><td><strong>3</strong></td></tr>
+            <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
+            <tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-16 a Sub-18 • Actualizado: 15/ABR/2026</p>
+    </div>
 
- <!-- DIVISIÓN C -->
-<div id="cadete-c" class="division-content">
-<div class="table-container">
-<table class="standings-table">
-<thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
-<tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="SF" class="team-logo-small"><strong>VELEZ SARSFIELD</strong></div></td><td>2</td><td>2</td><td>0</td><td>0</td><td>9</td><td>2</td><td>+7</td><td><strong>6</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>10</td><td>0</td><td>+10</td><td>3</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>6</td><td>0</td><td>+6</td><td>3</td></tr> 
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>6</td><td>8</td><td>-6</td><td>3</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>0</td><td>1</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>1</td><td>1</td><td>2</td><td>8</td><td>-6</td><td>1</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="RE" class="team-logo-small"><span>SOL DE MAYO </span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td><td>-1</td><td>0</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>6</td><td>-4</td><td>0</td></tr>
-<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>10</td><td>-10</td><td>0</td></tr>
+    <!-- SLIDER TRACK DIVISIÓN D (INFANTILES) -->
+    <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División D (Sub 6-10)</h3>
+    <div class="slider-container fade-up">
+      <div class="slider-track">
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/3RVjHQBg/Whats-App-Image-2026-05-10-at-3-20-47-PM.jpg" alt="Eithan" class="player-photo"><span class="player-number-overlay">10</span></div><div class="player-info"><div class="player-name">Eithan</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/R0jqSSkm/Whats-App-Image-2026-05-10-at-4-54-40-PM.jpg" alt="Tommy" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Tommy</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg" alt="Thomas" class="player-photo"><span class="player-number-overlay">16</span></div><div class="player-info"><div class="player-name">Thomas</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/VvvhKwNB/Whats-App-Image-2026-05-10-at-4-54-40-PM-(2).jpg" alt="Ricardo" class="player-photo"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Ricardo</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/wjLGf09S/Whats-App-Image-2026-05-10-at-4-54-40-PM-(3).jpg" alt="Lihan" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Lihan</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/KcdX0KnK/Whats-App-Image-2026-05-10-at-4-54-40-PM-(4).jpg" alt="Leonardo" class="player-photo"><span class="player-number-overlay">13</span></div><div class="player-info"><div class="player-name">Leonardo</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/PrfQgH1q/Whats-App-Image-2026-05-10-at-4-54-39-PM.jpg" alt="Gael" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Gael</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/wM1TN3Sw/Whats-App-Image-2026-05-10-at-4-54-40-PM-(5).jpg" alt="Gaspar" class="player-photo"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Gaspar</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/tRdHr3zP/Whats-App-Image-2026-05-10-at-7-24-43-PM.jpg" alt="Lionel" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Lionel</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/L67vL7Zk/Whats-App-Image-2026-05-10-at-7-32-06-PM-(1).jpg" alt="Ismael" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Ismael</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/nVX3rpXM/Whats-App-Image-2026-05-10-at-7-38-04-PM.jpg" alt="maximo" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Maximo</div><div class="player-position">Defensa</div></div></div>
+        <!-- DUPLICADO PARA LOOP -->
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/3RVjHQBg/Whats-App-Image-2026-05-10-at-3-20-47-PM.jpg" alt="Eithan" class="player-photo"><span class="player-number-overlay">10</span></div><div class="player-info"><div class="player-name">Eithan</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/R0jqSSkm/Whats-App-Image-2026-05-10-at-4-54-40-PM.jpg" alt="Tommy" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Tommy</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg" alt="Thomas" class="player-photo"><span class="player-number-overlay">16</span></div><div class="player-info"><div class="player-name">Thomas</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/VvvhKwNB/Whats-App-Image-2026-05-10-at-4-54-40-PM-(2).jpg" alt="Ricardo" class="player-photo"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Ricardo</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/wjLGf09S/Whats-App-Image-2026-05-10-at-4-54-40-PM-(3).jpg" alt="Lihan" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Lihan</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/KcdX0KnK/Whats-App-Image-2026-05-10-at-4-54-40-PM-(4).jpg" alt="Leonardo" class="player-photo"><span class="player-number-overlay">13</span></div><div class="player-info"><div class="player-name">Leonardo</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/PrfQgH1q/Whats-App-Image-2026-05-10-at-4-54-39-PM.jpg" alt="Gael" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Gael</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/wM1TN3Sw/Whats-App-Image-2026-05-10-at-4-54-40-PM-(5).jpg" alt="Gaspar" class="player-photo"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Gaspar</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/tRdHr3zP/Whats-App-Image-2026-05-10-at-7-24-43-PM.jpg" alt="Lionel" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Lionel</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/L67vL7Zk/Whats-App-Image-2026-05-10-at-7-32-06-PM-(1).jpg" alt="Ismael" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Ismael</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/nVX3rpXM/Whats-App-Image-2026-05-10-at-7-38-04-PM.jpg" alt="maximo" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Maximo</div><div class="player-position">Defensa</div></div></div>
+      </div>
+    </div>
 
+    <!-- SLIDER TRACK DIVISIÓN C (SUB 10-12) -->
+    <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División C (Sub 10-12)</h3>
+    <div class="slider-container fade-up">
+      <div class="slider-track">
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/sg2Ny7C2/Whats-App-Image-2026-05-10-at-9-26-59-PM.jpg" alt="Antonella" class="player-photo"><span class="player-number-overlay">14</span></div><div class="player-info"><div class="player-name">Antonella</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7YKKBhJL/Whats-App-Image-2026-05-10-at-9-26-59-PM-(1).jpg" alt="Aaron" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Aaron</div><div class="player-position">Mediocampista-Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/W3Vmpcqt/Whats-App-Image-2026-05-10-at-9-26-59-PM-(2).jpg" alt="Borja" class="player-photo"><span class="player-number-overlay">6</span></div><div class="player-info"><div class="player-name">Borja</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/FRhc5bwD/Whats-App-Image-2026-05-10-at-9-26-59-PM-(3).jpg" alt="Brandon" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Brandon</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/jqgfm7cz/Whats-App-Image-2026-05-10-at-9-27-00-PM.jpg" alt="Samir" class="player-photo"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Samir</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/tJwYTFvk/Whats-App-Image-2026-05-10-at-9-27-00-PM-(1).jpg" alt="Diego" class="player-photo"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Diego</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/YqFSRGs2/Whats-App-Image-2026-05-10-at-9-27-00-PM-(2).jpg" alt="Eithan" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Eithan</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/fRZ00fRZ/Whats-App-Image-2026-05-10-at-9-37-44-PM.jpg" alt="Hans" class="player-photo"><span class="player-number-overlay">13</span></div><div class="player-info"><div class="player-name">Hans</div><div class="player-position">Defensa Central</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/jSZCnV1g/Whats-App-Image-2026-05-10-at-9-37-44-PM-(1).jpg" alt="Bastian" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Bastian</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/L6Ssy6KW/Whats-App-Image-2026-05-10-at-9-37-44-PM-(2).jpg" alt="Vicente" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Vicente</div><div class="player-position">Defensa</div></div></div>
+        <!-- DUPLICADO PARA LOOP -->
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/sg2Ny7C2/Whats-App-Image-2026-05-10-at-9-26-59-PM.jpg" alt="Antonella" class="player-photo"><span class="player-number-overlay">14</span></div><div class="player-info"><div class="player-name">Antonella</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7YKKBhJL/Whats-App-Image-2026-05-10-at-9-26-59-PM-(1).jpg" alt="Aaron" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Aaron</div><div class="player-position">Mediocampista-Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/W3Vmpcqt/Whats-App-Image-2026-05-10-at-9-26-59-PM-(2).jpg" alt="Borja" class="player-photo"><span class="player-number-overlay">6</span></div><div class="player-info"><div class="player-name">Borja</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/FRhc5bwD/Whats-App-Image-2026-05-10-at-9-26-59-PM-(3).jpg" alt="Brandon" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Brandon</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/jqgfm7cz/Whats-App-Image-2026-05-10-at-9-27-00-PM.jpg" alt="Samir" class="player-photo"><span class="player-number-overlay">7</span></div><div class="player-info"><div class="player-name">Samir</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/tJwYTFvk/Whats-App-Image-2026-05-10-at-9-27-00-PM-(1).jpg" alt="Diego" class="player-photo"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Diego</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/YqFSRGs2/Whats-App-Image-2026-05-10-at-9-27-00-PM-(2).jpg" alt="Eithan" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Eithan</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/fRZ00fRZ/Whats-App-Image-2026-05-10-at-9-37-44-PM.jpg" alt="Hans" class="player-photo"><span class="player-number-overlay">13</span></div><div class="player-info"><div class="player-name">Hans</div><div class="player-position">Defensa Central</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/jSZCnV1g/Whats-App-Image-2026-05-10-at-9-37-44-PM-(1).jpg" alt="Bastian" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Bastian</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/L6Ssy6KW/Whats-App-Image-2026-05-10-at-9-37-44-PM-(2).jpg" alt="Vicente" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Vicente</div><div class="player-position">Defensa</div></div></div>
+      </div>
+    </div>
 
-</tbody>
-</table>
-</div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Sub-10 a Sub-12 • Actualizado: 23/MAY/2026</p>
-</div>
+    <!-- SLIDER TRACK DIVISIÓN B (SUB 12-14) -->
+    <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División B (Sub 12-14)</h3>
+    <div class="slider-container fade-up">
+      <div class="slider-track">
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/mDHb65yV/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Benjamin" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Benjamin</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/CK8XyT98/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Ian" class="player-photo"><span class="player-number-overlay">4</span></div><div class="player-info"><div class="player-name">Ian</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7hRnYb2S/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Isaac" class="player-photo"><span class="player-number-overlay">2</span></div><div class="player-info"><div class="player-name">Isaac</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/jjRPTyFy/Whats-App-Image-2026-05-11-at-11-10-23-AM-(1).jpg" alt="Martin" class="player-photo"><span class="player-number-overlay">3</span></div><div class="player-info"><div class="player-name">Martin</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/909Y0Cty/Whats-App-Image-2026-05-11-at-11-10-23-AM-(2).jpg" alt="Monserrath" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Monserrath</div><div class="player-position">Delantera</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7YygXvnt/Whats-App-Image-2026-05-11-at-11-10-23-AM-(3).jpg" alt="Pablo" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Pablo</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/GmmTSb8X/Whats-App-Image-2026-05-11-at-11-10-23-AM-(4).jpg" alt="Pipe" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Pipe</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7hqZGNgq/Whats-App-Image-2026-05-11-at-11-10-23-AM-(5).jpg" alt="Agustin" class="player-photo"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Agustin</div><div class="player-position">Mediocampista</div></div></div>
+        <!-- DUPLICADO PARA LOOP -->
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/mDHb65yV/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Benjamin" class="player-photo"><span class="player-number-overlay">15</span></div><div class="player-info"><div class="player-name">Benjamin</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/CK8XyT98/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Ian" class="player-photo"><span class="player-number-overlay">4</span></div><div class="player-info"><div class="player-name">Ian</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7hRnYb2S/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Isaac" class="player-photo"><span class="player-number-overlay">2</span></div><div class="player-info"><div class="player-name">Isaac</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/jjRPTyFy/Whats-App-Image-2026-05-11-at-11-10-23-AM-(1).jpg" alt="Martin" class="player-photo"><span class="player-number-overlay">3</span></div><div class="player-info"><div class="player-name">Martin</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/909Y0Cty/Whats-App-Image-2026-05-11-at-11-10-23-AM-(2).jpg" alt="Monserrath" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Monserrath</div><div class="player-position">Delantera</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7YygXvnt/Whats-App-Image-2026-05-11-at-11-10-23-AM-(3).jpg" alt="Pablo" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Pablo</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/GmmTSb8X/Whats-App-Image-2026-05-11-at-11-10-23-AM-(4).jpg" alt="Pipe" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Pipe</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7hqZGNgq/Whats-App-Image-2026-05-11-at-11-10-23-AM-(5).jpg" alt="Agustin" class="player-photo"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Agustin</div><div class="player-position">Mediocampista</div></div></div>
+      </div>
+    </div>
 
- <!-- DIVISIÓN B -->
-<div id="cadete-b" class="division-content">
-<div class="table-container">
-<table class="standings-table">
-<thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
-<tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="JU" class="team-logo-small"><strong>ATLETICO AGUA SANTA</strong></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>12</td><td>2</td><td>+10</td><td><strong>4</strong></td></tr>
- <tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>8</td><td>1</td><td>+7</td><td>4</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="RE" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>2</td><td>1</td><td>1</td><td>0</td><td>3</td><td>2</td><td>1</td><td>4</td></tr> 
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>10</td><td>0</td><td>+10</td><td>3</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>5</td><td>10</td><td>-5</td><td>3</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>3</td><td>10</td><td>-7</td><td>3</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="LP" class="team-logo-small"><span>LAS PALMAS</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>0</td><td>1</td></tr>
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="RE" class="team-logo-small"><span>SOL DE MAYO </span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>2</td><td>3</td><td>-1</td><td>0</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
-<tr><td>10</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>5</td><td>-5</td><td>0</td></tr>
-<tr><td>11</td><td><div class="team-cell"><img src="https://i.postimg.cc/YSGJLLBz/png_villa_monte.png" alt="VM" class="team-logo-small"><span>VILLA MONTE</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>8</td><td>-7</td><td>0</td></tr>
-</tbody>
-</table>
-</div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Sub-12 a Sub-14 • Actualizado: 23/MAY/2026</p>
-</div>
+    <!-- SLIDER TRACK DIVISIÓN JUVENIL (SUB 16-18) -->
+    <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División Juvenil (Sub 16-18)</h3>
+    <div class="slider-container fade-up">
+      <div class="slider-track">
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7PQ8k1mF/Whats-App-Image-2026-05-11-at-1-20-31-PM.jpg" alt="Exequiel" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Exequiel</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/FzwBJZBM/Whats-App-Image-2026-05-11-at-1-20-31-PM-(1).jpg" alt="Benja" class="player-photo"><span class="player-number-overlay">13</span></div><div class="player-info"><div class="player-name">Benja</div><div class="player-position">Defensa Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/PfLhNFLF/Whats-App-Image-2026-05-11-at-1-20-31-PM-(2).jpg" alt="Benjamin" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Benjamin</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/9FG673cP/Whats-App-Image-2026-05-11-at-1-20-31-PM-(3).jpg" alt="Maicol" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Maicol</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/K8GH3Rq8/Whats-App-Image-2026-05-11-at-1-20-31-PM-(4).jpg" alt="Makina" class="player-photo"><span class="player-number-overlay">6</span></div><div class="player-info"><div class="player-name">Makina</div><div class="player-position">Mediocampista / Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/tgLkkT5M/Whats-App-Image-2026-05-11-at-1-20-31-PM-(5).jpg" alt="Manuel" class="player-photo"><span class="player-number-overlay">16</span></div><div class="player-info"><div class="player-name">Manuel</div><div class="player-position">Mediocampista Defensivo</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/YCPz29Jw/Whats-App-Image-2026-05-11-at-1-20-32-PM.jpg" alt="Martin" class="player-photo"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Martin</div><div class="player-position">Defensa Central</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/R0ymTcyj/Whats-App-Image-2026-05-11-at-1-20-32-PM-(1).jpg" alt="Martin" class="player-photo"><span class="player-number-overlay">2</span></div><div class="player-info"><div class="player-name">Martin</div><div class="player-position">Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/TYCZ9VWm/Whats-App-Image-2026-05-11-at-1-20-32-PM-(2).jpg" alt="Santos" class="player-photo"><span class="player-number-overlay">14</span></div><div class="player-info"><div class="player-name">Santos</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/XNDfkXYq/Whats-App-Image-2026-05-11-at-1-20-32-PM-(4).jpg" alt="Vicente" class="player-photo"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Vicente</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/XJ1CLD3s/Whats-App-Image-2026-05-11-at-1-20-32-PM-(5).jpg" alt="Vicente" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Vicente</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/Njx7TD95/Whats-App-Image-2026-05-11-at-1-20-32-PM-(6).jpg" alt="Yoswal" class="player-photo"><span class="player-number-overlay">17</span></div><div class="player-info"><div class="player-name">Yoswal</div><div class="player-position">Defensa Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/X7mtmVQ9/Whats-App-Image-2026-05-11-at-1-46-53-PM.jpg" alt="Bastian" class="player-photo"><span class="player-number-overlay">10</span></div><div class="player-info"><div class="player-name">Bastian</div><div class="player-position">Mediocampista Ofensivo</div></div></div>
+        <!-- DUPLICADO PARA LOOP -->
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/7PQ8k1mF/Whats-App-Image-2026-05-11-at-1-20-31-PM.jpg" alt="Exequiel" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Exequiel</div><div class="player-position">Arquero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/FzwBJZBM/Whats-App-Image-2026-05-11-at-1-20-31-PM-(1).jpg" alt="Benja" class="player-photo"><span class="player-number-overlay">13</span></div><div class="player-info"><div class="player-name">Benja</div><div class="player-position">Defensa Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/PfLhNFLF/Whats-App-Image-2026-05-11-at-1-20-31-PM-(2).jpg" alt="Benjamin" class="player-photo"><span class="player-number-overlay">11</span></div><div class="player-info"><div class="player-name">Benjamin</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/9FG673cP/Whats-App-Image-2026-05-11-at-1-20-31-PM-(3).jpg" alt="Maicol" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Maicol</div><div class="player-position">Delantero</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/K8GH3Rq8/Whats-App-Image-2026-05-11-at-1-20-31-PM-(4).jpg" alt="Makina" class="player-photo"><span class="player-number-overlay">6</span></div><div class="player-info"><div class="player-name">Makina</div><div class="player-position">Mediocampista / Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/tgLkkT5M/Whats-App-Image-2026-05-11-at-1-20-31-PM-(5).jpg" alt="Manuel" class="player-photo"><span class="player-number-overlay">16</span></div><div class="player-info"><div class="player-name">Manuel</div><div class="player-position">Mediocampista Defensivo</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/YCPz29Jw/Whats-App-Image-2026-05-11-at-1-20-32-PM.jpg" alt="Martin" class="player-photo"><span class="player-number-overlay">12</span></div><div class="player-info"><div class="player-name">Martin</div><div class="player-position">Defensa Central</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/R0ymTcyj/Whats-App-Image-2026-05-11-at-1-20-32-PM-(1).jpg" alt="Martin" class="player-photo"><span class="player-number-overlay">2</span></div><div class="player-info"><div class="player-name">Martin</div><div class="player-position">Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/TYCZ9VWm/Whats-App-Image-2026-05-11-at-1-20-32-PM-(2).jpg" alt="Santos" class="player-photo"><span class="player-number-overlay">14</span></div><div class="player-info"><div class="player-name">Santos</div><div class="player-position">Defensa</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/XNDfkXYq/Whats-App-Image-2026-05-11-at-1-20-32-PM-(4).jpg" alt="Vicente" class="player-photo"><span class="player-number-overlay">5</span></div><div class="player-info"><div class="player-name">Vicente</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/XJ1CLD3s/Whats-App-Image-2026-05-11-at-1-20-32-PM-(5).jpg" alt="Vicente" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Vicente</div><div class="player-position">Mediocampista</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/Njx7TD95/Whats-App-Image-2026-05-11-at-1-20-32-PM-(6).jpg" alt="Yoswal" class="player-photo"><span class="player-number-overlay">17</span></div><div class="player-info"><div class="player-name">Yoswal</div><div class="player-position">Defensa Lateral</div></div></div>
+        <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/X7mtmVQ9/Whats-App-Image-2026-05-11-at-1-46-53-PM.jpg" alt="Bastian" class="player-photo"><span class="player-number-overlay">10</span></div><div class="player-info"><div class="player-name">Bastian</div><div class="player-position">Mediocampista Ofensivo</div></div></div>
+      </div>
+    </div>
 
- <!-- DIVISIÓN A -->
-<div id="cadete-a" class="division-content">
-<div class="table-container">
-<table class="standings-table">
-<thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
-<tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="VL" class="team-logo-small"><strong>LAS PALMAS</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>12</td><td>1</td><td>+11</td><td><strong>3</strong></td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>9</td><td>0</td><td>9</td><td>3</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="RE" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>4</td><td>0</td><td>+4</td><td>3</td></tr>  
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>0</td><td>+3</td><td>3</td></tr>
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/43WTpRYn/448165811_10233035064918383_1885267953703901879_n.png" alt="JU" class="team-logo-small"><span>JUVENTUD UNIDA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>9</td><td>-6</td><td>3</td></tr>
-<tr><td>6</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>12</td><td>-10</td><td>3</td></tr>
-<tr><td>7</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>3</td><td>-3</td><td>0</td></tr>
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>4</td><td>-4</td><td>0</td></tr>
-<tr><td>9</td><td><div class="team-cell"><img src="https://i.postimg.cc/yN88MP9X/476823145_1028344185978160_8157442936791711033_n_Editada.png" alt="RE" class="team-logo-small"><span>SOL DE MAYO </span></div></td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>4</td><td>-4</td><td>0</td></tr>
-</tbody>
-</table>
-</div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Sub-14 a Sub-16 • Actualizado: 12/MAY/2026</p>
-</div>
+  </div> <!-- Cierre de .container -->
+</section> <!-- Cierre de #cadetes -->
 
- <!-- JUVENILES -->
-<div id="cadete-juvenil" class="division-content">
-<div class="table-container">
-<table class="standings-table">
-<thead><tr><th>#</th><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>DG</th><th>Pts</th></tr></thead>
-<tbody>
-<tr class="highlight"><td>1</td><td><div class="team-cell"><img src="https://i.postimg.cc/02G5r307/las_palmas_Editada.png" alt="VL" class="team-logo-small"><strong>LAS PALMAS</strong></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>7</td><td>0</td><td>+7</td><td><strong>3</strong></td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="VL" class="team-logo-small"><span>VILLA LINDA</span></div></td><td>1</td><td>1</td><td>0</td><td>0</td><td>5</td><td>0</td><td>+5</td><td>3</td></tr>
-<tr><td>2</td><td><div class="team-cell"><img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="SF" class="team-logo-small"><span>SANTIAGO FERRARI</span></div></td><td>2</td><td>1</td><td>0</td><td>1</td><td>6</td><td>5</td><td>1</td><td>3</td></tr>
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/XNd4Dhh1/velez_sarsfield_Editada.png" alt="RE" class="team-logo-small"><span>VELEZ SARSFIELD</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>0</td><td>1</td></tr> 
-<tr><td>5</td><td><div class="team-cell"><img src="https://i.postimg.cc/d0yxVM8M/FB_IMG_1761513806052.jpg" alt="UI" class="team-logo-small"><span>UNIÓN INDEPENDIENTE</span></div></td><td>1</td><td>0</td><td>1</td><td>0</td><td>2</td><td>2</td><td>0</td><td>1</td></tr>
-<tr><td>4</td><td><div class="team-cell"><img src="https://i.postimg.cc/28tGbckJ/Nueva_Aurora.png" alt="NA" class="team-logo-small"><span>NUEVA AURORA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr> 
-<tr><td>3</td><td><div class="team-cell"><img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="RE" class="team-logo-small"><span>REAL ESPAÑA</span></div></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr> 
-<tr><td>8</td><td><div class="team-cell"><img src="https://i.postimg.cc/NF4Vv1RL/atletico_agua_santa_Editada.png" alt="AAS" class="team-logo-small"><span>ATLÉTICO AGUA SANTA</span></div></td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td>13</td><td>-13</td><td>0</td></tr>
-</tbody>
-</table>
-</div>
-<p class="table-footer"><i class="fas fa-info-circle"></i> Sub-16 a Sub-18 • Actualizado: 12/MAY/2026</p>
-</div>
-
- <!-- NUEVA SECCIÓN: SLIDER TRACK DIVISIÓN D (INFANTILES) -->
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División D (Sub 6-10)</h3>
-<div class="slider-container fade-up">
-<div class="slider-track">
-<!-- ========================================== -->
-<!-- GRUPO 1: JUGADORES REALES (AGREGA AQUÍ LOS NUEVOS) -->
-<!-- ========================================== -->
-<!-- Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/3RVjHQBg/Whats-App-Image-2026-05-10-at-3-20-47-PM.jpg" alt="Eithan" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/R0jqSSkm/Whats-App-Image-2026-05-10-at-4-54-40-PM.jpg" alt="Tommy" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Tommy</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg" alt="Thomas" class="player-photo">
-<span class="player-number-overlay">16</span>
-</div>
-<div class="player-info">
-<div class="player-name">Thomas</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/VvvhKwNB/Whats-App-Image-2026-05-10-at-4-54-40-PM-(2).jpg" alt="Ricardo" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ricardo</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wjLGf09S/Whats-App-Image-2026-05-10-at-4-54-40-PM-(3).jpg" alt="Lihan" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lihan</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/KcdX0KnK/Whats-App-Image-2026-05-10-at-4-54-40-PM-(4).jpg" alt="Leonardo" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Leonardo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/PrfQgH1q/Whats-App-Image-2026-05-10-at-4-54-39-PM.jpg" alt="Gael" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gael</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wM1TN3Sw/Whats-App-Image-2026-05-10-at-4-54-40-PM-(5).jpg" alt="Gaspar" class="player-photo">
-<span class="player-number-overlay">12</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gaspar</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tRdHr3zP/Whats-App-Image-2026-05-10-at-7-24-43-PM.jpg" alt="Lionel" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lionel</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L67vL7Zk/Whats-App-Image-2026-05-10-at-7-32-06-PM-(1).jpg" alt="Ismael" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ismael</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/nVX3rpXM/Whats-App-Image-2026-05-10-at-7-38-04-PM.jpg" alt="maximo" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Maximo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- ========================================== -->
-<!-- AGREGAR MÁS JUGADORES AQUÍ (GRUPO 1)       -->
-<!-- Ejemplo para Jugador 7 (Descomenta y edita) -->
-<!-- ========================================== -->
-<!--
-<div class="player-card">
-<div class="player-photo-container">
-<img src="URL_DE_LA_FOTO.jpg" alt="Nombre" class="player-photo">
-<span class="player-number-overlay">NUMERO</span>
-</div>
-<div class="player-info">
-<div class="player-name">NOMBRE APELLIDO</div>
-<div class="player-position">POSICION</div>
-</div>
-</div>
--->
-<!-- ========================================== -->
-<!-- GRUPO 2: DUPLICADO EXACTO DEL GRUPO 1      -->
-<!-- (NECESARIO PARA QUE EL LOOP NO SE CORTE)   -->
-<!-- ========================================== -->
-<!-- Duplicado Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/3RVjHQBg/Whats-App-Image-2026-05-10-at-3-20-47-PM.jpg" alt="Eithan" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/R0jqSSkm/Whats-App-Image-2026-05-10-at-4-54-40-PM.jpg" alt="Tommy" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Tommy</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg" alt="Thomas" class="player-photo">
-<span class="player-number-overlay">16</span>
-</div>
-<div class="player-info">
-<div class="player-name">Thomas</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/VvvhKwNB/Whats-App-Image-2026-05-10-at-4-54-40-PM-(2).jpg" alt="Ricardo" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ricardo</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wjLGf09S/Whats-App-Image-2026-05-10-at-4-54-40-PM-(3).jpg" alt="Lihan" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lihan</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/KcdX0KnK/Whats-App-Image-2026-05-10-at-4-54-40-PM-(4).jpg" alt="Leonardo" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Leonardo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/PrfQgH1q/Whats-App-Image-2026-05-10-at-4-54-39-PM.jpg" alt="Gael" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gael</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wM1TN3Sw/Whats-App-Image-2026-05-10-at-4-54-40-PM-(5).jpg" alt="Gaspar" class="player-photo">
-<span class="player-number-overlay">12</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gaspar</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/RVzZhCgQ/Whats-App-Image-2026-05-10-at-7-21-24-PM.jpg" alt="Lionel" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lionel</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L67vL7Zk/Whats-App-Image-2026-05-10-at-7-32-06-PM-(1).jpg" alt="Ismael" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ismael</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/nVX3rpXM/Whats-App-Image-2026-05-10-at-7-38-04-PM.jpg" alt="Maximo" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Maximo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-</div>
-</div>
-<!-- NUEVA SECCIÓN: SLIDER TRACK DIVISIÓN C (SUB 10-12) -->
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División C (Sub 10-12)</h3>
-<div class="slider-container fade-up">
-<div class="slider-track">
-<!-- ========================================== -->
-<!-- GRUPO 1: 10 JUGADORES REALES DE DIVISIÓN C -->
-<!-- ========================================== -->
-<!-- Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/sg2Ny7C2/Whats-App-Image-2026-05-10-at-9-26-59-PM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">14</span>
-</div>
-<div class="player-info">
-<div class="player-name">Antonella</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7YKKBhJL/Whats-App-Image-2026-05-10-at-9-26-59-PM-(1).jpg" alt="Jugador 2" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Aaron</div>
-<div class="player-position">Mediocampista-Defensa</div>
-</div>
-</div>
-<!-- Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/W3Vmpcqt/Whats-App-Image-2026-05-10-at-9-26-59-PM-(2).jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">6</span>
-</div>
-<div class="player-info">
-<div class="player-name">Borja</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/FRhc5bwD/Whats-App-Image-2026-05-10-at-9-26-59-PM-(3).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Brandon</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jqgfm7cz/Whats-App-Image-2026-05-10-at-9-27-00-PM.jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Samir</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tJwYTFvk/Whats-App-Image-2026-05-10-at-9-27-00-PM-(1).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">5</span>
-</div>
-<div class="player-info">
-<div class="player-name">Diego</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/YqFSRGs2/Whats-App-Image-2026-05-10-at-9-27-00-PM-(2).jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/fRZ00fRZ/Whats-App-Image-2026-05-10-at-9-37-44-PM.jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Hans</div>
-<div class="player-position">Defensa Central</div>
-</div>
-</div>
-<!-- Jugador 9 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jSZCnV1g/Whats-App-Image-2026-05-10-at-9-37-44-PM-(1).jpg" alt="Jugador 9" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Bastian</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 10 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L6Ssy6KW/Whats-App-Image-2026-05-10-at-9-37-44-PM-(2).jpg" alt="Jugador 10" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- ========================================== -->
-<!-- GRUPO 2: DUPLICADO EXACTO DEL GRUPO 1      -->
-<!-- (NECESARIO PARA QUE EL LOOP NO SE CORTE)   -->
-<!-- ========================================== -->
-<!-- Duplicado Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/sg2Ny7C2/Whats-App-Image-2026-05-10-at-9-26-59-PM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">14</span>
-</div>
-<div class="player-info">
-<div class="player-name">Antonella</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7YKKBhJL/Whats-App-Image-2026-05-10-at-9-26-59-PM-(1).jpg" alt="Jugador 2" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Aaron</div>
-<div class="player-position">Mediocampista / Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/W3Vmpcqt/Whats-App-Image-2026-05-10-at-9-26-59-PM-(2).jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">6</span>
-</div>
-<div class="player-info">
-<div class="player-name">Borja</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Duplicado Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/FRhc5bwD/Whats-App-Image-2026-05-10-at-9-26-59-PM-(3).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Brandon</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jqgfm7cz/Whats-App-Image-2026-05-10-at-9-27-00-PM.jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Samir</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tJwYTFvk/Whats-App-Image-2026-05-10-at-9-27-00-PM-(1).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">4</span>
-</div>
-<div class="player-info">
-<div class="player-name">Diego</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/YqFSRGs2/Whats-App-Image-2026-05-10-at-9-27-00-PM-(2).jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Duplicado Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/fRZ00fRZ/Whats-App-Image-2026-05-10-at-9-37-44-PM.jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Hans</div>
-<div class="player-position">Defensa Central</div>
-</div>
-</div>
-<!-- Duplicado Jugador 9 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jSZCnV1g/Whats-App-Image-2026-05-10-at-9-37-44-PM-(1).jpg" alt="Jugador 9" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Bastian</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 10 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L6Ssy6KW/Whats-App-Image-2026-05-10-at-9-37-44-PM-(2).jpg" alt="Jugador 10" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-</div>
-</div>
-</section>
- 
-  
-  <!-- NUEVA SECCIÓN: SLIDER TRACK DIVISIÓN B (SUB 12-14) -->
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División B (Sub 12-14)</h3>
-<div class="slider-container fade-up">
-<div class="slider-track">
-<!-- ========================================== -->
-<!-- GRUPO 1: JUGADORES REALES DE DIVISIÓN B -->
-<!-- ========================================== -->
-<!-- Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/mDHb65yV/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Benjamin</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-
-<!-- Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7hRnYb2S/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">2</span>
-</div>
-<div class="player-info">
-<div class="player-name">Isaac</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jjRPTyFy/Whats-App-Image-2026-05-11-at-11-10-23-AM-(1).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">3</span>
-</div>
-<div class="player-info">
-<div class="player-name">Martin</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/909Y0Cty/Whats-App-Image-2026-05-11-at-11-10-23-AM-(2).jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Monserrath</div>
-<div class="player-position">Delantera</div>
-</div>
-</div>
-<!-- Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7YygXvnt/Whats-App-Image-2026-05-11-at-11-10-23-AM-(3).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Pablo</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/GmmTSb8X/Whats-App-Image-2026-05-11-at-11-10-23-AM-(4).jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Pipe</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7hqZGNgq/Whats-App-Image-2026-05-11-at-11-10-23-AM-(5).jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">5</span>
-</div>
-<div class="player-info">
-<div class="player-name">Agustin</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- ========================================== -->
-<!-- GRUPO 2: DUPLICADO EXACTO DEL GRUPO 1      -->
-<!-- (NECESARIO PARA QUE EL LOOP NO SE CORTE)   -->
-<!-- ========================================== -->
-<!-- Duplicado Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/mDHb65yV/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Benjamin</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-
-<!-- Duplicado Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7hRnYb2S/Whats-App-Image-2026-05-11-at-11-10-23-AM.jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">2</span>
-</div>
-<div class="player-info">
-<div class="player-name">Isaac</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jjRPTyFy/Whats-App-Image-2026-05-11-at-11-10-23-AM-(1).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">3</span>
-</div>
-<div class="player-info">
-<div class="player-name">Martin</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/909Y0Cty/Whats-App-Image-2026-05-11-at-11-10-23-AM-(2).jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Monserrath</div>
-<div class="player-position">Delantera</div>
-</div>
-</div>
-<!-- Duplicado Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7YygXvnt/Whats-App-Image-2026-05-11-at-11-10-23-AM-(3).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Pablo</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Duplicado Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/GmmTSb8X/Whats-App-Image-2026-05-11-at-11-10-23-AM-(4).jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Pipe</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7hqZGNgq/Whats-App-Image-2026-05-11-at-11-10-23-AM-(5).jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">5</span>
-</div>
-<div class="player-info">
-<div class="player-name">Agustin</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-</div>
-</div>
-
-  <!-- NUEVA SECCIÓN: SLIDER TRACK DIVISIÓN JUVENIL (SUB 16-18) -->
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División Juvenil (Sub 16-18)</h3>
-<div class="slider-container fade-up">
-<div class="slider-track">
-<!-- ========================================== -->
-<!-- GRUPO 1: 13 JUGADORES REALES DE JUVENILES -->
-<!-- ========================================== -->
-<!-- Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7PQ8k1mF/Whats-App-Image-2026-05-11-at-1-20-31-PM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Exequiel</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/FzwBJZBM/Whats-App-Image-2026-05-11-at-1-20-31-PM-(1).jpg" alt="Jugador 2" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Benja</div>
-<div class="player-position">Defensa Lateral</div>
-</div>
-</div>
-<!-- Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/PfLhNFLF/Whats-App-Image-2026-05-11-at-1-20-31-PM-(2).jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Benjamin</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/9FG673cP/Whats-App-Image-2026-05-11-at-1-20-31-PM-(3).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Maicol</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/K8GH3Rq8/Whats-App-Image-2026-05-11-at-1-20-31-PM-(4).jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">6</span>
-</div>
-<div class="player-info">
-<div class="player-name">Makina</div>
-<div class="player-position">Mediocampista / Lateral</div>
-</div>
-</div>
-<!-- Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tgLkkT5M/Whats-App-Image-2026-05-11-at-1-20-31-PM-(5).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">16</span>
-</div>
-<div class="player-info">
-<div class="player-name">Manuel</div>
-<div class="player-position">Mediocampista Defensivo</div>
-</div>
-</div>
-<!-- Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/YCPz29Jw/Whats-App-Image-2026-05-11-at-1-20-32-PM.jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">12</span>
-</div>
-<div class="player-info">
-<div class="player-name">Martin</div>
-<div class="player-position">Defensa Central</div>
-</div>
-</div>
-<!-- Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/R0ymTcyj/Whats-App-Image-2026-05-11-at-1-20-32-PM-(1).jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">2</span>
-</div>
-<div class="player-info">
-<div class="player-name">Martin</div>
-<div class="player-position">Lateral</div>
-</div>
-</div>
-<!-- Jugador 9 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/TYCZ9VWm/Whats-App-Image-2026-05-11-at-1-20-32-PM-(2).jpg" alt="Jugador 9" class="player-photo">
-<span class="player-number-overlay">14</span>
-</div>
-<div class="player-info">
-<div class="player-name">Santos</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 10 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/XNDfkXYq/Whats-App-Image-2026-05-11-at-1-20-32-PM-(4).jpg" alt="Jugador 10" class="player-photo">
-<span class="player-number-overlay">5</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Jugador 11 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/XJ1CLD3s/Whats-App-Image-2026-05-11-at-1-20-32-PM-(5).jpg" alt="Jugador 11" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-info">
-<div class="player-name">Yoswal</div>
-<div class="player-position">Defensa Lateral</div>
-</div>
-</div>
-<!-- Jugador 13 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/X7mtmVQ9/Whats-App-Image-2026-05-11-at-1-46-53-PM.jpg" alt="Jugador 13" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Bastian</div>
-<div class="player-position">Mediocampista Ofensivo</div>
-</div>
-</div>
-<!-- ========================================== -->
-<!-- GRUPO 2: DUPLICADO EXACTO DEL GRUPO 1      -->
-<!-- (NECESARIO PARA QUE EL LOOP NO SE CORTE)   -->
-<!-- ========================================== -->
-<!-- Duplicado Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7PQ8k1mF/Whats-App-Image-2026-05-11-at-1-20-31-PM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Exequiel</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/FzwBJZBM/Whats-App-Image-2026-05-11-at-1-20-31-PM-(1).jpg" alt="Jugador 2" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Benja</div>
-<div class="player-position">Defensa Lateral</div>
-</div>
-</div>
-<!-- Duplicado Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/PfLhNFLF/Whats-App-Image-2026-05-11-at-1-20-31-PM-(2).jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Benjamin</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/9FG673cP/Whats-App-Image-2026-05-11-at-1-20-31-PM-(3).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Maicol</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/K8GH3Rq8/Whats-App-Image-2026-05-11-at-1-20-31-PM-(4).jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">6</span>
-</div>
-<div class="player-info">
-<div class="player-name">Makina</div>
-<div class="player-position">Mediocampista / Lateral</div>
-</div>
-</div>
-<!-- Duplicado Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tgLkkT5M/Whats-App-Image-2026-05-11-at-1-20-31-PM-(5).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">16</span>
-</div>
-<div class="player-info">
-<div class="player-name">Manuel</div>
-<div class="player-position">Mediocampista Defensivo</div>
-</div>
-</div>
-<!-- Duplicado Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/YCPz29Jw/Whats-App-Image-2026-05-11-at-1-20-32-PM.jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">12</span>
-</div>
-<div class="player-info">
-<div class="player-name">Martin</div>
-<div class="player-position">Defensa Central</div>
-</div>
-</div>
-<!-- Duplicado Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/R0ymTcyj/Whats-App-Image-2026-05-11-at-1-20-32-PM-(1).jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">2</span>
-</div>
-<div class="player-info">
-<div class="player-name">Martin</div>
-<div class="player-position">Lateral</div>
-</div>
-</div>
-<!-- Duplicado Jugador 9 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/TYCZ9VWm/Whats-App-Image-2026-05-11-at-1-20-32-PM-(2).jpg" alt="Jugador 9" class="player-photo">
-<span class="player-number-overlay">14</span>
-</div>
-<div class="player-info">
-<div class="player-name">Santos</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 10 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/XNDfkXYq/Whats-App-Image-2026-05-11-at-1-20-32-PM-(4).jpg" alt="Jugador 10" class="player-photo">
-<span class="player-number-overlay">5</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Mediocampista </div>
-</div>
-</div>
-<!-- Duplicado Jugador 11 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/XJ1CLD3s/Whats-App-Image-2026-05-11-at-1-20-32-PM-(5).jpg" alt="Jugador 11" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Duplicado Jugador 13 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/X7mtmVQ9/Whats-App-Image-2026-05-11-at-1-46-53-PM.jpg" alt="Jugador 13" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Bastian</div>
-<div class="player-position">Mediocampista Ofensivo</div>
-</div>
-</div>
-</div>
-</div>
 <!-- CONTACT -->
 <section id="contacto">
 <div class="container">
@@ -2287,31 +1298,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-
- <!-- SECCIÓN FACEBOOK WIDGET -->
-
-  <section id="facebook-widget" style="background: var(--dark); padding: 60px 0;">
-  <div class="container" style="text-align: center;">
-    <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: #fff; margin-bottom: 30px; letter-spacing: 2px;">
-      <i class="fab fa-facebook" style="color: #1877F2; margin-right: 10px;"></i>
-      Nuestra Página de Facebook
-    </h2>
-    
-    <!-- Widget de Facebook -->
-    <div style="max-width: 500px; margin: 0 auto;">
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61562914994061&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-            width="100%" 
-            height="500" 
-            style="border:none;overflow:hidden;border-radius: 12px;" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true" 
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-      </iframe>
-    </div>
-  </div>
-</section>
-
 <!-- 🟣 FOOTER ESTILO AC MILAN -->
 <footer class="premium-footer">
 <div class="footer-wave-top"></div>
@@ -2491,8 +1477,6 @@ function closeLightbox() { lb?.classList.remove('active'); document.body.style.o
 function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
 document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
 lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
-
-
 </script>
 </body>
 </html>
