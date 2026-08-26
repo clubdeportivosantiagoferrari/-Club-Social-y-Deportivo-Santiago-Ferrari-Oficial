@@ -6,14 +6,11 @@
 <meta name="description" content="Sitio Oficial del F.C. Social y Deportivo Santiago Ferrari. Noticias, fixture, equipos y pasión lila.">
 <meta name="theme-color" content="#9B59B6">
 <title>Santiago Ferrari FC | Garra y Pasión</title>
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
-<!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* 🎨 PALETA LILA SANTIAGO FERRARI */
 :root {
 --lila: #9B59B6;
 --lila-light: #C39BD3;
@@ -32,120 +29,43 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body {
-background: var(--black);
-color: var(--text);
-font-family: var(--font-body);
-line-height: 1.6;
-overflow-x: hidden;
-padding-top: 90px;
-}
+body { background: var(--black); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; padding-top: 90px; }
 body.header-scrolled { padding-top: 75px; }
-/* UTILS */
 .container { width: 90%; max-width: 1280px; margin: 0 auto; }
-.btn {
-display: inline-flex; align-items: center; gap: 10px;
-background: linear-gradient(135deg, var(--lila), var(--lila-dark));
-color: #fff; padding: 14px 32px; font-weight: 700;
-text-transform: uppercase; letter-spacing: 1px; border: none;
-border-radius: 6px; cursor: pointer; transition: var(--transition);
-box-shadow: 0 4px 15px var(--lila-glow); text-decoration: none;
-font-family: var(--font-heading);
-}
+.btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--lila), var(--lila-dark)); color: #fff; padding: 14px 32px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 6px; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 15px var(--lila-glow); text-decoration: none; font-family: var(--font-heading); }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--lila-glow); color: #fff; }
 .btn-outline { background: transparent; border: 2px solid var(--lila-light); box-shadow: none; }
 .btn-outline:hover { background: var(--lila); border-color: var(--lila); box-shadow: 0 8px 20px var(--lila-glow); }
-/* HEADER */
-#main-header {
-position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-background: var(--black); transition: var(--transition);
-border-bottom: 1px solid transparent;
-}
-#main-header.scrolled {
-background: rgba(5, 5, 5, 0.92); backdrop-filter: blur(12px);
-border-bottom: 1px solid var(--border-color);
-}
-.nav-container {
-display: flex; justify-content: space-between; align-items: center;
-padding: 16px 0; transition: var(--transition);
-}
+#main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--black); transition: var(--transition); border-bottom: 1px solid transparent; }
+#main-header.scrolled { background: rgba(5, 5, 5, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; transition: var(--transition); }
 #main-header.scrolled .nav-container { padding: 12px 0; }
-.logo {
-display: flex; align-items: center; gap: 12px;
-text-decoration: none; color: #fff; font-family: var(--font-heading);
-}
-.logo-img {
-height: 50px; width: auto; object-fit: contain;
-filter: drop-shadow(0 0 8px var(--lila-glow)); transition: var(--transition);
-}
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; font-family: var(--font-heading); }
+.logo-img { height: 50px; width: auto; object-fit: contain; filter: drop-shadow(0 0 8px var(--lila-glow)); transition: var(--transition); }
 #main-header.scrolled .logo-img { height: 42px; }
 .logo:hover .logo-img { transform: scale(1.05) rotate(-2deg); filter: drop-shadow(0 0 15px var(--lila-light)); }
 .nav-links { display: flex; gap: 30px; }
-.nav-links a {
-color: var(--muted); text-decoration: none; font-weight: 600;
-font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
-position: relative; transition: var(--transition); font-family: var(--font-heading);
-}
+.nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: var(--transition); font-family: var(--font-heading); }
 .nav-links a:hover, .nav-links a.active { color: #fff; }
-.nav-links a::after {
-content: ''; position: absolute; bottom: -6px; left: 0;
-width: 0; height: 2px; background: var(--lila);
-transition: var(--transition); box-shadow: 0 0 8px var(--lila);
-}
+.nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--lila); transition: var(--transition); box-shadow: 0 0 8px var(--lila); }
 .nav-links a:hover::after { width: 100%; }
 .menu-toggle { display: none; background: none; border: none; color: var(--lila-light); font-size: 1.6rem; cursor: pointer; }
-/* HERO */
-.hero {
-height: 100vh; min-height: 600px;
-background: url('https://i.postimg.cc/P5vxwY8y/paginaprincipal.png') center/cover no-repeat;
-display: flex; align-items: center; justify-content: center;
-text-align: center; position: relative; overflow: hidden;
-}
-.hero::before {
-content: ''; position: absolute; inset: 0;
-background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(5,5,5,0.95) 100%);
-}
-.hero::after {
-content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-width: 60%; height: 60%;
-background: radial-gradient(circle, var(--lila-glow) 0%, transparent 70%);
-opacity: 0.4; filter: blur(80px); pointer-events: none;
-}
+.hero { height: 100vh; min-height: 600px; background: url('https://i.postimg.cc/P5vxwY8y/paginaprincipal.png') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(5,5,5,0.95) 100%); }
+.hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60%; height: 60%; background: radial-gradient(circle, var(--lila-glow) 0%, transparent 70%); opacity: 0.4; filter: blur(80px); pointer-events: none; }
 .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
-.hero-tag {
-display: inline-block; background: rgba(155, 89, 182, 0.15); color: var(--lila-light);
-border: 1px solid var(--border-color); padding: 6px 16px;
-font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
-text-transform: uppercase; margin-bottom: 24px; border-radius: 50px;
-backdrop-filter: blur(5px); font-family: var(--font-heading);
-}
-.hero h1 {
-font-family: var(--font-display);
-font-size: clamp(4rem, 12vw, 9rem);
-font-weight: 400; line-height: 0.85; margin-bottom: 24px;
-text-transform: uppercase; letter-spacing: 4px;
-background: linear-gradient(to right, #fff, var(--lila-light));
--webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
+.hero-tag { display: inline-block; background: rgba(155, 89, 182, 0.15); color: var(--lila-light); border: 1px solid var(--border-color); padding: 6px 16px; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; border-radius: 50px; backdrop-filter: blur(5px); font-family: var(--font-heading); }
+.hero h1 { font-family: var(--font-display); font-size: clamp(4rem, 12vw, 9rem); font-weight: 400; line-height: 0.85; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 4px; background: linear-gradient(to right, #fff, var(--lila-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero p { font-size: clamp(1.1rem, 2vw, 1.3rem); color: #ccc; max-width: 650px; margin: 0 auto 40px; }
 .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-/* SECTIONS */
 section { padding: 100px 0; position: relative; }
 .section-header { text-align: center; margin-bottom: 60px; }
-.section-header h2 {
-font-family: var(--font-display);
-font-size: clamp(2.5rem, 5vw, 4rem);
-font-weight: 400; text-transform: uppercase; margin-bottom: 16px; letter-spacing: 3px;
-}
+.section-header h2 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 400; text-transform: uppercase; margin-bottom: 16px; letter-spacing: 3px; }
 .section-header p { color: var(--muted); max-width: 600px; margin: 0 auto; }
 .divider { height: 4px; width: 60px; background: var(--lila); margin: 16px auto 0; border-radius: 2px; box-shadow: 0 0 10px var(--lila); }
-/* NEWS */
 .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 @media (min-width: 1024px) { .news-grid { grid-template-columns: repeat(3, 1fr); } }
-.news-card {
-background: var(--gray); border-radius: 12px; overflow: hidden;
-transition: var(--transition); position: relative; cursor: pointer; border: 1px solid #222;
-}
+.news-card { background: var(--gray); border-radius: 12px; overflow: hidden; transition: var(--transition); position: relative; cursor: pointer; border: 1px solid #222; }
 .news-card:hover { transform: translateY(-8px); border-color: var(--lila-dark); }
 .news-img { width: 100%; height: 240px; object-fit: cover; display: block; transition: 0.5s; opacity: 0.9; }
 .news-card:hover .news-img { transform: scale(1.05); opacity: 1; }
@@ -153,46 +73,19 @@ transition: var(--transition); position: relative; cursor: pointer; border: 1px 
 .news-tag { display: inline-block; color: var(--lila-light); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-family: var(--font-heading); }
 .news-content h3 { font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 12px; line-height: 1.4; color: #fff; }
 .news-content p { color: var(--muted); font-size: 0.95rem; }
-/* EQUIPO FEMENINO */
-.femenino-hero {
-background: linear-gradient(135deg, var(--dark), var(--gray));
-border-radius: 16px; padding: 40px; margin-bottom: 40px;
-display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
+.femenino-hero { background: linear-gradient(135deg, var(--dark), var(--gray)); border-radius: 16px; padding: 40px; margin-bottom: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
 .femenino-hero img { width: 100%; border-radius: 12px; border: 3px solid var(--lila); box-shadow: 0 8px 25px var(--lila-glow); }
 .femenino-hero h3 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 16px; color: #fff; letter-spacing: 2px; }
 .femenino-hero p { color: var(--muted); margin-bottom: 24px; font-size: 1.05rem; }
-/* SLIDER DE JUGADORAS (Común para Femenino e Infantiles) */
-.slider-container {
-overflow: hidden; width: 100%; padding: 20px 0;
-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
--webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
+.slider-container { overflow: hidden; width: 100%; padding: 20px 0; mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent); }
 .slider-track { display: flex; gap: 24px; width: max-content; animation: slide-players 50s linear infinite; }
 .slider-track:hover { animation-play-state: paused; cursor: pointer; }
-.player-card {
-min-width: 260px; max-width: 260px; background: var(--gray);
-border-radius: 12px; overflow: hidden; text-align: center;
-transition: var(--transition); border: 1px solid #2a2a2a;
-}
+.player-card { min-width: 260px; max-width: 260px; background: var(--gray); border-radius: 12px; overflow: hidden; text-align: center; transition: var(--transition); border: 1px solid #2a2a2a; }
 .player-card:hover { transform: translateY(-6px); border-color: var(--lila); box-shadow: 0 12px 30px var(--lila-glow); }
 .player-photo-container { position: relative; width: 100%; height: 280px; overflow: hidden; background-color: #1a1a1a; }
-.player-photo {
-width: 100%;
-height: 100%;
-object-fit: cover;
-object-position: center center;
-transition: transform 0.5s ease;
-}
+.player-photo { width: 100%; height: 100%; object-fit: cover; object-position: center center; transition: transform 0.5s ease; }
 .player-card:hover .player-photo { transform: scale(1.05); }
-.player-number-overlay {
-position: absolute; bottom: 10px; right: 10px;
-background: var(--lila); color: #fff; width: 40px; height: 40px; border-radius: 50%;
-display: flex; align-items: center; justify-content: center;
-font-family: var(--font-display); font-size: 1.4rem;
-box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2);
-}
+.player-number-overlay { position: absolute; bottom: 10px; right: 10px; background: var(--lila); color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.4rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2); }
 .player-info { padding: 20px; }
 .player-name { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; color: #fff; }
 .player-position { color: var(--lila-light); font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -202,95 +95,46 @@ box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2);
 .achievement-item i { font-size: 2rem; color: var(--lila-light); margin-bottom: 10px; }
 .achievement-item strong { display: block; font-family: var(--font-display); font-size: 2rem; color: #fff; margin-bottom: 4px; letter-spacing: 1px; }
 .achievement-item span { color: var(--muted); font-size: 0.9rem; }
-.tryouts-cta {
-background: linear-gradient(135deg, var(--lila-dark), var(--lila)); border-radius: 12px;
-padding: 30px; text-align: center; margin-top: 40px; border: 2px solid var(--lila-light);
-}
+.tryouts-cta { background: linear-gradient(135deg, var(--lila-dark), var(--lila)); border-radius: 12px; padding: 30px; text-align: center; margin-top: 40px; border: 2px solid var(--lila-light); }
 .tryouts-cta h4 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 12px; color: #fff; letter-spacing: 2px; }
 .tryouts-cta p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
-/* CLUB STATS */
 .stats-section { background: linear-gradient(to bottom, var(--black), #0e0e0e); border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; }
 .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
-.stat-item h3 {
-font-family: var(--font-display); font-size: 4rem; font-weight: 400;
-background: linear-gradient(to bottom, #fff, var(--lila));
--webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: 2px;
-}
+.stat-item h3 { font-family: var(--font-display); font-size: 4rem; font-weight: 400; background: linear-gradient(to bottom, #fff, var(--lila)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; letter-spacing: 2px; }
 .stat-item p { color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; font-family: var(--font-heading); }
-/* CONTACT */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
 .contact-info h3 { font-family: var(--font-display); font-size: 2.5rem; margin-bottom: 20px; color: #fff; letter-spacing: 2px; }
 .contact-info p { margin: 14px 0; color: var(--muted); font-size: 1.05rem; }
 .contact-info i { color: var(--lila); width: 24px; margin-right: 10px; }
 .socials { display: flex; gap: 16px; margin-top: 30px; }
-.socials a {
-display: flex; align-items: center; justify-content: center;
-width: 50px; height: 50px; background: var(--gray); border: 1px solid #333; border-radius: 50%;
-color: var(--lila-light); font-size: 1.2rem; transition: var(--transition);
-}
+.socials a { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background: var(--gray); border: 1px solid #333; border-radius: 50%; color: var(--lila-light); font-size: 1.2rem; transition: var(--transition); }
 .socials a:hover { background: var(--lila); color: #fff; border-color: var(--lila); transform: translateY(-3px); box-shadow: 0 5px 15px var(--lila-glow); }
-.contact-form input, .contact-form textarea {
-width: 100%; padding: 16px; margin-bottom: 20px;
-background: #0f0f0f; border: 1px solid #333; color: #fff;
-border-radius: 8px; font-family: inherit; font-size: 1rem; transition: 0.3s;
-}
+.contact-form input, .contact-form textarea { width: 100%; padding: 16px; margin-bottom: 20px; background: #0f0f0f; border: 1px solid #333; color: #fff; border-radius: 8px; font-family: inherit; font-size: 1rem; transition: 0.3s; }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--lila); box-shadow: 0 0 10px var(--lila-glow); }
 .contact-form textarea { min-height: 140px; resize: vertical; }
-/* FOOTER PREMIUM */
 .premium-footer { position: relative; background: var(--dark); color: var(--text); padding-top: 0; border-top: 3px solid var(--lila); }
-.footer-wave-top {
-position: absolute; top: 0; left: 0; width: 100%; height: 50px;
-background: var(--black); clip-path: polygon(0 100%, 100% 0, 100% 100%); z-index: 1;
-}
-.premium-footer::before {
-content: ''; position: absolute; top: -50px; left: 0; width: 100%; height: 50px;
-background: linear-gradient(90deg, var(--lila-dark), var(--lila), transparent);
-clip-path: polygon(0 100%, 100% 0, 100% 100%); opacity: 0.7; z-index: 2;
-}
-/* TABLA DE POSICIONES */
+.footer-wave-top { position: absolute; top: 0; left: 0; width: 100%; height: 50px; background: var(--black); clip-path: polygon(0 100%, 100% 0, 100% 100%); z-index: 1; }
+.premium-footer::before { content: ''; position: absolute; top: -50px; left: 0; width: 100%; height: 50px; background: linear-gradient(90deg, var(--lila-dark), var(--lila), transparent); clip-path: polygon(0 100%, 100% 0, 100% 100%); opacity: 0.7; z-index: 2; }
 .table-container { overflow-x: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); -webkit-overflow-scrolling: touch; }
 .standings-table { width: 100%; max-width: 1100px; margin: 0 auto; border-collapse: collapse; background: var(--gray); color: var(--text); font-size: 0.9rem; min-width: 650px; }
-.standings-table th {
-background: var(--lila-dark); color: #fff; padding: 14px 10px; text-align: center;
-font-weight: 700; font-family: var(--font-heading); text-transform: uppercase;
-font-size: 0.75rem; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 2;
-}
+.standings-table th { background: var(--lila-dark); color: #fff; padding: 14px 10px; text-align: center; font-weight: 700; font-family: var(--font-heading); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px; position: sticky; top: 0; z-index: 2; }
 .standings-table td { padding: 12px 10px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
 .standings-table tr:hover { background: rgba(155,89,182,0.1); }
-.standings-table tr.highlight {
-background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(125,60,152,0.15));
-border-left: 3px solid var(--lila-light);
-}
+.standings-table tr.highlight { background: linear-gradient(135deg, rgba(155,89,182,0.2), rgba(125,60,152,0.15)); border-left: 3px solid var(--lila-light); }
 .standings-table td:first-child, .standings-table td:last-child { font-weight: 700; }
 .team-cell { display: flex; align-items: center; gap: 10px; justify-content: flex-start; text-align: left; }
 .team-logo-small { width: 30px; height: 30px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); flex-shrink: 0; }
 .standings-table tr.highlight .team-logo-small { filter: drop-shadow(0 0 8px var(--lila-glow)); }
 .table-footer { text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 16px; }
-/* TABS DE DIVISIONES */
 .division-tabs { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; padding: 0 10px; }
-.tab-btn {
-background: var(--gray); color: var(--muted); border: 2px solid #333;
-padding: 12px 24px; border-radius: 8px; font-family: var(--font-display);
-font-weight: 400; font-size: 1.2rem; cursor: pointer; transition: var(--transition);
-text-transform: uppercase; letter-spacing: 2px;
-}
+.tab-btn { background: var(--gray); color: var(--muted); border: 2px solid #333; padding: 12px 24px; border-radius: 8px; font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; cursor: pointer; transition: var(--transition); text-transform: uppercase; letter-spacing: 2px; }
 .tab-btn:hover { background: rgba(155,89,182,0.2); border-color: var(--lila); color: var(--lila-light); transform: translateY(-2px); }
-.tab-btn.active {
-background: linear-gradient(135deg, var(--lila), var(--lila-dark));
-color: #fff; border-color: var(--lila); box-shadow: 0 4px 15px var(--lila-glow);
-}
+.tab-btn.active { background: linear-gradient(135deg, var(--lila), var(--lila-dark)); color: #fff; border-color: var(--lila); box-shadow: 0 4px 15px var(--lila-glow); }
 .division-content { display: none; animation: fadeIn 0.4s ease; }
 .division-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-/* MATCH TICKER */
 .match-ticker { position: relative; z-index: 20; margin-top: -60px; padding: 0 0 80px 0; }
-.match-card {
-background: var(--gray); border: 1px solid #333; border-top: 3px solid var(--lila);
-border-radius: 12px; padding: 30px 40px; display: grid;
-grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center;
-justify-items: center; max-width: 900px; margin: 24px auto 0 auto;
-box-shadow: 0 15px 30px rgba(0,0,0,0.6); transition: var(--transition);
-}
+.match-card { background: var(--gray); border: 1px solid #333; border-top: 3px solid var(--lila); border-radius: 12px; padding: 30px 40px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 40px; align-items: center; justify-items: center; max-width: 900px; margin: 24px auto 0 auto; box-shadow: 0 15px 30px rgba(0,0,0,0.6); transition: var(--transition); }
 .match-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px var(--lila-glow); border-top-color: var(--lila-light); }
 .team-logo-container { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .team-logo { width: 80px; height: 80px; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); transition: var(--transition); }
@@ -300,75 +144,36 @@ box-shadow: 0 15px 30px rgba(0,0,0,0.6); transition: var(--transition);
 .team-name { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; text-align: center; letter-spacing: 0.5px; }
 .match-info { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 .match-category { margin-bottom: 4px; }
-.division-badge {
-display: inline-block; background: rgba(155, 89, 182, 0.2); color: var(--lila-light);
-padding: 6px 16px; border-radius: 20px; font-size: 0.75rem;
-font-weight: 700; letter-spacing: 1px; border: 1px solid var(--border-color); font-family: var(--font-heading);
-}
+.division-badge { display: inline-block; background: rgba(155, 89, 182, 0.2); color: var(--lila-light); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; border: 1px solid var(--border-color); font-family: var(--font-heading); }
 .match-meta { display: flex; flex-direction: column; gap: 4px; }
 .competition { font-size: 0.75rem; color: var(--lila); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--font-heading); }
 .match-date { font-family: var(--font-display); font-size: 1.8rem; color: #fff; font-weight: 400; letter-spacing: 2px; }
 .match-venue { color: var(--muted); font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
 .match-venue i { color: var(--lila); }
-/* ANIMATIONS */
 .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
-/* LOADER */
-.page-loader {
-position: fixed; inset: 0; background: var(--black); z-index: 9999;
-display: flex; align-items: center; justify-content: center;
-transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
-}
+.page-loader { position: fixed; inset: 0; background: var(--black); z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s; }
 .page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 .loader-content { text-align: center; }
-.loader-logo {
-width: 100px; height: auto; filter: drop-shadow(0 0 25px var(--lila-glow));
-animation: loader-pulse 2s infinite ease-in-out; margin-bottom: 24px;
-}
-.loader-spinner {
-width: 36px; height: 36px; border: 3px solid rgba(155, 89, 182, 0.2);
-border-top: 3px solid var(--lila); border-radius: 50%; margin: 0 auto 16px;
-animation: loader-spin 0.9s linear infinite;
-}
-.loader-text {
-color: var(--lila-light); font-family: var(--font-display);
-font-size: 1.2rem; letter-spacing: 4px; font-weight: 400;
-animation: loader-fade 1.5s infinite;
-}
+.loader-logo { width: 100px; height: auto; filter: drop-shadow(0 0 25px var(--lila-glow)); animation: loader-pulse 2s infinite ease-in-out; margin-bottom: 24px; }
+.loader-spinner { width: 36px; height: 36px; border: 3px solid rgba(155, 89, 182, 0.2); border-top: 3px solid var(--lila); border-radius: 50%; margin: 0 auto 16px; animation: loader-spin 0.9s linear infinite; }
+.loader-text { color: var(--lila-light); font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 4px; font-weight: 400; animation: loader-fade 1.5s infinite; }
 @keyframes loader-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 @keyframes loader-pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.08); opacity: 0.85; } }
 @keyframes loader-fade { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-/* CADETES */
 #cadetes { background: linear-gradient(to bottom, var(--black), var(--dark)); border-top: 1px solid var(--border-color); }
 .divisions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-.division-card {
-background: var(--gray); border-radius: 12px; padding: 24px; text-align: center;
-border: 1px solid #2a2a2a; transition: var(--transition); position: relative; overflow: hidden;
-}
+.division-card { background: var(--gray); border-radius: 12px; padding: 24px; text-align: center; border: 1px solid #2a2a2a; transition: var(--transition); position: relative; overflow: hidden; }
 .division-card:hover { transform: translateY(-6px); border-color: var(--lila); box-shadow: 0 12px 30px var(--lila-glow); }
-.division-card::before {
-content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-background: linear-gradient(90deg, var(--lila-dark), var(--lila));
-}
-.div-badge {
-display: inline-block; background: rgba(155, 89, 182, 0.15); color: var(--lila-light);
-padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 12px; font-family: var(--font-heading);
-}
+.division-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--lila-dark), var(--lila)); }
+.div-badge { display: inline-block; background: rgba(155, 89, 182, 0.15); color: var(--lila-light); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 12px; font-family: var(--font-heading); }
 .div-title { font-family: var(--font-display); font-size: 2rem; font-weight: 400; margin-bottom: 8px; letter-spacing: 2px; }
 .div-meta { color: var(--muted); font-size: 0.9rem; margin: 6px 0; display: flex; align-items: center; justify-content: center; gap: 6px; }
 .div-meta i { color: var(--lila); }
 .fixture-container { display: flex; flex-direction: column; gap: 16px; max-width: 900px; margin: 0 auto; }
-.fixture-card {
-background: var(--gray); border-radius: 12px; padding: 20px 24px;
-display: grid; grid-template-columns: 100px 1fr 150px; gap: 24px;
-align-items: center; border: 1px solid #2a2a2a; transition: var(--transition);
-}
+.fixture-card { background: var(--gray); border-radius: 12px; padding: 20px 24px; display: grid; grid-template-columns: 100px 1fr 150px; gap: 24px; align-items: center; border: 1px solid #2a2a2a; transition: var(--transition); }
 .fixture-card:hover { border-color: var(--lila); transform: translateX(5px); box-shadow: 0 8px 25px var(--lila-glow); }
-.fixture-date {
-display: flex; flex-direction: column; align-items: center; justify-content: center;
-background: rgba(155, 89, 182, 0.1); border-radius: 10px; padding: 12px;
-border: 1px solid var(--border-color);
-}
+.fixture-date { display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(155, 89, 182, 0.1); border-radius: 10px; padding: 12px; border: 1px solid var(--border-color); }
 .fixture-day { font-family: var(--font-display); font-size: 2.2rem; font-weight: 400; color: var(--lila-light); line-height: 1; letter-spacing: 2px; }
 .fixture-month { font-size: 0.8rem; color: var(--lila); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-heading); }
 .fixture-time { font-size: 0.85rem; color: var(--muted); margin-top: 4px; font-family: var(--font-heading); }
@@ -377,78 +182,36 @@ border: 1px solid var(--border-color);
 .fixture-team.home { color: #fff; }
 .fixture-team.away { color: var(--muted); }
 .fixture-logo { width: 40px; height: 40px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
-.fixture-vs {
-background: var(--lila-dark); color: #fff; padding: 6px 12px;
-border-radius: 6px; font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; font-family: var(--font-display);
-}
+.fixture-vs { background: var(--lila-dark); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; font-family: var(--font-display); }
 .fixture-info { display: flex; flex-direction: column; gap: 6px; text-align: right; }
-.fixture-category {
-background: rgba(155, 89, 182, 0.2); color: var(--lila-light);
-padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;
-align-self: flex-end; font-family: var(--font-heading);
-}
+.fixture-category { background: rgba(155, 89, 182, 0.2); color: var(--lila-light); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; align-self: flex-end; font-family: var(--font-heading); }
 .fixture-venue { color: var(--muted); font-size: 0.85rem; }
 .fixture-venue i { color: var(--lila); margin-right: 4px; }
-/* GALERÍA GENERAL */
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 40px; }
-.gallery-item {
-position: relative; border-radius: 12px; overflow: hidden;
-cursor: pointer; aspect-ratio: 4/3; transition: var(--transition);
-}
+.gallery-item { position: relative; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 4/3; transition: var(--transition); }
 .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 12px 30px var(--lila-glow); }
 .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
 .gallery-item:hover img { transform: scale(1.08); }
-.gallery-overlay {
-position: absolute; inset: 0; background: rgba(125, 60, 152, 0.4);
-display: flex; align-items: center; justify-content: center;
-opacity: 0; transition: var(--transition);
-}
-.gallery-overlay i {
-font-size: 2rem; color: #fff; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-transform: scale(0.8); transition: var(--transition);
-}
+.gallery-overlay { position: absolute; inset: 0; background: rgba(125, 60, 152, 0.4); display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); }
+.gallery-overlay i { font-size: 2rem; color: #fff; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5)); transform: scale(0.8); transition: var(--transition); }
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 .gallery-item:hover .gallery-overlay i { transform: scale(1); }
-/* LIGHTBOX */
-.lightbox {
-display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95);
-z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(8px);
-}
+.lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
 .lightbox.active { display: flex; animation: lightboxFade 0.3s ease; }
 @keyframes lightboxFade { from { opacity: 0; } to { opacity: 1; } }
 .lightbox-content { position: relative; max-width: 90%; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
 #lightbox-img { max-width: 100%; max-height: 80vh; object-fit: contain; border-radius: 8px; box-shadow: 0 0 40px var(--lila-glow); }
-.lightbox-close {
-position: absolute; top: -40px; right: 0; font-size: 2rem;
-color: #fff; cursor: pointer; transition: var(--transition);
-}
+.lightbox-close { position: absolute; top: -40px; right: 0; font-size: 2rem; color: #fff; cursor: pointer; transition: var(--transition); }
 .lightbox-close:hover { color: var(--lila-light); transform: rotate(90deg); }
-.lightbox-prev, .lightbox-next {
-position: absolute; top: 50%; transform: translateY(-50%);
-background: rgba(155, 89, 182, 0.6); color: #fff; border: none;
-padding: 12px 16px; font-size: 1.2rem; cursor: pointer; border-radius: 50%; transition: var(--transition);
-}
+.lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(155, 89, 182, 0.6); color: #fff; border: none; padding: 12px 16px; font-size: 1.2rem; cursor: pointer; border-radius: 50%; transition: var(--transition); }
 .lightbox-prev:hover, .lightbox-next:hover { background: var(--lila); transform: translateY(-50%) scale(1.1); }
 .lightbox-prev { left: -60px; }
 .lightbox-next { right: -60px; }
 .lightbox-caption { text-align: center; color: var(--muted); margin-top: 12px; font-size: 0.9rem; }
-/* WHATSAPP FLOTANTE */
-.whatsapp-float {
-position: fixed; bottom: 24px; right: 24px; z-index: 1000;
-background: #25D366; color: #fff; width: 60px; height: 60px;
-border-radius: 50%; display: flex; align-items: center; justify-content: center;
-font-size: 2rem; box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-transition: var(--transition); animation: pulse 2s infinite; text-decoration: none;
-}
+.whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; background: #25D366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 20px rgba(37,211,102,0.4); transition: var(--transition); animation: pulse 2s infinite; text-decoration: none; }
 .whatsapp-float:hover { transform: scale(1.1); }
 @keyframes pulse { 0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)} 50%{box-shadow:0 4px 30px rgba(37,211,102,0.8)} }
-/* AUSPICIADORES */
-#auspiciadores {
-background: var(--black);
-padding: 80px 0;
-border-top: 1px solid var(--border-color);
-border-bottom: 1px solid var(--border-color);
-}
+#auspiciadores { background: var(--black); padding: 80px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
 #auspiciadores .section-header h2 { font-size: 2.2rem; margin-bottom: 16px; }
 #auspiciadores .section-header p { font-size: 1rem; }
 .sponsor-label { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 24px; font-family: var(--font-heading); text-align: center; }
@@ -463,158 +226,6 @@ border-bottom: 1px solid var(--border-color);
 @media (max-width: 1024px) { .sponsors-grid { grid-template-columns: repeat(2, 1fr); } .sponsor-logo { max-height: 60px; } .sponsor-logo-main { max-height: 120px; } }
 @media (max-width: 768px) { .sponsors-grid { gap: 20px; } .sponsor-item { padding: 20px; } .sponsor-logo { max-height: 50px; } .sponsor-logo-main { max-height: 100px; } .main-sponsor-link { padding: 20px 30px; } }
 @media (max-width: 480px) { .sponsors-grid { grid-template-columns: 1fr; } .sponsor-item { padding: 24px; aspect-ratio: auto; height: auto; } #auspiciadores { padding: 50px 0; } }
-
-/* 🛍️ TIENDA OFICIAL */
-#tienda {
-background: linear-gradient(135deg, var(--black) 0%, var(--dark) 100%);
-padding: 100px 0;
-position: relative;
-}
-#tienda::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: radial-gradient(circle at 20% 50%, rgba(155, 89, 182, 0.1) 0%, transparent 50%),
-radial-gradient(circle at 80% 50%, rgba(155, 89, 182, 0.1) 0%, transparent 50%);
-pointer-events: none;
-}
-.tienda-header {
-text-align: center;
-margin-bottom: 60px;
-position: relative;
-z-index: 1;
-}
-.tienda-header h2 {
-font-family: var(--font-display);
-font-size: clamp(2.5rem, 5vw, 4rem);
-color: #fff;
-margin-bottom: 16px;
-text-transform: uppercase;
-letter-spacing: 3px;
-}
-.tienda-header p {
-color: var(--muted);
-font-size: 1.1rem;
-max-width: 600px;
-margin: 0 auto;
-}
-.tienda-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 30px;
-max-width: 1200px;
-margin: 0 auto;
-position: relative;
-z-index: 1;
-}
-.product-card {
-background: var(--gray);
-border-radius: 16px;
-overflow: hidden;
-border: 1px solid var(--border-color);
-transition: var(--transition);
-display: flex;
-flex-direction: column;
-}
-.product-card:hover {
-transform: translateY(-10px);
-border-color: var(--lila);
-box-shadow: 0 15px 40px var(--lila-glow);
-}
-.product-image {
-width: 100%;
-height: 300px;
-object-fit: cover;
-transition: transform 0.5s ease;
-}
-.product-card:hover .product-image {
-transform: scale(1.05);
-}
-.product-info {
-padding: 24px;
-flex-grow: 1;
-display: flex;
-flex-direction: column;
-}
-.product-name {
-font-family: var(--font-heading);
-font-size: 1.3rem;
-font-weight: 700;
-color: #fff;
-margin-bottom: 8px;
-}
-.product-description {
-color: var(--muted);
-font-size: 0.9rem;
-margin-bottom: 16px;
-flex-grow: 1;
-}
-.product-price {
-font-family: var(--font-display);
-font-size: 2rem;
-color: var(--lila-light);
-margin-bottom: 16px;
-}
-.product-btn {
-display: inline-flex;
-align-items: center;
-justify-content: center;
-gap: 8px;
-background: linear-gradient(135deg, #25D366, #128C7E);
-color: #fff;
-padding: 12px 24px;
-border-radius: 8px;
-text-decoration: none;
-font-weight: 700;
-font-size: 0.9rem;
-transition: var(--transition);
-}
-.product-btn:hover {
-transform: translateY(-2px);
-box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-}
-.tienda-cta {
-text-align: center;
-margin-top: 60px;
-padding: 40px;
-background: linear-gradient(135deg, var(--lila-dark), var(--lila));
-border-radius: 16px;
-border: 2px solid var(--lila-light);
-position: relative;
-z-index: 1;
-}
-.tienda-cta h3 {
-font-family: var(--font-display);
-font-size: 2rem;
-color: #fff;
-margin-bottom: 12px;
-letter-spacing: 2px;
-}
-.tienda-cta p {
-color: rgba(255,255,255,0.9);
-margin-bottom: 20px;
-}
-@media (max-width: 768px) {
-.tienda-grid {
-grid-template-columns: 1fr;
-}
-.product-image {
-height: 250px;
-}
-}
-@media (max-width: 480px) {
-#tienda {
-padding: 60px 0;
-}
-.tienda-cta {
-padding: 30px 20px;
-}
-}
-
-/* RESPONSIVE GENERAL */
 @media (max-width: 768px) {
 .menu-toggle { display: block; }
 .nav-links { position: fixed; top: 75px; left: 0; width: 100%; background: rgba(5,5,5,0.98); backdrop-filter: blur(10px); flex-direction: column; padding: 30px 0; gap: 0; transform: translateY(-150%); transition: var(--transition); border-bottom: 2px solid var(--lila-dark); }
@@ -672,10 +283,25 @@ body.header-scrolled { padding-top: 65px; }
 @media (max-width: 768px) {
 .premium-footer .container > div:first-child { flex-direction: column !important; gap: 20px !important; }
 }
+/* TIENDA OFICIAL */
+#tienda { background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%); padding: 100px 0; }
+.tienda-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+@media (min-width: 1024px) { .tienda-grid { grid-template-columns: repeat(3, 1fr); } }
+.product-card { background: var(--gray); border-radius: 16px; overflow: hidden; border: 1px solid #2a2a2a; transition: var(--transition); }
+.product-card:hover { transform: translateY(-8px); border-color: var(--lila); box-shadow: 0 15px 35px var(--lila-glow); }
+.product-image-container { position: relative; width: 100%; height: 300px; overflow: hidden; background: #1a1a1a; }
+.product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.product-card:hover .product-image { transform: scale(1.05); }
+.product-badge { position: absolute; top: 15px; left: 15px; background: var(--lila); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.product-info { padding: 24px; }
+.product-title { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.product-description { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
+.product-price { font-family: var(--font-display); font-size: 2rem; color: var(--lila-light); margin-bottom: 20px; }
+.product-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--lila), var(--lila-dark)); color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: var(--transition); width: 100%; justify-content: center; }
+.product-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--lila-glow); }
 </style>
 </head>
 <body>
-<!-- ⚡ PANTALLA DE CARGA -->
 <div id="loader" class="page-loader">
 <div class="loader-content">
 <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Cargando Santiago Ferrari" class="loader-logo" onerror="this.style.display='none'">
@@ -683,7 +309,6 @@ body.header-scrolled { padding-top: 65px; }
 <p class="loader-text">CARGANDO...</p>
 </div>
 </div>
-<!-- HEADER -->
 <header id="main-header">
 <div class="container nav-container">
 <a href="#" class="logo">
@@ -706,7 +331,6 @@ body.header-scrolled { padding-top: 65px; }
 </nav>
 </div>
 </header>
-<!-- HERO -->
 <section id="inicio" class="hero">
 <div class="hero-content fade-up">
 <span class="hero-tag"><i class="fas fa-star" style="margin-right:5px; font-size:0.6rem;"></i> Sitio Web Oficial</span>
@@ -718,7 +342,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-<!-- MATCH TICKER -->
 <div id="partidos" class="match-ticker fade-up">
 <div class="container">
 <div class="section-header">
@@ -753,7 +376,7 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <div class="match-info">
 <div class="match-category">
-<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
+<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);"> PRÓXIMO PARTIDO</span>
 </div>
 <div class="match-meta">
 <span class="competition">División Segunda</span>
@@ -775,7 +398,7 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <div class="match-info">
 <div class="match-category">
-<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
+<span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);"> PRÓXIMO PARTIDO</span>
 </div>
 <div class="match-meta">
 <span class="competition">División Primera</span>
@@ -795,7 +418,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </div>
-<!-- 🟣 SECCIÓN AUSPICIADORES -->
 <section id="auspiciadores">
 <div class="container">
 <div class="section-header fade-up">
@@ -803,7 +425,6 @@ body.header-scrolled { padding-top: 65px; }
 <p>Gracias a quienes hacen posible este sueño</p>
 <div class="divider"></div>
 </div>
-<!-- Patrocinador Principal -->
 <div class="main-sponsor fade-up">
 <p class="sponsor-label">Patrocinador Oficial</p>
 <a href="#" target="_blank" class="main-sponsor-link">
@@ -812,7 +433,59 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-<!-- TABLA DE POSICIONES PRINCIPALES -->
+<section id="tienda" class="fade-up">
+<div class="container">
+<div class="section-header">
+<h2>🛍️ Tienda Oficial</h2>
+<p>Lleva los colores del club contigo. Buzos, bufandas y más merchandising oficial.</p>
+<div class="divider"></div>
+</div>
+<div class="tienda-grid">
+<div class="product-card">
+<div class="product-image-container">
+<img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Buzo Oficial" class="product-image">
+<span class="product-badge">Nuevo</span>
+</div>
+<div class="product-info">
+<h3 class="product-title">Buzo Oficial Santiago Ferrari</h3>
+<p class="product-description">Buzo oficial del club con escudo bordado. Material premium, cálido y cómodo.</p>
+<div class="product-price">$25.000</div>
+<a href="https://wa.me/56990226657?text=Hola!%20Quiero%20comprar%20el%20Buzo%20Oficial%20Santiago%20Ferrari" target="_blank" class="product-btn">
+<i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+</a>
+</div>
+</div>
+<div class="product-card">
+<div class="product-image-container">
+<img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Bufanda Oficial" class="product-image">
+<span class="product-badge">Popular</span>
+</div>
+<div class="product-info">
+<h3 class="product-title">Bufanda Oficial Santiago Ferrari</h3>
+<p class="product-description">Bufanda tejida con los colores oficiales del club. Perfecta para alentar en la cancha.</p>
+<div class="product-price">$8.000</div>
+<a href="https://wa.me/56990226657?text=Hola!%20Quiero%20comprar%20la%20Bufanda%20Oficial%20Santiago%20Ferrari" target="_blank" class="product-btn">
+<i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+</a>
+</div>
+</div>
+<div class="product-card">
+<div class="product-image-container">
+<img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Polera Oficial" class="product-image">
+<span class="product-badge">Nuevo</span>
+</div>
+<div class="product-info">
+<h3 class="product-title">Polera Oficial Santiago Ferrari</h3>
+<p class="product-description">Polera oficial del club con escudo estampado. Algodón premium de alta calidad.</p>
+<div class="product-price">$15.000</div>
+<a href="https://wa.me/56990226657?text=Hola!%20Quiero%20comprar%20la%20Polera%20Oficial%20Santiago%20Ferrari" target="_blank" class="product-btn">
+<i class="fab fa-whatsapp"></i> Comprar por WhatsApp
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="tabla-posiciones" style="background: var(--dark);">
 <div class="container">
 <div class="section-header fade-up">
@@ -824,11 +497,10 @@ body.header-scrolled { padding-top: 65px; }
 <button class="tab-btn active" onclick="showDivision(event, 'primera')">🟣 Primera</button>
 <button class="tab-btn" onclick="showDivision(event, 'segunda')">🟣 Segunda</button>
 <button class="tab-btn" onclick="showDivision(event, 'tercera')">🟣 Tercera</button>
-<button class="tab-btn" onclick="showDivision(event, 'femenino-div')"> Femenino</button>
+<button class="tab-btn" onclick="showDivision(event, 'femenino-div')">🟣 Femenino</button>
 <button class="tab-btn" onclick="showDivision(event, 'senior-div')">🟣 Senior</button>
-<button class="tab-btn" onclick="showDivision(event, 'super50-div')">🟣 SUPER 50</button>
+<button class="tab-btn" onclick="showDivision(event, 'super50-div')"> SUPER 50</button>
 </div>
-<!-- PRIMERA -->
 <div id="primera" class="division-content active">
 <div class="table-container">
 <table class="standings-table">
@@ -850,7 +522,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 28/ABR/2026</p>
 </div>
-<!-- SEGUNDA -->
 <div id="segunda" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -872,7 +543,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 28/ABR/2026</p>
 </div>
-<!-- TERCERA -->
 <div id="tercera" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -894,7 +564,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 28/ABR/2026</p>
 </div>
-<!-- FEMENINO -->
 <div id="femenino-div" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -914,7 +583,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 01/MAY/2026</p>
 </div>
-<!-- SENIOR -->
 <div id="senior-div" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -936,7 +604,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Actualizado: 05/MAY/2026</p>
 </div>
-<!-- SUPER 50 -->
 <div id="super50-div" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -958,7 +625,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-<!-- NOTICIAS -->
 <section id="noticias">
 <div class="container">
 <div class="section-header fade-up">
@@ -979,14 +645,14 @@ body.header-scrolled { padding-top: 65px; }
 <img src="https://i.postimg.cc/02jmVV4X/Whats-App-Image-2026-04-05-at-8-54-24-PM.jpg" class="news-img" alt="Super 60" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
 <div class="news-content">
 <span class="news-tag">SUPER 50</span>
-<h3> ¡CAYÓ 2-0! </h3>
+<h3>🟣 ¡CAYÓ 2-0! ⚽</h3>
 <p>Nuestro equipo Super Senior 60 cayó 2-0 contra Atlético. ¡Arriba muchachos, a seguir luchando!</p>
 </div>
 </article>
 <article class="news-card fade-up">
 <img src="https://i.postimg.cc/vBQhLhRK/Whats-App-Image-2026-04-30-at-12-22-00-AM.jpg" class="news-img" alt="Femenino" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
 <div class="news-content">
-<span class="news-tag">DIVISIÓN FEMENINA 💜⚽</span>
+<span class="news-tag">DIVISIÓN FEMENINA 💜</span>
 <h3>Perdió 2-0</h3>
 <p>A pesar de la derrota, se demostró una gran mejora del equipo. Este año es de experiencia y eso se está viendo. ¡Gracias por el aguante de la barra!</p>
 </div>
@@ -995,7 +661,7 @@ body.header-scrolled { padding-top: 65px; }
 <img src="https://i.postimg.cc/02jmVV4X/Whats-App-Image-2026-04-05-at-8-54-24-PM.jpg" class="news-img" alt="Super 60" onerror="this.src='https://via.placeholder.com/400x300/1E1E1E/9B59B6?text=Noticia'">
 <div class="news-content">
 <span class="news-tag">SUPER 50</span>
-<h3> ¡CAYÓ 2-0! </h3>
+<h3>🟣 ¡CAYÓ 2-0! ⚽</h3>
 <p>Nuestro equipo Super Senior 60 cayó 2-0 contra Atlético. ¡Arriba muchachos, a seguir luchando!</p>
 </div>
 </article>
@@ -1005,7 +671,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-<!-- EQUIPO FEMENINO -->
 <section id="femenino-team" style="background: var(--dark);">
 <div class="container">
 <div class="section-header fade-up">
@@ -1025,7 +690,6 @@ body.header-scrolled { padding-top: 65px; }
 <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff;">Jugadoras División Femenina</h3>
 <div class="slider-container fade-up">
 <div class="slider-track">
-<!-- GRUPO 1 -->
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/gkRR5G4h/ISIDORA-PARDO.png" alt="Isi" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Isi</div><div class="player-position">Delantera</div></div></div>
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/nLvjHdBq/daphnee.png" alt="Daphnée" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Daphnée</div><div class="player-position">Mediocampista</div></div></div>
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/L5sn327Y/GIANELLA.png" alt="Gianella" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Gianella</div><div class="player-position">Arquera</div></div></div>
@@ -1044,7 +708,6 @@ body.header-scrolled { padding-top: 65px; }
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/6pB5Yv7K/Diseno-sin-titulo-(3).png" alt="Aurora" class="player-photo"><span class="player-number-overlay">10</span></div><div class="player-info"><div class="player-name">Aurora</div><div class="player-position">Delantera</div></div></div>
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/vm6jnPQT/Diseno-sin-titulo-(2).png" alt="Alma" class="player-photo"><span class="player-number-overlay">22</span></div><div class="player-info"><div class="player-name">Alma</div><div class="player-position">Portera</div></div></div>
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/FK6KYsXN/Maria.png" alt="María" class="player-photo"><span class="player-number-overlay">3</span></div><div class="player-info"><div class="player-name">María</div><div class="player-position">Defensa Central</div></div></div>
-<!-- GRUPO 2 (DUPLICADO PARA LOOP) -->
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/gkRR5G4h/ISIDORA-PARDO.png" alt="Isi" class="player-photo"><span class="player-number-overlay">9</span></div><div class="player-info"><div class="player-name">Isi</div><div class="player-position">Delantera</div></div></div>
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/nLvjHdBq/daphnee.png" alt="Daphnée" class="player-photo"><span class="player-number-overlay">8</span></div><div class="player-info"><div class="player-name">Daphnée</div><div class="player-position">Mediocampista</div></div></div>
 <div class="player-card"><div class="player-photo-container"><img src="https://i.postimg.cc/L5sn327Y/GIANELLA.png" alt="Gianella" class="player-photo"><span class="player-number-overlay">1</span></div><div class="player-info"><div class="player-name">Gianella</div><div class="player-position">Arquera</div></div></div>
@@ -1070,7 +733,6 @@ body.header-scrolled { padding-top: 65px; }
 <div class="achievement-item"><i class="fas fa-medal"></i><strong>3</strong><span>Socios</span></div>
 <div class="achievement-item"><i class="fas fa-users"></i><strong>45+</strong><span>Jugadoras Activas</span></div>
 </div>
-<!-- GALERÍA FEMENINO -->
 <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff;" class="fade-up">📸 Entrenamientos & Día a Día</h3>
 <div class="gallery-grid">
 <div class="gallery-item fade-up" onclick="openLightbox(0)">
@@ -1105,7 +767,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-<!-- CADETES -->
 <section id="cadetes">
 <div class="container">
 <div class="section-header fade-up">
@@ -1169,17 +830,14 @@ body.header-scrolled { padding-top: 65px; }
 <div class="fixture-info"><span class="fixture-category">Juvenil</span><span class="fixture-venue"><i class="fas fa-map-marker-alt"></i> Cancha AAS</span></div>
 </div>
 </div>
-<!-- TABLAS DE POSICIONES CADETES -->
 <h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 32px; color:#fff; text-align:center;" class="fade-up">Posiciones por Categoría</h3>
-<!-- Tabs de navegación -->
 <div class="division-tabs fade-up" style="margin-bottom: 24px;">
 <button class="tab-btn active" onclick="showCadeteTable(event, 'cadete-d')">🟣 División D</button>
-<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-c')"> División C</button>
+<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-c')">🟣 División C</button>
 <button class="tab-btn" onclick="showCadeteTable(event, 'cadete-b')">🟣 División B</button>
 <button class="tab-btn" onclick="showCadeteTable(event, 'cadete-a')">🟣 División A</button>
-<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-juvenil')">🟣 Juveniles</button>
+<button class="tab-btn" onclick="showCadeteTable(event, 'cadete-juvenil')"> Juveniles</button>
 </div>
-<!-- DIVISIÓN D -->
 <div id="cadete-d" class="division-content active">
 <div class="table-container">
 <table class="standings-table">
@@ -1198,7 +856,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-6 a Sub-10 • Actualizado: 15/ABR/2026</p>
 </div>
-<!-- DIVISIÓN C -->
 <div id="cadete-c" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -1217,7 +874,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-10 a Sub-12 • Actualizado: 15/ABR/2026</p>
 </div>
-<!-- DIVISIÓN B -->
 <div id="cadete-b" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -1236,7 +892,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-12 a Sub-14 • Actualizado: 15/ABR/2026</p>
 </div>
-<!-- DIVISIÓN A -->
 <div id="cadete-a" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -1255,7 +910,6 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-14 a Sub-16 • Actualizado: 15/ABR/2026</p>
 </div>
-<!-- JUVENILES -->
 <div id="cadete-juvenil" class="division-content">
 <div class="table-container">
 <table class="standings-table">
@@ -1274,558 +928,23 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 <p class="table-footer"><i class="fas fa-info-circle"></i> Sub-16 a Sub-18 • Actualizado: 15/ABR/2026</p>
 </div>
-<!-- NUEVA SECCIÓN: SLIDER TRACK DIVISIÓN D (INFANTILES) -->
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:60px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División D (Sub 6-10)</h3>
-<div class="slider-container fade-up">
-<div class="slider-track">
-<!-- ========================================== -->
-<!-- GRUPO 1: JUGADORES REALES (AGREGA AQUÍ LOS NUEVOS) -->
-<!-- ========================================== -->
-<!-- Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/3RVjHQBg/Whats-App-Image-2026-05-10-at-3-20-47-PM.jpg" alt="Eithan" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/R0jqSSkm/Whats-App-Image-2026-05-10-at-4-54-40-PM.jpg" alt="Tommy" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Tommy</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg" alt="Thomas" class="player-photo">
-<span class="player-number-overlay">16</span>
-</div>
-<div class="player-info">
-<div class="player-name">Thomas</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/VvvhKwNB/Whats-App-Image-2026-05-10-at-4-54-40-PM-(2).jpg" alt="Ricardo" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ricardo</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wjLGf09S/Whats-App-Image-2026-05-10-at-4-54-40-PM-(3).jpg" alt="Lihan" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lihan</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/KcdX0KnK/Whats-App-Image-2026-05-10-at-4-54-40-PM-(4).jpg" alt="Leonardo" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Leonardo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/PrfQgH1q/Whats-App-Image-2026-05-10-at-4-54-39-PM.jpg" alt="Gael" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gael</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wM1TN3Sw/Whats-App-Image-2026-05-10-at-4-54-40-PM-(5).jpg" alt="Gaspar" class="player-photo">
-<span class="player-number-overlay">12</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gaspar</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tRdHr3zP/Whats-App-Image-2026-05-10-at-7-24-43-PM.jpg" alt="Lionel" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lionel</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L67vL7Zk/Whats-App-Image-2026-05-10-at-7-32-06-PM-(1).jpg" alt="Ismael" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ismael</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/nVX3rpXM/Whats-App-Image-2026-05-10-at-7-38-04-PM.jpg" alt="maximo" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Maximo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- ========================================== -->
-<!-- AGREGAR MÁS JUGADORES AQUÍ (GRUPO 1)       -->
-<!-- Ejemplo para Jugador 7 (Descomenta y edita) -->
-<!-- ========================================== -->
-<!--
-<div class="player-card">
-<div class="player-photo-container">
-<img src="URL_DE_LA_FOTO.jpg" alt="Nombre" class="player-photo">
-<span class="player-number-overlay">NUMERO</span>
-</div>
-<div class="player-info">
-<div class="player-name">NOMBRE APELLIDO</div>
-<div class="player-position">POSICION</div>
-</div>
-</div>
--->
-<!-- ========================================== -->
-<!-- GRUPO 2: DUPLICADO EXACTO DEL GRUPO 1      -->
-<!-- (NECESARIO PARA QUE EL LOOP NO SE CORTE)   -->
-<!-- ========================================== -->
-<!-- Duplicado Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/3RVjHQBg/Whats-App-Image-2026-05-10-at-3-20-47-PM.jpg" alt="Eithan" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/R0jqSSkm/Whats-App-Image-2026-05-10-at-4-54-40-PM.jpg" alt="Tommy" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Tommy</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/j5HqRz6c/Whats-App-Image-2026-05-10-at-4-54-40-PM-(1).jpg" alt="Thomas" class="player-photo">
-<span class="player-number-overlay">16</span>
-</div>
-<div class="player-info">
-<div class="player-name">Thomas</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/VvvhKwNB/Whats-App-Image-2026-05-10-at-4-54-40-PM-(2).jpg" alt="Ricardo" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ricardo</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wjLGf09S/Whats-App-Image-2026-05-10-at-4-54-40-PM-(3).jpg" alt="Lihan" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lihan</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/KcdX0KnK/Whats-App-Image-2026-05-10-at-4-54-40-PM-(4).jpg" alt="Leonardo" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Leonardo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/PrfQgH1q/Whats-App-Image-2026-05-10-at-4-54-39-PM.jpg" alt="Gael" class="player-photo">
-<span class="player-number-overlay">8</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gael</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/wM1TN3Sw/Whats-App-Image-2026-05-10-at-4-54-40-PM-(5).jpg" alt="Gaspar" class="player-photo">
-<span class="player-number-overlay">12</span>
-</div>
-<div class="player-info">
-<div class="player-name">Gaspar</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/RVzZhCgQ/Whats-App-Image-2026-05-10-at-7-21-24-PM.jpg" alt="Lionel" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Lionel</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L67vL7Zk/Whats-App-Image-2026-05-10-at-7-32-06-PM-(1).jpg" alt="Ismael" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Ismael</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/nVX3rpXM/Whats-App-Image-2026-05-10-at-7-38-04-PM.jpg" alt="Maximo" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Maximo</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-</div>
-</div>
-<!-- NUEVA SECCIÓN: SLIDER TRACK DIVISIÓN C (SUB 10-12) -->
-<h3 style="font-family:var(--font-heading); font-size:1.5rem; margin:40px 0 20px; color:#fff; text-align:center;" class="fade-up">🌟 Plantel División C (Sub 10-12)</h3>
-<div class="slider-container fade-up">
-<div class="slider-track">
-<!-- ========================================== -->
-<!-- GRUPO 1: 10 JUGADORES REALES DE DIVISIÓN C -->
-<!-- ========================================== -->
-<!-- Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/sg2Ny7C2/Whats-App-Image-2026-05-10-at-9-26-59-PM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">14</span>
-</div>
-<div class="player-info">
-<div class="player-name">Antonella</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7YKKBhJL/Whats-App-Image-2026-05-10-at-9-26-59-PM-(1).jpg" alt="Jugador 2" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Aaron</div>
-<div class="player-position">Mediocampista-Defensa</div>
-</div>
-</div>
-<!-- Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/W3Vmpcqt/Whats-App-Image-2026-05-10-at-9-26-59-PM-(2).jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">6</span>
-</div>
-<div class="player-info">
-<div class="player-name">Borja</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/FRhc5bwD/Whats-App-Image-2026-05-10-at-9-26-59-PM-(3).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Brandon</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jqgfm7cz/Whats-App-Image-2026-05-10-at-9-27-00-PM.jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Samir</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tJwYTFvk/Whats-App-Image-2026-05-10-at-9-27-00-PM-(1).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">5</span>
-</div>
-<div class="player-info">
-<div class="player-name">Diego</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/YqFSRGs2/Whats-App-Image-2026-05-10-at-9-27-00-PM-(2).jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/fRZ00fRZ/Whats-App-Image-2026-05-10-at-9-37-44-PM.jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Hans</div>
-<div class="player-position">Defensa Central</div>
-</div>
-</div>
-<!-- Jugador 9 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jSZCnV1g/Whats-App-Image-2026-05-10-at-9-37-44-PM-(1).jpg" alt="Jugador 9" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Bastian</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Jugador 10 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L6Ssy6KW/Whats-App-Image-2026-05-10-at-9-37-44-PM-(2).jpg" alt="Jugador 10" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- ========================================== -->
-<!-- GRUPO 2: DUPLICADO EXACTO DEL GRUPO 1      -->
-<!-- (NECESARIO PARA QUE EL LOOP NO SE CORTE)   -->
-<!-- ========================================== -->
-<!-- Duplicado Jugador 1 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/sg2Ny7C2/Whats-App-Image-2026-05-10-at-9-26-59-PM.jpg" alt="Jugador 1" class="player-photo">
-<span class="player-number-overlay">14</span>
-</div>
-<div class="player-info">
-<div class="player-name">Antonella</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 2 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/7YKKBhJL/Whats-App-Image-2026-05-10-at-9-26-59-PM-(1).jpg" alt="Jugador 2" class="player-photo">
-<span class="player-number-overlay">10</span>
-</div>
-<div class="player-info">
-<div class="player-name">Aaron</div>
-<div class="player-position">Mediocampista / Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 3 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/W3Vmpcqt/Whats-App-Image-2026-05-10-at-9-26-59-PM-(2).jpg" alt="Jugador 3" class="player-photo">
-<span class="player-number-overlay">6</span>
-</div>
-<div class="player-info">
-<div class="player-name">Borja</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Duplicado Jugador 4 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/FRhc5bwD/Whats-App-Image-2026-05-10-at-9-26-59-PM-(3).jpg" alt="Jugador 4" class="player-photo">
-<span class="player-number-overlay">1</span>
-</div>
-<div class="player-info">
-<div class="player-name">Brandon</div>
-<div class="player-position">Arquero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 5 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jqgfm7cz/Whats-App-Image-2026-05-10-at-9-27-00-PM.jpg" alt="Jugador 5" class="player-photo">
-<span class="player-number-overlay">7</span>
-</div>
-<div class="player-info">
-<div class="player-name">Samir</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 6 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/tJwYTFvk/Whats-App-Image-2026-05-10-at-9-27-00-PM-(1).jpg" alt="Jugador 6" class="player-photo">
-<span class="player-number-overlay">4</span>
-</div>
-<div class="player-info">
-<div class="player-name">Diego</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-<!-- Duplicado Jugador 7 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/YqFSRGs2/Whats-App-Image-2026-05-10-at-9-27-00-PM-(2).jpg" alt="Jugador 7" class="player-photo">
-<span class="player-number-overlay">15</span>
-</div>
-<div class="player-info">
-<div class="player-name">Eithan</div>
-<div class="player-position">Mediocampista</div>
-</div>
-</div>
-<!-- Duplicado Jugador 8 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/fRZ00fRZ/Whats-App-Image-2026-05-10-at-9-37-44-PM.jpg" alt="Jugador 8" class="player-photo">
-<span class="player-number-overlay">13</span>
-</div>
-<div class="player-info">
-<div class="player-name">Hans</div>
-<div class="player-position">Defensa Central</div>
-</div>
-</div>
-<!-- Duplicado Jugador 9 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/jSZCnV1g/Whats-App-Image-2026-05-10-at-9-37-44-PM-(1).jpg" alt="Jugador 9" class="player-photo">
-<span class="player-number-overlay">11</span>
-</div>
-<div class="player-info">
-<div class="player-name">Bastian</div>
-<div class="player-position">Delantero</div>
-</div>
-</div>
-<!-- Duplicado Jugador 10 -->
-<div class="player-card">
-<div class="player-photo-container">
-<img src="https://i.postimg.cc/L6Ssy6KW/Whats-App-Image-2026-05-10-at-9-37-44-PM-(2).jpg" alt="Jugador 10" class="player-photo">
-<span class="player-number-overlay">9</span>
-</div>
-<div class="player-info">
-<div class="player-name">Vicente</div>
-<div class="player-position">Defensa</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </section>
-<!-- ️ TIENDA OFICIAL -->
-<section id="tienda">
+<section id="club" class="stats-section">
 <div class="container">
-<div class="tienda-header fade-up">
-<h2><i class="fas fa-shopping-bag" style="color: var(--lila-light); margin-right: 10px;"></i> Tienda Oficial</h2>
-<p>Lleva los colores del club contigo. Buzos, bufandas y más merchandising oficial.</p>
+<div class="section-header fade-up">
+<h2>Nuestra Identidad</h2>
+<p>Números que cuentan nuestra historia.</p>
 <div class="divider"></div>
 </div>
-<div class="tienda-grid">
-<!-- Producto 1: Buzo Oficial -->
-<div class="product-card fade-up">
-<img src="https://via.placeholder.com/400x400/9B59B6/ffffff?text=Buzo+Oficial" alt="Buzo Oficial Santiago Ferrari" class="product-image">
-<div class="product-info">
-<h3 class="product-name">Buzo Oficial Santiago Ferrari</h3>
-<p class="product-description">Buzo oficial del club con escudo bordado. Material premium, cálido y cómodo. Disponible en todas las tallas.</p>
-<div class="product-price">$25.000</div>
-<a href="https://wa.me/56990226657?text=Hola!%20Quiero%20comprar%20el%20Buzo%20Oficial%20Santiago%20Ferrari" target="_blank" class="product-btn">
-<i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-</a>
-</div>
-</div>
-<!-- Producto 2: Bufanda Oficial -->
-<div class="product-card fade-up">
-<img src="https://via.placeholder.com/400x400/9B59B6/ffffff?text=Bufanda+Oficial" alt="Bufanda Oficial Santiago Ferrari" class="product-image">
-<div class="product-info">
-<h3 class="product-name">Bufanda Oficial Santiago Ferrari</h3>
-<p class="product-description">Bufanda tejida con los colores oficiales del club. Perfecta para alentar en la cancha. Material de alta calidad.</p>
-<div class="product-price">$8.000</div>
-<a href="https://wa.me/56990226657?text=Hola!%20Quiero%20comprar%20la%20Bufanda%20Oficial%20Santiago%20Ferrari" target="_blank" class="product-btn">
-<i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-</a>
-</div>
-</div>
-<!-- Producto 3: Polera Oficial -->
-<div class="product-card fade-up">
-<img src="https://via.placeholder.com/400x400/9B59B6/ffffff?text=Polera+Oficial" alt="Polera Oficial Santiago Ferrari" class="product-image">
-<div class="product-info">
-<h3 class="product-name">Polera Oficial Santiago Ferrari</h3>
-<p class="product-description">Polera oficial del club con escudo estampado. Algodón premium de alta calidad. Disponible en todas las tallas.</p>
-<div class="product-price">$15.000</div>
-<a href="https://wa.me/56990226657?text=Hola!%20Quiero%20comprar%20la%20Polera%20Oficial%20Santiago%20Ferrari" target="_blank" class="product-btn">
-<i class="fab fa-whatsapp"></i> Comprar por WhatsApp
-</a>
-</div>
-</div>
-</div>
-<div class="tienda-cta fade-up">
-<h3>¿Quieres más productos?</h3>
-<p>Escríbenos por WhatsApp para conocer todo nuestro catálogo de merchandising oficial del club.</p>
-<a href="https://wa.me/56990226657?text=Hola!%20Quiero%20ver%20el%20catálogo%20completo%20de%20merchandising" target="_blank" class="btn">
-<i class="fab fa-whatsapp"></i> Ver Catálogo Completo
-</a>
+<div class="stats-grid fade-up">
+<div class="stat-item"><h3>25</h3><p>Años de Historia</p></div>
+<div class="stat-item"><h3>30+</h3><p>Socios Activos</p></div>
+<div class="stat-item"><h3>10</h3><p>Divisiones</p></div>
+<div class="stat-item"><h3>10</h3><p>Títulos</p></div>
 </div>
 </div>
 </section>
-<!-- CONTACT -->
 <section id="contacto">
 <div class="container">
 <div class="section-header fade-up">
@@ -1849,37 +968,18 @@ body.header-scrolled { padding-top: 65px; }
 </div>
 </div>
 </section>
-<!-- CLUB STATS -->
-<section id="club" class="stats-section">
-<div class="container">
-<div class="section-header fade-up">
-<h2>Nuestra Identidad</h2>
-<p>Números que cuentan nuestra historia.</p>
-<div class="divider"></div>
-</div>
-<div class="stats-grid fade-up">
-<div class="stat-item"><h3>25</h3><p>Años de Historia</p></div>
-<div class="stat-item"><h3>30+</h3><p>Socios Activos</p></div>
-<div class="stat-item"><h3>10</h3><p>Divisiones</p></div>
-<div class="stat-item"><h3>10</h3><p>Títulos</p></div>
-</div>
-</div>
-</section>
-<!-- 🟣 FOOTER ESTILO AC MILAN -->
 <footer class="premium-footer">
 <div class="footer-wave-top"></div>
-<!-- Sección Principal del Footer -->
 <div class="container" style="padding: 60px 0 40px 0;">
 <div style="display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 40px; flex-wrap: wrap;">
 <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--lila-light); letter-spacing: 3px;">#SIEMPRELILA</div>
 <div style="text-align: center;">
 <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" style="width: 120px; height: 120px; object-fit: contain; filter: drop-shadow(0 0 20px var(--lila-glow));">
 <div style="font-family: var(--font-display); font-size: 2rem; color: #fff; margin-top: 16px; letter-spacing: 4px;">SANTIAGO<br>FERRARI</div>
-<div style="color: var(--muted); font-size: 0.9rem; margin-top: 8px;">Fundado 2000</div>
+<div style="color: var(--muted); font-size: 0.9rem; margin-top: 8px;">Fundado 1999</div>
 </div>
 <div style="font-family: var(--font-display); font-size: 1.8rem; color: var(--lila-light); letter-spacing: 3px;">#GARRAYPASIÓN</div>
 </div>
-<!-- Redes Sociales -->
 <div style="text-align: center; margin-bottom: 40px;">
 <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem;">SÍGUENOS EN REDES</div>
 <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
@@ -1900,9 +1000,7 @@ body.header-scrolled { padding-top: 65px; }
 </a>
 </div>
 </div>
-<!-- Divider -->
 <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--lila), transparent); margin: 40px 0;"></div>
-<!-- Links y Copyright -->
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 40px;">
 <div>
 <div style="font-family: var(--font-heading); font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;">CLUB</div>
@@ -1940,7 +1038,6 @@ body.header-scrolled { padding-top: 65px; }
 </ul>
 </div>
 </div>
-<!-- Copyright -->
 <div style="text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05);">
 <p style="color: #555; font-size: 0.85rem; margin: 0;">
 © <span id="footer-year"></span> F.C. Social y Deportivo Santiago Ferrari. Todos los derechos reservados.
@@ -1951,28 +1048,22 @@ Diseñado por auraenteprise
 </div>
 </div>
 </footer>
-<!-- WHATSAPP FLOTANTE -->
 <a href="https://wa.me/56990226657?text=Hola%20Santiago%20Ferrari!%20Quiero%20más%20info%20💜" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
 <i class="fab fa-whatsapp"></i>
 </a>
-<!-- JAVASCRIPT -->
 <script>
-// Header scroll effect
 const mainHeader = document.getElementById('main-header');
 window.addEventListener('scroll', () => {
 const isScrolled = window.scrollY > 50;
 mainHeader.classList.toggle('scrolled', isScrolled);
 document.body.classList.toggle('header-scrolled', isScrolled);
 });
-// Mobile menu
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav-links');
 toggle?.addEventListener('click', () => nav?.classList.toggle('active'));
 nav?.querySelectorAll('a')?.forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
-// Fade-up animations
 const observer = new IntersectionObserver((entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')), { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-// Loader
 window.addEventListener('load', () => {
 const loader = document.getElementById('loader');
 if (loader) {
@@ -1981,9 +1072,7 @@ setTimeout(() => loader.parentNode?.removeChild(loader), 600);
 }
 });
 setTimeout(() => { const l = document.getElementById('loader'); if (l && !l.classList.contains('hidden')) { l.classList.add('hidden'); l.parentNode?.removeChild(l); }}, 5000);
-// Footer year
 document.getElementById('footer-year').textContent = new Date().getFullYear();
-// Division tabs (Principales)
 function showDivision(e, div) {
 if (e) e.preventDefault();
 document.querySelectorAll('.division-content').forEach(c => c.classList.remove('active'));
@@ -2005,7 +1094,6 @@ document.querySelectorAll('.tab-btn')[idx]?.classList.add('active');
 }
 }
 });
-// Tabs para tablas de cadetes
 function showCadeteTable(e, tableName) {
 if (e) e.preventDefault();
 ['cadete-d','cadete-c','cadete-b','cadete-a','cadete-juvenil'].forEach(id => {
@@ -2029,7 +1117,6 @@ document.querySelectorAll('#cadetes .tab-btn')[idx]?.classList.add('active');
 }
 }
 });
-// Lightbox Gallery (Femenino)
 const galleryImages = [
 { src: 'https://i.postimg.cc/4N3r7y35/Whats-App-Image-2026-03-31-at-10-27-41-PM.jpg', caption: 'Entrenamiento físico' },
 { src: 'https://i.postimg.cc/TYh42skF/Whats-App-Image-2026-03-14-at-12-01-23-AM.jpg', caption: 'Práctica táctica' },
