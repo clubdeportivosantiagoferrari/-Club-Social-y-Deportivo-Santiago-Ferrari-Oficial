@@ -1214,7 +1214,47 @@ const galleryImages = [
 ];
 let currentImg = 0;
 const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img'), lbCap = document.getElementById('lightbox-caption');
-function openLightbox(i) { currentImg = i; lbImg.src = galleryImages[i].src; lbCap.textContent = galleryImages[i].caption; lb?.classList.add('active'); document.body.style.overflow = 'hidden'; }
+
+// NUEVA FUNCIÓN: Agrandar imagen al hacer click derecho
+document.addEventListener('contextmenu', function(e) {
+  const target = e.target;
+  // Aplica a las imágenes de productos y a las de la galería
+  if (target.classList.contains('product-image') || target.closest('.gallery-item')) {
+    e.preventDefault(); // Evita que salga el menú contextual del navegador
+    
+    let imgSrc = target.src;
+    let caption = target.alt || 'Vista ampliada';
+    
+    // Si es una imagen de la galería, usamos la función existente openLightbox
+    const galleryItem = target.closest('.gallery-item');
+    if (galleryItem) {
+      const onclickAttr = galleryItem.getAttribute('onclick');
+      if (onclickAttr) {
+        const match = onclickAttr.match(/openLightbox\((\d+)\)/);
+        if (match) {
+          openLightbox(parseInt(match[1]));
+          return;
+        }
+      }
+    }
+    
+    // Si es una imagen de producto, la abrimos directamente en el lightbox
+    if (lb && lbImg && lbCap) {
+      lbImg.src = imgSrc;
+      lbCap.textContent = caption;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+});
+
+function openLightbox(i) { 
+  currentImg = i; 
+  lbImg.src = galleryImages[i].src; 
+  lbCap.textContent = galleryImages[i].caption; 
+  lb?.classList.add('active'); 
+  document.body.style.overflow = 'hidden'; 
+}
 function closeLightbox() { lb?.classList.remove('active'); document.body.style.overflow = ''; }
 function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
 document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
