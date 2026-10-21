@@ -422,11 +422,15 @@ section { padding: 100px 0; position: relative; }
   </div>
 </section>
 
+<!-- 📅 SECCIÓN PARTIDOS Y RESULTADOS -->
 <div id="partidos" class="match-ticker fade-up">
   <div class="container">
+    
+    <!-- PRÓXIMOS PARTIDOS -->
     <div class="section-header">
       <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 40px;">Próximos Partidos</h2>
     </div>
+    
     <div class="match-card">
       <div class="team-logo-container">
         <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
@@ -445,10 +449,11 @@ section { padding: 100px 0; position: relative; }
         </div>
       </div>
       <div class="team-logo-container">
-        <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Sol de Mayo" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=SM'">
+        <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Villa Linda" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=VL'">
         <span class="team-name">VILLA LINDA</span>
       </div>
     </div>
+
     <div class="match-card">
       <div class="team-logo-container">
         <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
@@ -467,10 +472,19 @@ section { padding: 100px 0; position: relative; }
         </div>
       </div>
       <div class="team-logo-container">
-        <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Sol de Mayo" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=SM'">
+        <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Villa Linda" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=VL'">
         <span class="team-name">VILLA LINDA</span>
       </div>
     </div>
+
+    <!-- ========================================== -->
+    <!-- NUEVA SECCIÓN: ÚLTIMOS RESULTADOS -->
+    <!-- ========================================== -->
+    <div class="section-header" style="margin-top: 80px;">
+      <h2 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 40px;">Últimos Resultados</h2>
+    </div>
+
+    <!-- Resultado 1: Victoria -->
     <div class="match-card">
       <div class="team-logo-container">
         <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo home-logo">
@@ -478,27 +492,55 @@ section { padding: 100px 0; position: relative; }
       </div>
       <div class="match-info">
         <div class="match-category">
-          <span class="division-badge" style="background: rgba(196, 30, 58, 0.2); color: #C41E3A; border-color: rgba(196, 30, 58, 0.3);">🔴 PRÓXIMO PARTIDO</span>
+          <span class="division-badge" style="background: rgba(46, 204, 113, 0.2); color: #2ECC71; border-color: rgba(46, 204, 113, 0.3);">✅ FINALIZADO</span>
         </div>
         <div class="match-meta">
           <span class="competition">División Primera</span>
-          <strong class="match-date">14 OCT | 21:00</strong>
+          <strong class="match-date">05 OCT | 19:00</strong>
+          <!-- MARCADOR DESTACADO -->
+          <strong class="match-date" style="color: var(--lila-light); font-size: 2.8rem; margin-top: 10px; text-shadow: 0 0 10px var(--lila-glow);">2 - 1</strong>
         </div>
         <div class="match-venue">
           <i class="fas fa-map-marker-alt"></i> Cancha Atlético Agua Santa
         </div>
       </div>
       <div class="team-logo-container">
-        <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Sol de Mayo" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=SM'">
-        <span class="team-name">VILLA LINDA</span>
+        <img src="https://i.postimg.cc/bvkmjxhf/Realespaña_Editada.png" alt="Real España" class="team-logo away-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=RE'">
+        <span class="team-name">REAL ESPAÑA</span>
       </div>
     </div>
+
+    <!-- Resultado 2: Derrota -->
+    <div class="match-card">
+      <div class="team-logo-container">
+        <img src="https://i.postimg.cc/GhWbNjK4/villa-linda-Editada-Editada.png" alt="Villa Linda" class="team-logo home-logo" onerror="this.src='https://via.placeholder.com/80x80/1E1E1E/FFFFFF?text=VL'">
+        <span class="team-name">VILLA LINDA</span>
+      </div>
+      <div class="match-info">
+        <div class="match-category">
+          <span class="division-badge" style="background: rgba(231, 76, 60, 0.2); color: #E74C3C; border-color: rgba(231, 76, 60, 0.3);">❌ FINALIZADO</span>
+        </div>
+        <div class="match-meta">
+          <span class="competition">División Segunda</span>
+          <strong class="match-date">28 SEP | 20:00</strong>
+          <!-- MARCADOR DESTACADO -->
+          <strong class="match-date" style="color: var(--muted); font-size: 2.8rem; margin-top: 10px;">3 - 1</strong>
+        </div>
+        <div class="match-venue">
+          <i class="fas fa-map-marker-alt"></i> Cancha Villa Linda
+        </div>
+      </div>
+      <div class="team-logo-container">
+        <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Santiago Ferrari" class="team-logo away-logo">
+        <span class="team-name">SANTIAGO FERRARI</span>
+      </div>
+    </div>
+
     <div style="text-align: center; margin-top: 32px;">
       <a href="#" class="btn btn-outline"><i class="fas fa-calendar-alt"></i> Ver Fixture Completo</a>
     </div>
   </div>
 </div>
-
 <section id="auspiciadores">
   <div class="container">
     <div class="section-header fade-up">
