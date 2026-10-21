@@ -376,6 +376,13 @@ section { padding: 100px 0; position: relative; }
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
 }
+
+ /* Badge para Empates (Color Amarillo/Dorado) */
+.badge-empate {
+  background: rgba(241, 196, 15, 0.2);
+  color: #F1C40F;
+  border-color: rgba(241, 196, 15, 0.3);
+}
 </style>
 </head>
 <body>
@@ -516,9 +523,10 @@ section { padding: 100px 0; position: relative; }
         <span class="team-name">SANTIAGO FERRARI</span>
       </div>
       <div class="match-info">
-        <div class="match-category">
-          <span class="division-badge" style="background: rgba(46, 204, 113, 0.2); color: #2ECC71; border-color: rgba(46, 204, 113, 0.3);">✅ FINALIZADO</span>
-        </div>
+    <div class="match-category">
+      <!-- AQUÍ SE USA LA NUEVA CLASE badge-empate -->
+      <span class="division-badge badge-empate">🟡 EMPATE</span>
+     </div>
         <div class="match-meta">
           <span class="competition">DIVISION SEGUNDA</span>
           <strong class="match-date">14 OCT | 20:00</strong>
