@@ -473,6 +473,80 @@ background: rgba(241, 196, 15, 0.2);
 color: #F1C40F;
 border-color: rgba(241, 196, 15, 0.3);
 }
+
+ .countdown-section {
+  background: linear-gradient(135deg, var(--lila-dark), var(--lila));
+  padding: 60px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.countdown-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://i.postimg.cc/P5vxwY8y/paginaprincipal.png') center/cover;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+}
+.countdown-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: #fff;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+.countdown-subtitle {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 30px;
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+}
+.countdown-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+.countdown-box {
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 20px 30px;
+  min-width: 120px;
+  transition: var(--transition);
+}
+.countdown-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--lila-light);
+  box-shadow: 0 10px 30px var(--lila-glow);
+}
+.countdown-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 0 20px var(--lila-glow);
+}
+.countdown-label {
+  color: var(--lila-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+@media (max-width: 480px) {
+  .countdown-box { min-width: 80px; padding: 15px 20px; }
+  .countdown-number { font-size: 2.5rem; }
+} 
 </style>
 </head>
 <body>
@@ -524,7 +598,33 @@ border-color: rgba(241, 196, 15, 0.3);
   </a>
 </section>
 
-<!-- 📅 SECCIÓN PARTIDOS Y RESULTADOS -->
+  <!-- ⏰ CONTADOR REGRESIVO -->
+<section class="countdown-section">
+  <div class="container">
+    <h2 class="countdown-title">⚽ PRÓXIMO PARTIDO</h2>
+    <p class="countdown-subtitle">Santiago Ferrari vs Real España · División Tercera</p>
+    <div class="countdown-boxes">
+      <div class="countdown-box">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label">Días</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label">Horas</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label">Minutos</div>
+      </div>
+      <div class="countdown-box">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label">Segundos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- 📅 SECCIÓN PARTIDOS Y RESULTADOS -->
 <div id="partidos" class="match-ticker fade-up">
 <div class="container">
 <!-- PRÓXIMOS PARTIDOS -->
@@ -1466,6 +1566,26 @@ function closeLightbox() { lb?.classList.remove('active'); document.body.style.o
 function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) % galleryImages.length; lbImg.style.opacity = '0'; setTimeout(() => { lbImg.src = galleryImages[currentImg].src; lbCap.textContent = galleryImages[currentImg].caption; lbImg.style.opacity = '1'; }, 200); }
 document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
 lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+// Contador regresivo - Cambia la fecha aquí
+const matchDate = new Date('2026-11-14T19:00:00').getTime();
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = matchDate - now;
+  if (distance < 0) {
+    document.getElementById('days').textContent = '00';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('minutes').textContent = '00';
+    document.getElementById('seconds').textContent = '00';
+    return;
+  }
+  document.getElementById('days').textContent = String(Math.floor(distance / (1000 * 60 * 60 * 24))).padStart(2, '0');
+  document.getElementById('hours').textContent = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+  document.getElementById('minutes').textContent = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+  document.getElementById('seconds').textContent = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+  
 </script>
 </body>
 </html>
