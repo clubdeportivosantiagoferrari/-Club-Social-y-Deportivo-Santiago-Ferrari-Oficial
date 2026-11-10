@@ -1567,7 +1567,7 @@ function changeImage(d) { currentImg = (currentImg + d + galleryImages.length) %
 document.addEventListener('keydown', e => { if (!lb?.classList.contains('active')) return; if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') changeImage(-1); if (e.key === 'ArrowRight') changeImage(1); });
 lb?.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 // Contador regresivo - Cambia la fecha aquí
-const matchDate = new Date('2026-11-14T19:00:00').getTime();
+const matchDate = new Date('2026-11-11T19:00:00').getTime();
 function updateCountdown() {
   const now = new Date().getTime();
   const distance = matchDate - now;
