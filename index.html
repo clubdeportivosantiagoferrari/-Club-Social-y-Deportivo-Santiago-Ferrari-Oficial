@@ -473,50 +473,27 @@ background: rgba(241, 196, 15, 0.2);
 color: #F1C40F;
 border-color: rgba(241, 196, 15, 0.3);
 }
-
- .countdown-section {
-  background: linear-gradient(135deg, var(--lila-dark), var(--lila));
+.countdown-section {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
   padding: 60px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 .countdown-section::before {
   content: '';
   position: absolute;
   inset: 0;
   background: url('https://i.postimg.cc/P5vxwY8y/paginaprincipal.png') center/cover;
-  opacity: 0.15;
+  opacity: 0.08;
   mix-blend-mode: overlay;
 }
-.countdown-title {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  color: #fff;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
-  position: relative;
-  z-index: 2;
-}
-.countdown-subtitle {
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 30px;
-  font-size: 1rem;
-  position: relative;
-  z-index: 2;
-}
-.countdown-boxes {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
-}
 .countdown-box {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.6);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(155, 89, 182, 0.3);
   border-radius: 16px;
   padding: 20px 30px;
   min-width: 120px;
@@ -532,7 +509,6 @@ border-color: rgba(241, 196, 15, 0.3);
   font-size: 3.5rem;
   color: #fff;
   line-height: 1;
-  text-shadow: 0 0 20px var(--lila-glow);
 }
 .countdown-label {
   color: var(--lila-light);
@@ -543,10 +519,6 @@ border-color: rgba(241, 196, 15, 0.3);
   font-family: var(--font-heading);
   font-weight: 700;
 }
-@media (max-width: 480px) {
-  .countdown-box { min-width: 80px; padding: 15px 20px; }
-  .countdown-number { font-size: 2.5rem; }
-} 
 </style>
 </head>
 <body>
