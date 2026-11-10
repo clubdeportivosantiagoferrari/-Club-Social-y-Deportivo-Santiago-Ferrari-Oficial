@@ -474,26 +474,22 @@ color: #F1C40F;
 border-color: rgba(241, 196, 15, 0.3);
 }
 .countdown-section {
-  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2416 50%, #1a1a1a 100%);
   padding: 60px 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
 }
 .countdown-section::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://i.postimg.cc/P5vxwY8y/paginaprincipal.png') center/cover;
-  opacity: 0.08;
-  mix-blend-mode: overlay;
+  background: radial-gradient(circle at center, rgba(243, 156, 18, 0.15) 0%, transparent 70%);
 }
 .countdown-box {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(155, 89, 182, 0.3);
+  border: 1px solid rgba(243, 156, 18, 0.4);
   border-radius: 16px;
   padding: 20px 30px;
   min-width: 120px;
@@ -501,17 +497,19 @@ border-color: rgba(241, 196, 15, 0.3);
 }
 .countdown-box:hover {
   transform: translateY(-5px);
-  border-color: var(--lila-light);
-  box-shadow: 0 10px 30px var(--lila-glow);
+  border-color: #F39C12;
+  box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
 }
 .countdown-number {
   font-family: var(--font-display);
   font-size: 3.5rem;
-  color: #fff;
+  background: linear-gradient(to bottom, #F1C40F, #D4AC0D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   line-height: 1;
 }
 .countdown-label {
-  color: var(--lila-light);
+  color: #F39C12;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
