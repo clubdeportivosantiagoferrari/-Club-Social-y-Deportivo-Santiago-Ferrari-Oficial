@@ -1103,6 +1103,16 @@ border-color: rgba(241, 196, 15, 0.3);
 </div>
 </section>
 
+  <!-- Botón -->
+<button id="sc-music-toggle" class="music-toggle" aria-label="Reproducir música">
+  <i class="fab fa-soundcloud" id="sc-music-icon"></i>
+</button>
+
+<!-- Audio oculto de SoundCloud -->
+<audio id="sc-music" loop>
+  <source src="https://soundcloud.com/quiquicarp/yerba-brava-pibe-cantina-mp3" type="audio/mpeg">
+</audio>
+
 <section id="noticias">
 <div class="container">
 <div class="section-header fade-up">
@@ -1793,7 +1803,26 @@ function updateCountdown() {
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
+// SOUND CLOUD
 
+const scMusic = document.getElementById('sc-music');
+const scToggle = document.getElementById('sc-music-toggle');
+const scIcon = document.getElementById('sc-music-icon');
+let scPlaying = false;
+
+scToggle.addEventListener('click', () => {
+  if (scPlaying) {
+    scMusic.pause();
+    scIcon.classList.remove('fa-pause');
+    scIcon.classList.add('fa-soundcloud');
+  } else {
+    scMusic.volume = 0.3;
+    scMusic.play();
+    scIcon.classList.remove('fa-soundcloud');
+    scIcon.classList.add('fa-pause');
+  }
+  scPlaying = !scPlaying;
+});
 </script>
  <!-- Elfsight Instagram Feed Script -->
 <script src="https://elfsightcdn.com/platform.js" async></script> 
