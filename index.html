@@ -739,7 +739,6 @@ border-color: rgba(241, 196, 15, 0.3);
     transform: scale(1.1);
     box-shadow: 0 8px 25px var(--lila-glow);
 }
-/* Animación cuando está sonando */
 .music-toggle.playing {
     animation: pulse-music 2s infinite;
 }
@@ -747,15 +746,75 @@ border-color: rgba(241, 196, 15, 0.3);
     0%, 100% { box-shadow: 0 4px 20px var(--lila-glow); }
     50% { box-shadow: 0 4px 30px var(--lila-glow), 0 0 0 10px rgba(155, 89, 182, 0.1); }
 }
-/* Ajuste para móviles */
+
+/* 🎬 MODAL DE BIENVENIDA */
+.welcome-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s ease;
+}
+.welcome-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+.welcome-content {
+    text-align: center;
+    padding: 50px 40px;
+    background: linear-gradient(135deg, var(--dark), var(--gray));
+    border-radius: 24px;
+    border: 2px solid var(--lila);
+    box-shadow: 0 20px 60px var(--lila-glow);
+    max-width: 500px;
+    width: 90%;
+    animation: slideUp 0.6s ease;
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.welcome-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px var(--lila-glow));
+    margin-bottom: 20px;
+    animation: logoPulse 2s infinite ease-in-out;
+}
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+.welcome-content h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.welcome-content p {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+.welcome-note {
+    font-size: 0.85rem !important;
+    margin-top: 15px !important;
+    margin-bottom: 0 !important;
+    color: var(--lila-light) !important;
+}
 @media (max-width: 480px) {
-    .music-toggle {
-        width: 45px;
-        height: 45px;
-        font-size: 1rem;
-        bottom: 16px;
-        left: 16px;
-    }
+    .music-toggle { width: 45px; height: 45px; font-size: 1rem; bottom: 16px; left: 16px; }
+    .welcome-content { padding: 30px 20px; }
+    .welcome-content h2 { font-size: 2rem; }
+    .welcome-logo { width: 90px; height: 90px; }
 }
 </style>
 </head>
@@ -1702,16 +1761,19 @@ Diseñado por auraenteprise
 </div>
 </footer>
 
-  <!-- 🎵 REPRODUCTOR DE MÚSICA FLOTANTE -->
-<audio id="bg-music" loop>
+ <!-- 🎵 REPRODUCTOR DE MÚSICA CON AUTOPLAY INTELIGENTE -->
+<audio id="bg-music" loop preload="auto">
     <source src="musica-santiago-ferrari.mp3" type="audio/mpeg">
     Tu navegador no soporta el elemento de audio.
 </audio>
 
+<!-- Botón flotante de música (izquierda) -->
 <button id="music-toggle" class="music-toggle" aria-label="Reproducir música del club">
-    <i class="fas fa-play" id="music-icon"></i>
+    <i class="fas fa-volume-up" id="music-icon"></i>
 </button>
-<a href="https://wa.me/56990226657?text=Hola%20Santiago%20Ferrari!%20Quiero%20más%20info%20💜" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+
+  <!--WHATSAPP-->
+  <a href="https://wa.me/56990226657?text=Hola%20Santiago%20Ferrari!%20Quiero%20más%20info%20💜" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
 <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -1847,33 +1909,95 @@ function updateCountdown() {
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
-// 🎵 CONTROL DEL REPRODUCTOR DE MÚSICA
+// 🎵 REPRODUCTOR DE MÚSICA CON AUTOPLAY INTELIGENTE
 const bgMusic = document.getElementById('bg-music');
 const musicToggle = document.getElementById('music-toggle');
 const musicIcon = document.getElementById('music-icon');
+const welcomeModal = document.getElementById('welcome-modal');
+const enterBtn = document.getElementById('enter-btn');
 let isPlaying = false;
+let hasUserInteracted = false;
 
-// Ajustar volumen inicial (30% para que no sea molesto)
+// Volumen inicial al 30%
 if (bgMusic) {
-    bgMusic.volume = 0.3; 
+    bgMusic.volume = 0.3;
 }
 
-musicToggle.addEventListener('click', () => {
-    if (isPlaying) {
-        bgMusic.pause();
-        musicIcon.classList.remove('fa-pause');
-        musicIcon.classList.add('fa-play');
-        musicToggle.classList.remove('playing');
-    } else {
-        bgMusic.play().catch(error => {
-            console.log("El navegador bloqueó la reproducción automática:", error);
-        });
-        musicIcon.classList.remove('fa-play');
-        musicIcon.classList.add('fa-pause');
+// Función para reproducir
+function playMusic() {
+    if (!bgMusic) return;
+    bgMusic.play().then(() => {
+        isPlaying = true;
+        musicIcon.classList.remove('fa-volume-mute');
+        musicIcon.classList.add('fa-volume-up');
         musicToggle.classList.add('playing');
+    }).catch(error => {
+        console.log('Autoplay bloqueado:', error);
+        // Si falla, mostrar icono de mute
+        musicIcon.classList.remove('fa-volume-up');
+        musicIcon.classList.add('fa-volume-mute');
+    });
+}
+
+// Función para pausar
+function pauseMusic() {
+    if (!bgMusic) return;
+    bgMusic.pause();
+    isPlaying = false;
+    musicIcon.classList.remove('fa-volume-up');
+    musicIcon.classList.add('fa-volume-mute');
+    musicToggle.classList.remove('playing');
+}
+
+// Click en el botón de música
+musicToggle?.addEventListener('click', () => {
+    if (isPlaying) {
+        pauseMusic();
+    } else {
+        playMusic();
     }
-    isPlaying = !isPlaying;
+    hasUserInteracted = true;
 });
+
+// Click en el botón "Ingresar al Sitio"
+enterBtn?.addEventListener('click', () => {
+    welcomeModal?.classList.add('hidden');
+    playMusic();
+    hasUserInteracted = true;
+    setTimeout(() => {
+        if (welcomeModal) welcomeModal.style.display = 'none';
+    }, 500);
+});
+
+// Intentar autoplay al cargar la página
+window.addEventListener('load', () => {
+    // Esperar 1 segundo para que la página cargue bien
+    setTimeout(() => {
+        playMusic();
+    }, 1000);
+});
+
+// Si el autoplay fue bloqueado, reproducir al primer clic/scroll
+document.addEventListener('click', () => {
+    if (!hasUserInteracted && !isPlaying) {
+        playMusic();
+        hasUserInteracted = true;
+    }
+}, { once: true });
+
+document.addEventListener('scroll', () => {
+    if (!hasUserInteracted && !isPlaying) {
+        playMusic();
+        hasUserInteracted = true;
+    }
+}, { once: true });
+
+document.addEventListener('keydown', () => {
+    if (!hasUserInteracted && !isPlaying) {
+        playMusic();
+        hasUserInteracted = true;
+    }
+}, { once: true });
 </script>
  <!-- Elfsight Instagram Feed Script -->
 <script src="https://elfsightcdn.com/platform.js" async></script> 
