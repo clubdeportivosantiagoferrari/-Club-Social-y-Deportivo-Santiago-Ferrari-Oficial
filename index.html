@@ -29,27 +29,189 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--black); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; padding-top: 90px; }
-body.header-scrolled { padding-top: 75px; }
+body { background: var(--black); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; padding-top: 70px; }
+body.header-scrolled { padding-top: 70px; }
 .container { width: 90%; max-width: 1280px; margin: 0 auto; }
 .btn { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--lila), var(--lila-dark)); color: #fff; padding: 14px 32px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border: none; border-radius: 6px; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 15px var(--lila-glow); text-decoration: none; font-family: var(--font-heading); }
 .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px var(--lila-glow); color: #fff; }
 .btn-outline { background: transparent; border: 2px solid var(--lila-light); box-shadow: none; }
 .btn-outline:hover { background: var(--lila); border-color: var(--lila); box-shadow: 0 8px 20px var(--lila-glow); }
-#main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--black); transition: var(--transition); border-bottom: 1px solid transparent; }
-#main-header.scrolled { background: rgba(5, 5, 5, 0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); }
-.nav-container { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; transition: var(--transition); }
-#main-header.scrolled .nav-container { padding: 12px 0; }
-.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; font-family: var(--font-heading); }
-.logo-img { height: 50px; width: auto; object-fit: contain; filter: drop-shadow(0 0 8px var(--lila-glow)); transition: var(--transition); }
-#main-header.scrolled .logo-img { height: 42px; }
-.logo:hover .logo-img { transform: scale(1.05) rotate(-2deg); filter: drop-shadow(0 0 15px var(--lila-light)); }
-.nav-links { display: flex; gap: 30px; }
-.nav-links a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; position: relative; transition: var(--transition); font-family: var(--font-heading); }
-.nav-links a:hover, .nav-links a.active { color: #fff; }
-.nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--lila); transition: var(--transition); box-shadow: 0 0 8px var(--lila); }
-.nav-links a:hover::after { width: 100%; }
-.menu-toggle { display: none; background: none; border: none; color: var(--lila-light); font-size: 1.6rem; cursor: pointer; }
+
+  /* 🏟️ HEADER ESTILO AC MILAN */
+#main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #000;
+  border-bottom: 1px solid #1a1a1a;
+  padding: 0;
+}
+#main-header.scrolled {
+  background: rgba(0, 0, 0, 0.98);
+  backdrop-filter: blur(10px);
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 70px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-decoration: none;
+  color: #fff;
+  font-family: var(--font-heading);
+  padding-right: 20px;
+  border-right: 1px solid var(--lila);
+}
+.logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px var(--lila-glow));
+  transition: var(--transition);
+}
+.logo:hover .logo-img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px var(--lila-light));
+}
+.logo-text {
+  display: none; /* Oculto en desktop, solo logo */
+}
+/* Menú central estilo Milan */
+.nav-links {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 24px 18px;
+  position: relative;
+  transition: var(--transition);
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--lila);
+  transition: var(--transition);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+.nav-links a:hover {
+  color: var(--lila-light);
+}
+/* Flecha dropdown estilo Milan */
+.nav-links a.dropdown::after {
+  content: ' ▾';
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+/* Menú derecho con iconos */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding-left: 20px;
+  border-left: 1px solid var(--lila);
+}
+.nav-right a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 24px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  font-family: var(--font-heading);
+  border-right: 1px solid rgba(155, 89, 182, 0.3);
+}
+.nav-right a:last-child {
+  border-right: none;
+}
+.nav-right a:hover {
+  color: var(--lila-light);
+  background: rgba(155, 89, 182, 0.1);
+}
+.nav-right a i {
+  font-size: 1rem;
+}
+/* Botón hamburguesa */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 10px;
+}
+/* Responsive */
+@media (max-width: 1024px) {
+  .nav-right a span { display: none; }
+  .nav-right a { padding: 24px 12px; }
+  .nav-links a { padding: 24px 12px; font-size: 0.75rem; }
+}
+@media (max-width: 768px) {
+  .nav-container { padding: 0 20px; height: 60px; }
+  .logo { border-right: none; padding-right: 0; }
+  .nav-right { border-left: none; padding-left: 0; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #000;
+    flex-direction: column;
+    padding: 20px 0;
+    gap: 0;
+    transform: translateY(-150%);
+    transition: var(--transition);
+    border-bottom: 2px solid var(--lila);
+    justify-content: flex-start;
+  }
+  .nav-links.active { transform: translateY(0); }
+  .nav-links a {
+    padding: 16px 24px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .nav-links a::after { display: none; }
+  .nav-right { display: none; }
+}
 
 /* 🌟 HERO MODERNO (KEN BURNS + GLASSMORPHISM) */
 .hero {
@@ -563,27 +725,49 @@ border-color: rgba(241, 196, 15, 0.3);
 <p class="loader-text">CARGANDO...</p>
 </div>
 </div>
+<!-- 🏟️ HEADER ESTILO AC MILAN -->
 <header id="main-header">
-<div class="container nav-container">
-<a href="#" class="logo">
-<img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Escudo Santiago Ferrari" class="logo-img" onerror="this.src='https://i.postimg.cc/FH5hqRRm/SF.png'">
-<div style="display:flex; flex-direction:column;">
-<span style="line-height:1; font-size:0.9rem; font-weight:600; letter-spacing:1px;">SANTIAGO</span>
-<span style="line-height:1; font-size:1.3rem; font-weight:900; letter-spacing:-0.5px;">FERRARI</span>
-</div>
-</a>
-<button class="menu-toggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
-<nav class="nav-links">
-<a href="#inicio">Inicio</a>
-<a href="#partidos">Partidos</a>
-<a href="#noticias">Noticias</a>
-<a href="#femenino-team">Femenino</a>
-<a href="#cadetes">Cadetes</a>
-<a href="#tienda">Tienda</a>
-<a href="#club">El Club</a>
-<a href="#contacto">Contacto</a>
-</nav>
-</div>
+  <div class="nav-container">
+    <!-- Logo del club -->
+    <a href="#inicio" class="logo">
+      <img src="https://i.postimg.cc/FH5hqRRm/SF.png" alt="Escudo Santiago Ferrari" class="logo-img" onerror="this.src='https://i.postimg.cc/FH5hqRRm/SF.png'">
+    </a>
+
+    <!-- Menú central -->
+    <nav class="nav-links">
+      <a href="#inicio" class="dropdown">Inicio</a>
+      <a href="#partidos" class="dropdown">Partidos</a>
+      <a href="#noticias" class="dropdown">Noticias</a>
+      <a href="#femenino-team" class="dropdown">Femenino</a>
+      <a href="#cadetes" class="dropdown">Cadetes</a>
+      <a href="#tienda" class="dropdown">Tienda</a>
+      <a href="#club" class="dropdown">Club</a>
+      <a href="#contacto" class="dropdown">Contacto</a>
+    </nav>
+
+    <!-- Menú derecho con iconos -->
+    <div class="nav-right">
+      <a href="#tienda">
+        <i class="fas fa-shopping-bag"></i>
+        <span>Tienda</span>
+      </a>
+      <a href="#partidos">
+        <i class="fas fa-ticket-alt"></i>
+        <span>Partidos</span>
+      </a>
+      <a href="#contacto">
+        <i class="fas fa-search"></i>
+      </a>
+      <a href="https://wa.me/56990226657" target="_blank">
+        <i class="fas fa-user"></i>
+      </a>
+    </div>
+
+    <!-- Botón hamburguesa móvil -->
+    <button class="menu-toggle" aria-label="Abrir menú">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
 </header>
 
 <!-- 🌟 HERO MODERNO CON KEN BURNS + GLASSMORPHISM -->
