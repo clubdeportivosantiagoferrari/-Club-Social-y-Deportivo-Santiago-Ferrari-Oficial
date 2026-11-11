@@ -715,6 +715,48 @@ border-color: rgba(241, 196, 15, 0.3);
   .countdown-label { font-size: 0.6rem; }
   .countdown-boxes { gap: 8px; }
 }
+  /* 🎵 BOTÓN DE MÚSICA FLOTANTE */
+.music-toggle {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 1000;
+    background: var(--lila);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 20px var(--lila-glow);
+    transition: var(--transition);
+    border: 2px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+.music-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px var(--lila-glow);
+}
+/* Animación cuando está sonando */
+.music-toggle.playing {
+    animation: pulse-music 2s infinite;
+}
+@keyframes pulse-music {
+    0%, 100% { box-shadow: 0 4px 20px var(--lila-glow); }
+    50% { box-shadow: 0 4px 30px var(--lila-glow), 0 0 0 10px rgba(155, 89, 182, 0.1); }
+}
+/* Ajuste para móviles */
+@media (max-width: 480px) {
+    .music-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+        bottom: 16px;
+        left: 16px;
+    }
+}
 </style>
 </head>
 <body>
@@ -725,6 +767,7 @@ border-color: rgba(241, 196, 15, 0.3);
 <p class="loader-text">CARGANDO...</p>
 </div>
 </div>
+
 <!-- 🏟️ HEADER ESTILO AC MILAN -->
 <header id="main-header">
   <div class="nav-container">
@@ -1659,6 +1702,15 @@ Diseñado por auraenteprise
 </div>
 </footer>
 
+  <!-- 🎵 REPRODUCTOR DE MÚSICA FLOTANTE -->
+<audio id="bg-music" loop>
+    <source src="musica-santiago-ferrari.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+
+<button id="music-toggle" class="music-toggle" aria-label="Reproducir música del club">
+    <i class="fas fa-play" id="music-icon"></i>
+</button>
 <a href="https://wa.me/56990226657?text=Hola%20Santiago%20Ferrari!%20Quiero%20más%20info%20💜" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
 <i class="fab fa-whatsapp"></i>
 </a>
@@ -1795,7 +1847,33 @@ function updateCountdown() {
 }
 updateCountdown();
 setInterval(updateCountdown, 1000);
+// 🎵 CONTROL DEL REPRODUCTOR DE MÚSICA
+const bgMusic = document.getElementById('bg-music');
+const musicToggle = document.getElementById('music-toggle');
+const musicIcon = document.getElementById('music-icon');
+let isPlaying = false;
 
+// Ajustar volumen inicial (30% para que no sea molesto)
+if (bgMusic) {
+    bgMusic.volume = 0.3; 
+}
+
+musicToggle.addEventListener('click', () => {
+    if (isPlaying) {
+        bgMusic.pause();
+        musicIcon.classList.remove('fa-pause');
+        musicIcon.classList.add('fa-play');
+        musicToggle.classList.remove('playing');
+    } else {
+        bgMusic.play().catch(error => {
+            console.log("El navegador bloqueó la reproducción automática:", error);
+        });
+        musicIcon.classList.remove('fa-play');
+        musicIcon.classList.add('fa-pause');
+        musicToggle.classList.add('playing');
+    }
+    isPlaying = !isPlaying;
+});
 </script>
  <!-- Elfsight Instagram Feed Script -->
 <script src="https://elfsightcdn.com/platform.js" async></script> 
